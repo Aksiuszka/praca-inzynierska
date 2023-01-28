@@ -1,4 +1,4 @@
-name: fontend CI
+name: frontend CI
 on:
   push:
     branches: [main]
@@ -6,14 +6,14 @@ on:
     branches: [main]
 jobs:
   build:
-  runs-on: ubuntu-latest
-  defaults:
-    run:
-      working-directory: ./frontend
-  steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup@v3
-      with:
-        node-version: "16.x"
-    - run: npm install
-    - run: npm run test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - run: npm install
+      - run: npm run test
