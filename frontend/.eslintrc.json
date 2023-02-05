@@ -10,16 +10,9 @@
     "sourceType": "module"
   },
   "plugins": ["prettier"],
-  "ignorePatterns": [
-    "**/*.js",
-    "**/*.json",
-    "node_modules",
-    "public",
-    "coverage",
-    "dist",
-    "built"
-  ],
+  "ignorePatterns": ["**/*.js", "**/*.json", "node_modules", "public", "coverage", "dist", "built"],
   "rules": {
+    "import/no-unresolved": [2, { "caseSensitive": false }],
     "react/function-component-definition": [
       "error",
       {
