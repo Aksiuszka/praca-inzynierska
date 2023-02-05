@@ -1,5 +1,10 @@
+import Test from './shared/components/Test/Test';
 function App() {
-  return <div className='App'></div>;
+  return (
+    <div className='App'>
+      <Test />
+    </div>
+  );
 }
 
 export default App;
