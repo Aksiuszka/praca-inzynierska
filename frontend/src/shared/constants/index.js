@@ -1,1 +1,5 @@
-export const test = {};
+export const ROUTES = {
+  root: '/',
+  dashboard: '/dashboard',
+  about: '/about',
+};
