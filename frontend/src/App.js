@@ -5,7 +5,7 @@ import Dashboard from 'pages/Dashboard';
 import About from 'pages/About';
 function App() {
   return (
-    <div className='App'>
+    <>
       <Router>
         <Routes>
           <Route path={ROUTES.root} element={<Home />} />
@@ -13,7 +13,7 @@ function App() {
           <Route path={ROUTES.about} element={<About />} />
         </Routes>
       </Router>
-    </div>
+    </>
   );
 }
 
