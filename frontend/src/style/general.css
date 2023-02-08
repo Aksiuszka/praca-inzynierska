@@ -1,0 +1,4 @@
+@font-face {
+  font-family: 'Futura';
+  src: local('FuturaBold'), url('./../shared/assets/fonts/FuturaBold.otf') format('opentype');
+}
