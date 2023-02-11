@@ -1,6 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
+    action: {
+      selected: '#F4E6EB',
+      hover: '#FFEDEC',
+      disabled: '#9B9B9B',
+    },
     primary: {
       main: '#2D2D2D',
       light: '#FFFFFF',
@@ -53,7 +58,9 @@ const theme = createTheme({
     },
     highlighted: {
       fontFamily: 'Poppins',
-      fontSize: '1.5rem',
+      fontSize: '1.1rem',
+      fontWeight: '800',
+      color: '#2D2D2D',
     },
     paragraph: {
       fontFamily: 'Poppins',
@@ -62,6 +69,7 @@ const theme = createTheme({
     accent: {
       fontFamily: 'Poppins',
       fontSize: '2.25rem',
+      color: '#586378',
     },
   },
 });
