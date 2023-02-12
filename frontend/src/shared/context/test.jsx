@@ -1,7 +1,3 @@
-import React from 'react';
-
-function test() {
+const TestCtx = () => {
   return <div>test</div>;
-}
-
-export default test;
+};
