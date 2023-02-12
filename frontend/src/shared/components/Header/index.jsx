@@ -7,7 +7,7 @@ import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
-import { PAGES } from './constants';
+import { PAGES, SETTINGS } from './constants';
 import Logo from '../Logo';
 import {
   CustomToolbar as Toolbar,
@@ -23,7 +23,6 @@ import {
   CustomMenuItem as MenuItem,
 } from './styles';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -75,7 +74,14 @@ const Header = () => {
             >
               {PAGES.map((page) => (
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ color: 'black' }} variant='highlighted'>
+                  {page.icon}
+                  <Typography
+                    sx={{
+                      color: 'black',
+                      paddingInline: '1rem',
+                    }}
+                    variant='highlighted'
+                  >
                     {page.title}
                   </Typography>
                 </MenuItem>
@@ -124,9 +130,18 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
+              {SETTINGS.map((setting) => (
+                <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
+                  {setting.icon}
+                  <Typography
+                    sx={{
+                      color: 'black',
+                      paddingInline: '1rem',
+                    }}
+                    variant='highlighted'
+                  >
+                    {setting.title}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
