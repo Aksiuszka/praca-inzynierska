@@ -1,5 +1,3 @@
-import React from 'react';
-
-export default function test() {
+const TestHook = () => {
   return <div>test</div>;
-}
+};
