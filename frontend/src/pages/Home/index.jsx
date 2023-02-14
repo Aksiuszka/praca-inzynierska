@@ -1,4 +1,10 @@
+import CustomButton from '../../shared/components/Button';
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <CustomButton variant='standard' label='napis' />
+    </div>
+  );
 };
 export default Home;
