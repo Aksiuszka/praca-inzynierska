@@ -2,7 +2,7 @@ import {
   CustomBtn as Button,
   CustomTypography as Typography,
   AccentBtn,
-  AccenyTypography,
+  AccentTypography,
 } from './style';
 
 const CustomButton = ({
@@ -49,9 +49,9 @@ const CustomButton = ({
   }
   return (
     <AccentBtn color={color} size={size} disableFocusRipple={disableFocusRipple} {...props}>
-      <AccenyTypography className={className} sx={sx?.label}>
+      <AccentTypography className={className} sx={sx?.label}>
         {label}
-      </AccenyTypography>
+      </AccentTypography>
     </AccentBtn>
   );
 };

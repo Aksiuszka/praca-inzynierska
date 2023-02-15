@@ -65,8 +65,8 @@ borderRadius: theme.spacing(5);
 },
 `;
 export const Dot = styled('div')`
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   margin-inline: 2rem;
   border-radius: 50%;
   background: ${(props) => props.theme.palette.text.accent};
