@@ -3,3 +3,7 @@ export const ROUTES = {
   dashboard: '/dashboard',
   about: '/about',
 };
+
+export const LanguageKeysEnum = {
+  en: 'en',
+};
