@@ -43,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar sx={{ boxShadow: 'none' }} position='static'>
+    <AppBar color='transparent' sx={{ boxShadow: 'none' }} position='static'>
       <Container maxWidth='xxl'>
         <Toolbar disableGutters>
           <BoxDown>

@@ -15,6 +15,7 @@ const CustomButton = ({
   className,
   onClick,
   disableFocusRipple,
+  icon,
   ...props
 }) => {
   if (variant === 'regular') {
@@ -26,9 +27,10 @@ const CustomButton = ({
         onClick={onClick}
         {...props}
       >
-        <Typography className={className} sx={sx?.label}>
+        <Typography variant='regular' sx={sx?.label}>
           {label}
         </Typography>
+        {icon}
       </Button>
     );
   }
@@ -41,17 +43,13 @@ const CustomButton = ({
         onClick={onClick}
         {...props}
       >
-        <Typography className={className} sx={sx?.label}>
-          {label}
-        </Typography>
+        <Typography sx={sx?.label}>{label}</Typography>
       </Button>
     );
   }
   return (
     <AccentBtn color={color} size={size} disableFocusRipple={disableFocusRipple} {...props}>
-      <AccentTypography className={className} sx={sx?.label}>
-        {label}
-      </AccentTypography>
+      <AccentTypography sx={sx?.label}>{label}</AccentTypography>
     </AccentBtn>
   );
 };

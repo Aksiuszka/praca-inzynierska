@@ -13,17 +13,15 @@ import { styled } from '@mui/material/styles';
 
 export const CustomAppbar = styled(AppBar)`
   justify-content: space-between;
-  background: ${(props) => props.theme.palette.background.default};
+  z-index: 100;
 `;
 
 export const CustomToolbar = styled(Toolbar)`
   justify-content: space-between;
-  background: ${(props) => props.theme.palette.background.default};
   box-shadow: 'none';
 `;
 
 export const CustomContainer = styled(Container)`
-  background: ${(props) => props.theme.palette.background.default};
   box-shadow: 'none';
 `;
 
