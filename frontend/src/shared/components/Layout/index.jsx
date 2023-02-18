@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
     <Grid
       sx={{
         height: '100vh',
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',

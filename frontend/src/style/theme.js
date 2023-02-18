@@ -51,7 +51,8 @@ const theme = createTheme({
     },
     regular: {
       fontFamily: 'Poppins',
-      fontSize: '1.25rem',
+      fontSize: '1.2rem',
+      letterSpacing: '0.1em',
     },
     headline: {
       fontFamily: 'Poppins',
@@ -69,8 +70,10 @@ const theme = createTheme({
     },
     accent: {
       fontFamily: 'Poppins',
-      fontSize: '2.25rem',
+      fontSize: '1.9rem',
+      fontWeight: '600',
       color: '#586378',
+      letterSpacing: '0.1em',
     },
   },
 });
