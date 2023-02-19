@@ -1,6 +1,9 @@
+/* eslint-disable import/no-mutable-exports */
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+let theme = createTheme();
+
+theme = createTheme(theme, {
   palette: {
     action: {
       selected: '#F4E6EB',
@@ -48,6 +51,18 @@ const theme = createTheme({
     display: {
       fontFamily: 'Futura',
       fontSize: '4.875rem',
+      [theme.breakpoints.between('xs', 'sm')]: {
+        fontSize: '3.8rem',
+      },
+    },
+    decorated: {
+      fontFamily: 'Futura',
+      fontSize: '3.2rem',
+      alignSelf: 'center',
+      textAlign: 'center',
+      [theme.breakpoints.between('xs', 'md')]: {
+        fontSize: '2.2rem',
+      },
     },
     regular: {
       fontFamily: 'Poppins',
@@ -56,7 +71,8 @@ const theme = createTheme({
     },
     headline: {
       fontFamily: 'Poppins',
-      fontSize: '3rem',
+      fontSize: '2rem',
+      fontWeight: '800',
     },
     highlighted: {
       fontFamily: 'Poppins',
@@ -74,6 +90,9 @@ const theme = createTheme({
       fontWeight: '600',
       color: '#586378',
       letterSpacing: '0.1em',
+      [theme.breakpoints.between('xs', 'sm')]: {
+        fontSize: '1.2rem',
+      },
     },
   },
 });
