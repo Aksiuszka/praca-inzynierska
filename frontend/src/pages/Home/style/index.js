@@ -45,3 +45,11 @@ export const FlexContainer = styled(Container)`
 export const AccentTypography = styled('span')`
   color: ${(props) => props.theme.palette.text.accent};
 `;
+export const Line = styled('hr')`
+  color: #ffe8bc;
+  background-color: #ffe8bc;
+  height: 0.2rem;
+  width: 100%;
+  border-color: #ffe8bc;
+  border-style: none;
+`;

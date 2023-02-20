@@ -2,7 +2,7 @@ import AiCard from '../../../shared/assets/images/aiCard';
 import BulbCard from '../../../shared/assets/images/bulbCard';
 import HeartCard from '../../../shared/assets/images/heartCard';
 import { FlexContainer } from '../style';
-import Card from './Card';
+import Card from './microComponents/Card';
 
 const Cards = () => {
   return (
