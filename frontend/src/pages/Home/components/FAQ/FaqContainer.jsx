@@ -1,7 +1,7 @@
-import { FlexContainer } from '../style';
-import FaqItem from './microComponents/FaqItem';
+import { FlexContainer } from '../../style';
+import FaqItem from './FaqItem';
 
-const FAQContainer = () => {
+const FaqContainer = () => {
   return (
     <FlexContainer>
       <FaqItem
@@ -22,4 +22,4 @@ const FAQContainer = () => {
     </FlexContainer>
   );
 };
-export default FAQContainer;
+export default FaqContainer;
