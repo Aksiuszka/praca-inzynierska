@@ -64,10 +64,20 @@ theme = createTheme(theme, {
         fontSize: '2.2rem',
       },
     },
+    decoratedSmall: {
+      fontFamily: 'Futura',
+      fontSize: '2rem',
+      [theme.breakpoints.between('xs', 'md')]: {
+        fontSize: '1rem',
+      },
+    },
     regular: {
       fontFamily: 'Poppins',
       fontSize: '1.2rem',
       letterSpacing: '0.1em',
+      [theme.breakpoints.between('xs', 'sm')]: {
+        fontSize: '0.75rem',
+      },
     },
     headline: {
       fontFamily: 'Poppins',

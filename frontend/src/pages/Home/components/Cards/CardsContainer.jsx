@@ -1,6 +1,6 @@
-import AiCard from '../../../../shared/assets/images/aiCard';
-import BulbCard from '../../../../shared/assets/images/bulbCard';
-import HeartCard from '../../../../shared/assets/images/heartCard';
+import AiCard from '../../../../shared/assets/images/cards/Ai';
+import BulbCard from '../../../../shared/assets/images/cards/Bulb';
+import HeartCard from '../../../../shared/assets/images/cards/Heart';
 import { FlexContainer } from '../../style';
 import Card from './Card';
 
