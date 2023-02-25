@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { Container } from '@mui/system';
+import { Typography, Grid } from '@mui/material';
 
 export const CustomContainer = styled('div')`
   && {
@@ -52,4 +53,34 @@ export const Line = styled('hr')`
   width: 100%;
   border-color: #ffe8bc;
   border-style: none;
+`;
+
+export const CTAContainer = styled(Container)`
+  max-width: 100%;
+  margin-inline: auto;
+  margin-block: 3rem;
+  padding: 3rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: ${(props) => props.theme.palette.pastels.pink};
+  ${(props) => props.theme.breakpoints.down('md')} {
+    padding: 1rem;
+  }
+`;
+
+export const CustomGrid = styled(Grid)`
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 2rem;
+  padding-inline: 4.5rem;
+`;
+export const StyledTypography = styled(Typography)`
+  text-align: end;
+`;
+export const StyledHeadline = styled(Typography)`
+alignSelf: center,
+textAlign: center,
 `;

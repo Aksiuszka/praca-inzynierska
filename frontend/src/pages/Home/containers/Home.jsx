@@ -2,6 +2,7 @@ import Cards from '../components/Cards/CardsContainer';
 import Hero from '../components/Hero';
 import Headline from '../components/Headline';
 import FaqContainer from '../components/FAQ/FaqContainer';
+import CTA from '../components/CTA';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Cards />
       <Headline />
       <FaqContainer />
+      <CTA />
     </div>
   );
 };

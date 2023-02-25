@@ -1,7 +1,7 @@
-import { Grid, Typography } from '@mui/material';
-import FaqDog from '../../../shared/assets/images/FaqDog';
-import CardsCat from '../../../shared/assets/images/cardsCat';
-import { AccentTypography } from '../style';
+import { Grid } from '@mui/material';
+import FaqDog from '../../../shared/assets/images/headlines/Dog';
+import CardsCat from '../../../shared/assets/images/headlines/Cat';
+import { AccentTypography, StyledHeadline } from '../style';
 
 const HeadlineContainer = ({ variant }) => {
   if (variant === 'cards') {
@@ -16,9 +16,9 @@ const HeadlineContainer = ({ variant }) => {
           <CardsCat />
         </Grid>
         <Grid item container lg={9}>
-          <Typography variant='decorated'>
+          <StyledHeadline variant='decorated'>
             Lorem ipsum dolor sit amet, cotetur <AccentTypography> adipiscing.</AccentTypography>
-          </Typography>
+          </StyledHeadline>
         </Grid>
       </Grid>
     );
@@ -40,9 +40,9 @@ const HeadlineContainer = ({ variant }) => {
         item
         lg={9}
       >
-        <Typography variant='decorated'>
+        <StyledHeadline variant='decorated'>
           Get to know us <AccentTypography> more</AccentTypography>
-        </Typography>
+        </StyledHeadline>
       </Grid>
       <Grid
         item
