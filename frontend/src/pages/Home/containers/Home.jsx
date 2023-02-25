@@ -12,6 +12,7 @@ const Home = () => {
       <Cards />
       <Headline />
       <FaqContainer />
+      <Headline variant='slider' />
       <CTA />
     </div>
   );
