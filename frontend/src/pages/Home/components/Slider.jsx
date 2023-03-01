@@ -1,6 +1,6 @@
-const { default: HeadlineContainer } = require('./Headline');
+import SliderComponent from '../../../shared/components/Slider';
 
 const Slider = () => {
-  return <div>slider</div>;
+  return <SliderComponent />;
 };
 export default Slider;

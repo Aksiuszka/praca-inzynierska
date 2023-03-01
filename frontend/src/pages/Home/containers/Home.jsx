@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Headline from '../components/Headline';
 import FaqContainer from '../components/FAQ/FaqContainer';
 import CTA from '../components/CTA';
+import Slider from '../components/Slider';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Headline />
       <FaqContainer />
       <Headline variant='slider' />
+      <Slider />
       <CTA />
     </div>
   );
