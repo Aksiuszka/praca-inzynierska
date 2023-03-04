@@ -6,4 +6,7 @@ export default {
     contactLink: 'common.footer.contactLink',
     faqLink: 'common.footer.faqLink',
   },
+  hero: {
+    mainText: 'common.hero.main',
+  },
 };

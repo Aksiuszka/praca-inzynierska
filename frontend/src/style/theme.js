@@ -52,7 +52,7 @@ theme = createTheme(theme, {
       fontFamily: 'Futura',
       fontSize: '4.875rem',
       [theme.breakpoints.between('xs', 'sm')]: {
-        fontSize: '3.8rem',
+        fontSize: '2.7rem',
       },
     },
     decorated: {
@@ -60,15 +60,15 @@ theme = createTheme(theme, {
       fontSize: '3.2rem',
       alignSelf: 'center',
       textAlign: 'center',
-      [theme.breakpoints.between('xs', 'md')]: {
-        fontSize: '2.2rem',
+      [theme.breakpoints.between('xs', 'sm')]: {
+        fontSize: '1.9rem',
       },
     },
     decoratedSmall: {
       fontFamily: 'Futura',
-      fontSize: '2rem',
+      fontSize: '1.5rem',
       [theme.breakpoints.between('xs', 'md')]: {
-        fontSize: '1rem',
+        fontSize: '1.2rem',
       },
     },
     regular: {
@@ -76,13 +76,17 @@ theme = createTheme(theme, {
       fontSize: '1.2rem',
       letterSpacing: '0.1em',
       [theme.breakpoints.between('xs', 'sm')]: {
-        fontSize: '0.75rem',
+        fontSize: '0.65rem',
       },
     },
     headline: {
       fontFamily: 'Poppins',
       fontSize: '2rem',
       fontWeight: '800',
+      [theme.breakpoints.between('xs', 'sm')]: {
+        fontWeight: '700',
+        fontSize: '1.7rem',
+      },
     },
     highlighted: {
       fontFamily: 'Poppins',
@@ -96,7 +100,7 @@ theme = createTheme(theme, {
     },
     accent: {
       fontFamily: 'Poppins',
-      fontSize: '1.9rem',
+      fontSize: '2rem',
       fontWeight: '600',
       color: '#586378',
       letterSpacing: '0.1em',

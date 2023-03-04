@@ -20,6 +20,9 @@ export const ImageContainer = styled('div')`
     left: 35%;
     transform: translate(0, -35%);
     z-index: 2;
+    ${(props) => props.theme.breakpoints.down('sm')} {
+      width: 10.4rem;
+    }
   }
 `;
 export const Card = styled(Container)`
@@ -31,8 +34,12 @@ export const Card = styled(Container)`
   gap: 2rem;
   border-radius: 2rem;
   padding: 1.5rem;
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    width: 17.4rem;
+    height: 17.4rem;
+    padding: 1rem;
+  }
 `;
-
 export const FlexContainer = styled(Container)`
   width: 100%;
   display: flex;
@@ -42,7 +49,6 @@ export const FlexContainer = styled(Container)`
   justify-content: space-evenly;
   align-items: start;
 `;
-
 export const AccentTypography = styled('span')`
   color: ${(props) => props.theme.palette.text.accent};
 `;
@@ -54,7 +60,6 @@ export const Line = styled('hr')`
   border-color: #ffe8bc;
   border-style: none;
 `;
-
 export const CTAContainer = styled(Container)`
   max-width: 100%;
   margin-inline: auto;
@@ -66,16 +71,23 @@ export const CTAContainer = styled(Container)`
   flex-wrap: wrap;
   background: ${(props) => props.theme.palette.pastels.pink};
   ${(props) => props.theme.breakpoints.down('md')} {
+    max-width: 40rem;
     padding: 1rem;
   }
 `;
-
 export const CustomGrid = styled(Grid)`
   display: flex;
   justify-content: center;
   align-items: end;
   gap: 2rem;
   padding-inline: 4.5rem;
+  ${(props) => props.theme.breakpoints.down('md')} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-inline: 0rem;
+  }
 `;
 export const StyledTypography = styled(Typography)`
   text-align: end;
@@ -83,4 +95,25 @@ export const StyledTypography = styled(Typography)`
 export const StyledHeadline = styled(Typography)`
 alignSelf: center,
 textAlign: center,
+`;
+export const CustomHeadlineContainer = styled('div')`
+  width: 100%;
+  display: flex;
+  margin-block: 2rem;
+  margin-inline-start: 5rem;
+  ${(props) => props.theme.breakpoints.down('md')} {
+    display: flex;
+    margin-inline-start: 0rem;
+    padding-inline-start: 1.5rem;
+  }
+`;
+export const CustomHeroContainer = styled(Grid)`
+  && {
+    z-index: 5;
+    ${(props) => props.theme.breakpoints.down('md')} {
+      margin-inline: auto;
+      max-width: 100%;
+      display: flex;
+    }
+  }
 `;

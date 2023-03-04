@@ -1,23 +1,26 @@
+import { useTranslation } from 'react-i18next';
+import keys from '../../../../locales/keys';
 import { FlexContainer } from '../../style';
 import FaqItem from './FaqItem';
 
 const FaqContainer = () => {
+  const { t } = useTranslation();
   return (
     <FlexContainer>
       <FaqItem
-        number='01'
-        title='How can I create an account?'
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        number={t(keys.home.faq.one.number)}
+        title={t(keys.home.faq.one.title)}
+        content={t(keys.home.faq.one.content)}
       />
       <FaqItem
-        number='02'
-        title='Is this app free?'
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        number={t(keys.home.faq.two.number)}
+        title={t(keys.home.faq.two.title)}
+        content={t(keys.home.faq.two.content)}
       />
       <FaqItem
-        number='03'
-        title='What countries is fluff available in?'
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        number={t(keys.home.faq.three.number)}
+        title={t(keys.home.faq.three.title)}
+        content={t(keys.home.faq.three.content)}
       />
     </FlexContainer>
   );

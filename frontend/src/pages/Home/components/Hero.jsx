@@ -1,27 +1,30 @@
 import { Grid, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import keys from '../../../locales/keys';
 import Main from '../../../shared/assets/images/main';
-import { CustomContainer, AccentTypography } from '../style';
+import { CustomContainer, AccentTypography, CustomHeroContainer } from '../style';
 import CustomButton from '../../../shared/components/Button';
 import Gear from '../../../shared/assets/icons/Gear';
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <Grid container>
-      <Grid item container sx={{ zIndex: '5' }} sm={12} md={6} lg={5}>
+      <CustomHeroContainer item container sm={12} md={6} lg={5}>
         <Typography variant='display'>
-          Get Yourself
-          <AccentTypography> A Friend</AccentTypography>
+          {t(keys.home.hero.main)}
+          <AccentTypography> {t(keys.home.hero.mainAccent)}</AccentTypography>
         </Typography>
         <Typography variant='accent' sx={{ margin: '1rem 0 3rem 0' }}>
-          Subtext concerning the app
+          {t(keys.home.hero.subtext)}
         </Typography>
         <CustomButton
           variant='regular'
-          label='start the process'
+          label={t(keys.home.hero.btn)}
           sx={{ fontWeight: 'bolder' }}
           icon={<Gear />}
         />
-      </Grid>
+      </CustomHeroContainer>
       <Grid item md={6} lg={7} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
         <CustomContainer>
           <Main />

@@ -1,7 +1,7 @@
 const BulbCard = () => (
   <svg
-    width='147'
-    height='133'
+    width='137'
+    height='123'
     viewBox='0 0 197 183'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'

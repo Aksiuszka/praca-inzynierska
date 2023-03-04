@@ -6,7 +6,10 @@ const FaqItem = ({ number, title, content }) => {
     <>
       <Grid container>
         <Grid item md={2}>
-          <Typography variant='headline' sx={{ color: (theme) => theme.palette.primary.dark }}>
+          <Typography
+            variant='headline'
+            sx={{ paddingInlineEnd: '0.75rem', color: (theme) => theme.palette.primary.dark }}
+          >
             {number}
           </Typography>
         </Grid>
