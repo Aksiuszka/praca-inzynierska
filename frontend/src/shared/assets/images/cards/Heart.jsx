@@ -1,7 +1,7 @@
 const HeartCard = () => (
   <svg
-    width='200'
-    height='128'
+    width='190'
+    height='118'
     viewBox='0 0 270 188'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'

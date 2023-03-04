@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
-import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import { PAGES, SETTINGS } from './constants';
 import Logo from '../Logo';
@@ -88,7 +87,6 @@ const Header = () => {
               ))}
             </Menu>
           </BoxUp>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <List>
             {PAGES.map((page, i) => (
               <BoxDown key={page.title}>
@@ -103,7 +101,6 @@ const Header = () => {
               </BoxDown>
             ))}
           </List>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton data-testid='avatarBtn' onClick={handleOpenUserMenu} sx={{ p: 0 }}>

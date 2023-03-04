@@ -13,7 +13,10 @@ export const CustomBtn = styled(Button)`
   padding: 0.5rem 6.5rem;
   ${(props) => props.theme.breakpoints.down('lg')} {
     padding: 0.5rem 3rem;
-    width: '100%
+    width: 100%;
+  }
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    padding: 0.5rem 0;
   }
 `;
 

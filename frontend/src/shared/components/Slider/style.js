@@ -15,5 +15,14 @@ export const CustomBox = styled('div')`
   align-items: center;
   background-color: #f4e6eb;
   padding: 1.3rem;
-  margin: 1.5rem;
+  margin: 1rem;
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    width: 20rem;
+    margin: 0.5rem;
+    max-width: 18rem;
+  }
+`;
+export const SliderContainer = styled(Container)`
+margin: 0,
+width: '100%',
 `;
