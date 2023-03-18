@@ -10,7 +10,7 @@ const CustomButton = ({
   disabled,
   label,
   color,
-  width,
+  size,
   sx,
   className,
   onClick,
@@ -22,7 +22,7 @@ const CustomButton = ({
     return (
       <Button
         color={color}
-        width={width}
+        size={size}
         disableFocusRipple={disableFocusRipple}
         onClick={onClick}
         {...props}
@@ -38,7 +38,7 @@ const CustomButton = ({
     return (
       <Button
         color={color}
-        width={width}
+        size={size}
         disableFocusRipple={disableFocusRipple}
         onClick={onClick}
         {...props}
@@ -48,7 +48,7 @@ const CustomButton = ({
     );
   }
   return (
-    <AccentBtn color={color} width={width} disableFocusRipple={disableFocusRipple} {...props}>
+    <AccentBtn color={color} size={size} disableFocusRipple={disableFocusRipple} {...props}>
       <AccentTypography sx={sx?.label}>{label}</AccentTypography>
     </AccentBtn>
   );

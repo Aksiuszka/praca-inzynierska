@@ -1,5 +1,7 @@
+import AboutUI from './components/AboutUI';
+
 const About = () => {
-  return <div>About</div>;
+  return <AboutUI />;
 };
 
 export default About;

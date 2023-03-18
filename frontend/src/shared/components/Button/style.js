@@ -2,7 +2,6 @@ import { Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const CustomBtn = styled(Button)`
-  maxwidth: 100%;
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -28,14 +27,14 @@ export const CustomTypography = styled(Typography)`
 `;
 
 export const AccentBtn = styled(Button)`
-  && {
-    width: 100%;
-    border-radius: 1.5rem;
-    background: ${(props) => props.theme.palette.background.white};
-    color: ${(props) => props.theme.palette.primary.main};
-    box-shadow: 0.25rem 0.25rem 1.25rem 0.25rem rgba(136, 136, 136, 0.25);
-    padding: 0.5rem 2rem;
-    text-transform: capitalize;
+  border-radius: 1.5rem;
+  background: ${(props) => props.theme.palette.background.default};
+  color: ${(props) => props.theme.palette.secondary.dark};
+  border: 3px solid ${(props) => props.theme.palette.secondary.dark};
+  padding: 0.7rem 8.5rem;
+  text-transform: lowercase;
+  '& muibutton-root:hover': {
+    background-color: ${(props) => props.theme.palette.background.default};
   }
 `;
 

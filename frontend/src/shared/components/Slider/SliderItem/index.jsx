@@ -3,7 +3,7 @@ import { CustomBox, CustomContainer } from '../style';
 
 const SliderItem = ({ picture, city, login, rating, content }) => {
   return (
-    <CustomBox>
+    <CustomBox transparency='false'>
       <CustomContainer>
         <Grid item md={4}>
           {picture}

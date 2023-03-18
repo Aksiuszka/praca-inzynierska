@@ -13,7 +13,7 @@ export const CustomBox = styled('div')`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f4e6eb;
+  background-color: ${(props) => (props.transparency === 'true' ? 'transparent' : '#f4e6eb')};
   padding: 1.3rem;
   margin: 1rem;
   ${(props) => props.theme.breakpoints.down('sm')} {
@@ -22,6 +22,7 @@ export const CustomBox = styled('div')`
     max-width: 18rem;
   }
 `;
+
 export const SliderContainer = styled(Container)`
 margin: 0,
 width: '100%',
