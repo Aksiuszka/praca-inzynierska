@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import keys from '../../../../locales/keys';
-import FaqDog from '../../../../shared/assets/images/headlines/Dog';
-import { AccentTypography, StyledHeadline, CustomHeadlineContainer } from '../../style';
+import keys from '../../../../../locales/keys';
+import FaqDog from '../../../../../shared/assets/images/headlines/Dog';
+import { AccentTypography, StyledHeadline, CustomHeadlineContainer } from '../../../style';
 
 const FAQHeadline = () => {
   const { t } = useTranslation();

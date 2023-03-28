@@ -1,7 +1,7 @@
-import Cards from '../components/Cards/CardsContainer';
+import Cards from '../components/Cards';
 import Hero from '../components/Hero';
-import Headline from '../components/Headline/HeadlineContainer';
-import FaqContainer from '../components/FAQ/FaqContainer';
+import Headline from '../components/Headline';
+import FaqContainer from '../components/FAQ';
 import CTA from '../components/CTA';
 import Slider from '../components/Slider';
 

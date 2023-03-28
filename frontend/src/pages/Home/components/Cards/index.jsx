@@ -4,7 +4,7 @@ import AiCard from '../../../../shared/assets/images/cards/Ai';
 import BulbCard from '../../../../shared/assets/images/cards/Bulb';
 import HeartCard from '../../../../shared/assets/images/cards/Heart';
 import { FlexContainer } from '../../style';
-import Card from './Card';
+import Card from '../../../../shared/components/Card';
 
 const Cards = () => {
   const { t } = useTranslation();

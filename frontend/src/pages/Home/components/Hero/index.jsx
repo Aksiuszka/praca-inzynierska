@@ -1,10 +1,10 @@
 import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import keys from '../../../locales/keys';
-import Main from '../../../shared/assets/images/main';
-import { CustomContainer, AccentTypography, CustomHeroContainer } from '../style';
-import CustomButton from '../../../shared/components/Button';
-import Gear from '../../../shared/assets/icons/Gear';
+import keys from '../../../../locales/keys';
+import Main from '../../../../shared/assets/images/main';
+import { CustomContainer, AccentTypography, CustomHeroContainer } from '../../style';
+import CustomButton from '../../../../shared/components/Button';
+import Gear from '../../../../shared/assets/icons/Gear';
 
 const Hero = () => {
   const { t } = useTranslation();
