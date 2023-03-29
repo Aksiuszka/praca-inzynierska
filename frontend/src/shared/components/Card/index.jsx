@@ -1,5 +1,5 @@
 import { Typography, Grid } from '@mui/material';
-import { Card, ImageContainer } from '../../style';
+import { Card, ImageContainer } from './style';
 
 const CardItem = ({ picture, title, content, sx }) => {
   return (

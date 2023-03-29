@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import keys from '../../../../locales/keys';
 import { FlexContainer } from '../../style';
-import FaqItem from './FaqItem';
+import FaqItem from '../../../../shared/components/FAQ';
 
 const FaqContainer = () => {
   const { t } = useTranslation();

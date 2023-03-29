@@ -1,4 +1,4 @@
-import SliderComponent from '../../../shared/components/Slider';
+import SliderComponent from '../../../../shared/components/Slider';
 
 const Slider = () => {
   return <SliderComponent />;

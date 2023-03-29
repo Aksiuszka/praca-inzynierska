@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import { Line } from '../../style';
+import { Line } from './style';
 
 const FaqItem = ({ number, title, content }) => {
   return (

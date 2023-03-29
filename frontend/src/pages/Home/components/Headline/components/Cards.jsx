@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import keys from '../../../../locales/keys';
-import CardsCat from '../../../../shared/assets/images/headlines/Cat';
-import { AccentTypography, StyledHeadline } from '../../style';
+import keys from '../../../../../locales/keys';
+import CardsCat from '../../../../../shared/assets/images/headlines/Cat';
+import { AccentTypography, StyledHeadline } from '../../../style';
 
 const CardsHeadline = () => {
   const { t } = useTranslation();

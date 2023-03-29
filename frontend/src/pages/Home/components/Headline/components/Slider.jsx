@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import keys from '../../../../locales/keys';
-import SliderCat from '../../../../shared/assets/images/headlines/Cat2';
-import { AccentTypography, StyledHeadline } from '../../style';
+import keys from '../../../../../locales/keys';
+import SliderCat from '../../../../../shared/assets/images/headlines/Cat2';
+import { AccentTypography, StyledHeadline } from '../../../style';
 
 const SliderHeadline = () => {
   const { t } = useTranslation();

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import keys from '../../../locales/keys';
-import Button from '../../../shared/components/Button';
-import CoffeeGirl from '../../../shared/assets/images/misc/CoffeGirl';
-import { CTAContainer, CustomGrid, StyledTypography } from '../style';
+import keys from '../../../../locales/keys';
+import Button from '../../../../shared/components/Button';
+import CoffeeGirl from '../../../../shared/assets/images/misc/CoffeGirl';
+import { CTAContainer, CustomGrid, StyledTypography } from '../../style';
 
 const CTA = () => {
   const { t } = useTranslation();

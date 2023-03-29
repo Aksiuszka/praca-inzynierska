@@ -1,6 +1,6 @@
-import CardsHeadline from './Cards';
-import SliderHeadline from './Slider';
-import FAQHeadline from './FAQ';
+import CardsHeadline from './components/Cards';
+import SliderHeadline from './components/Slider';
+import FAQHeadline from './components/FAQ';
 
 const HeadlineContainer = ({ variant }) => {
   if (variant === 'cards') {
