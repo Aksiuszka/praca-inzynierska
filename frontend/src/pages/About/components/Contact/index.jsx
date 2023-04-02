@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@mui/material';
-import keys from '../../../../../locales/keys';
-import { BottomContainer, Title } from '../../../style';
-import CustomButton from '../../../../../shared/components/Button';
-import LaptopGirl from '../../../../../shared/assets/images/misc/LaptopGirl';
+import keys from '../../../../locales/keys';
+import { BottomContainer, Title } from '../../style';
+import CustomButton from '../../../../shared/components/Button';
+import LaptopGirl from '../../../../shared/assets/images/misc/LaptopGirl';
 
 const Contact = () => {
   const { t } = useTranslation();

@@ -1,4 +1,3 @@
-
 import { Typography, Grid, Container, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -32,7 +31,6 @@ export const ContentContainer = styled('div')`
   position: relative;
   width: 100%;
   min-height: 137rem;
-
 `;
 
 export const BottomContainer = styled(Grid)`

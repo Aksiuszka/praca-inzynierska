@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
-import keys from '../../../../../locales/keys';
-import SliderComponent from '../../../../../shared/components/Slider';
-import CustomButton from '../../../../../shared/components/Button';
-import { TopContainer } from '../../../style';
+import keys from '../../../../locales/keys';
+import SliderComponent from '../../../../shared/components/Slider';
+import CustomButton from '../../../../shared/components/Button';
+import { TopContainer } from '../../style';
 
 const Slider = () => {
   const { t } = useTranslation();
