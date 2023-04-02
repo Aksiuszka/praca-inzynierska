@@ -1,9 +1,9 @@
 // import { useTranslation } from 'react-i18next';
 // import keys from '../../../../../locales/keys';
 import { Typography } from '@mui/material';
-import FlipCard from '../../../../../shared/components/FlipCard';
-import { MiddleContainer, Wrapper } from '../../../style';
-import { FlipCardData } from '../../../data';
+import FlipCard from '../../../../shared/components/FlipCard';
+import { MiddleContainer, Wrapper } from '../../style';
+import { FlipCardData } from '../../data';
 
 const Values = () => {
   // const { t } = useTranslation();

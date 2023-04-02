@@ -1,8 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
 import keys from '../../../locales/keys';
-import { AccentTypography, CustomContainer, FlexContainer, Title } from '../style';
-import Content from './Content';
+import {
+  AccentTypography,
+  CustomContainer,
+  FlexContainer,
+  Title,
+  ContentContainer,
+} from '../style';
+import Slider from './Slider';
+import Values from './Values';
+import Contact from './Contact';
 
 const AboutUI = () => {
   const { t } = useTranslation();
@@ -19,7 +27,11 @@ const AboutUI = () => {
         <Typography variant='paragraph'>{t(keys.about.description.paragraph)}</Typography>
         <Typography variant='paragraph'>{t(keys.about.description.paragraph)}</Typography>
       </FlexContainer>
-      <Content />
+      <ContentContainer>
+        <Slider />
+        <Values />
+        <Contact />
+      </ContentContainer>
     </CustomContainer>
   );
 };
