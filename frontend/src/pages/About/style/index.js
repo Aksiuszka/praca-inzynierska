@@ -30,7 +30,18 @@ export const Title = styled(Typography)`
 export const ContentContainer = styled('div')`
   position: relative;
   width: 100%;
-  min-height: 137rem;
+  min-height: 132rem;
+  ${(props) => props.theme.breakpoints.down('lg')} {
+    min-height: inherit;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+  }
+  ${(props) => props.theme.breakpoints.down('md')} {
+    padding: 0rem;
+  }
 `;
 
 export const BottomContainer = styled(Grid)`
@@ -42,6 +53,18 @@ export const BottomContainer = styled(Grid)`
   background-color: ${(props) => props.theme.palette.pastels.orange};
   border-radius: 1.5rem;
   padding: 4rem;
+  ${(props) => props.theme.breakpoints.down('lg')} {
+    position: relative;
+    padding-inline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    background-color: ${(props) => props.theme.palette.background.default};
+  }
 `;
 export const TopContainer = styled(Container)`
   position: absolute;
@@ -55,14 +78,26 @@ export const TopContainer = styled(Container)`
   border-radius: 1.5rem;
   gap: 2rem;
   padding: 4rem;
+  ${(props) => props.theme.breakpoints.down('lg')} {
+    position: relative;
+    padding-inline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    background-color: ${(props) => props.theme.palette.background.default};
+  }
 `;
 
 export const MiddleContainer = styled(Box)`
   position: absolute;
   width: 60rem;
-  top: 63%;
+  top: 62%;
   left: 50%;
-  transform: translate(-50%, -63%);
+  transform: translate(-50%, -62%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,12 +110,15 @@ export const MiddleContainer = styled(Box)`
   z-index: 10;
   padding-inline: 6rem;
   text-align: center;
+  // ${(props) => props.theme.breakpoints.down('lg')} {
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   max-width: 100%;
+  //   padding: 2rem;
+  // }
   ${(props) => props.theme.breakpoints.down('lg')} {
-    max-width: 100%;
-    padding: 2rem;
-  }
-  ${(props) => props.theme.breakpoints.down('md')} {
-    padding-inline: 0;
+    display: none;
   }
 `;
 

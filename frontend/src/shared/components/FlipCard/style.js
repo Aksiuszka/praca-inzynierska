@@ -15,6 +15,11 @@ export const StyledCard = styled('div')`
     max-width: 9rem;
     height: 9rem;
   }
+
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    max-width: 8rem;
+    height: 8rem;
+  }
 `;
 
 export const CardInner = styled('div')`

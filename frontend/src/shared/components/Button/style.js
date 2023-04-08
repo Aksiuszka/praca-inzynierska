@@ -36,6 +36,13 @@ export const AccentBtn = styled(Button)`
   '& muibutton-root:hover': {
     background-color: ${(props) => props.theme.palette.background.default};
   }
+  ${(props) => props.theme.breakpoints.down('lg')} {
+    padding: 0.5rem 3rem;
+    width: 100%;
+  }
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    padding: 0.5rem 0;
+  }
 `;
 
 export const AccentTypography = styled(Typography)`
