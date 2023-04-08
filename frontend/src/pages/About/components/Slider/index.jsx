@@ -11,12 +11,12 @@ const Slider = () => {
     <TopContainer>
       <Typography variant='decorated'>{t(keys.about.slider.title.one)}</Typography>
       <Typography variant='decorated'>{t(keys.about.slider.title.two)}</Typography>
-      <Typography variant='regular' sx={{ paddingInline: '5.5rem' }}>
+      <Typography variant='paragraph' sx={{ paddingInline: '2.5rem' }}>
         {t(keys.about.slider.paragraph)}
       </Typography>
       <SliderComponent variant='about' />
       <br />
-      <CustomButton label={t(keys.about.slider.btn)} size='medium' />
+      <CustomButton label={t(keys.about.slider.btn)} />
     </TopContainer>
   );
 };

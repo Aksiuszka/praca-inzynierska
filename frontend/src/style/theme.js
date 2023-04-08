@@ -60,6 +60,9 @@ theme = createTheme(theme, {
       fontSize: '3.2rem',
       alignSelf: 'center',
       textAlign: 'center',
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '2.9rem',
+      },
       [theme.breakpoints.between('xs', 'sm')]: {
         fontSize: '1.9rem',
       },
@@ -75,8 +78,11 @@ theme = createTheme(theme, {
       fontFamily: 'Poppins',
       fontSize: '1.2rem',
       letterSpacing: '0.1em',
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '0.95rem',
+      },
       [theme.breakpoints.between('xs', 'sm')]: {
-        fontSize: '0.65rem',
+        fontSize: '0.85rem',
       },
     },
     headline: {
