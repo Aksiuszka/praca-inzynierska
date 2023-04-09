@@ -1,4 +1,4 @@
-import AboutUI from './components/AboutUI';
+import AboutUI from '../components/AboutUI';
 
 const About = () => {
   return <AboutUI />;
