@@ -19,6 +19,24 @@ export const CustomBtn = styled(Button)`
   }
 `;
 
+export const SocialMediaBtn = styled(Button)`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  background: ${(props) => props.theme.palette.background.default};
+  color: ${(props) => props.theme.palette.common.black};
+  text-transform: lowercase;
+  padding: 0.5rem 6.5rem;
+  ${(props) => props.theme.breakpoints.down('lg')} {
+    padding: 0.5rem 3rem;
+    width: 100%;
+  }
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    padding: 0.5rem 0;
+  }
+`;
+
 export const CustomTypography = styled(Typography)`
   && {
     font-family: Poppins;

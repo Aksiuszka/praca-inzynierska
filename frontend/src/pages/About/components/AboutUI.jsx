@@ -16,7 +16,7 @@ const AboutUI = () => {
   const { t } = useTranslation();
   return (
     <CustomContainer>
-      <Typography variant='display'>
+      <Typography variant='display' sx={{ padding: '2rem' }}>
         <AccentTypography>{t(keys.about.hero.mainAccent)} </AccentTypography>
         {t(keys.about.hero.main)}
       </Typography>

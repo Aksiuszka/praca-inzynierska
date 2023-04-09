@@ -3,6 +3,7 @@ import {
   CustomTypography as Typography,
   AccentBtn,
   AccentTypography,
+  SocialMediaBtn,
 } from './style';
 
 const CustomButton = ({
@@ -32,6 +33,22 @@ const CustomButton = ({
         </Typography>
         {icon}
       </Button>
+    );
+  }
+  if (variant === 'socialmedia') {
+    return (
+      <SocialMediaBtn
+        color={color}
+        size={size}
+        disableFocusRipple={disableFocusRipple}
+        onClick={onClick}
+        {...props}
+      >
+        {icon}
+        <Typography variant='regular' sx={sx?.label}>
+          {label}
+        </Typography>
+      </SocialMediaBtn>
     );
   }
   if (disabled) {
