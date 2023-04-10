@@ -1,10 +1,10 @@
 import { styled } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 
-
 export const AuthGrid = styled(Grid)`
+poaition: relative;
 padding-inline: 4rem;
-padding-block: 4rem;
+// padding-block: 4rem;
 flex-direction: column;
 justify-content: center;
 align-items: center;
