@@ -1,7 +1,7 @@
-import Signup from '../components/Signup';
+import Login from '../components/Login';
 
 const Auth = () => {
-  return <Signup />;
+  return <Login />;
 };
 
 export default Auth;
