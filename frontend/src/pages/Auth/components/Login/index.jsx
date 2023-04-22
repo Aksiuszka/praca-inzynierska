@@ -11,14 +11,16 @@ import SocialMedia from '../SocialMedia';
 const Login = () => {
   return (
     <Grid container>
-      <Grid container item md={6}>
+      <Grid container item md={7}>
         <PictureContainer>
           <LoginPic width='100%' />
         </PictureContainer>
       </Grid>
-      <StyledGrid container item md={6}>
+      <StyledGrid container item md={5}>
         <CustomContainer>
-          <Typography variant='decorated'>Witaj ponownie</Typography>
+          <Typography variant='decorated' sx={{ fontSize: '2.5rem' }}>
+            Witaj ponownie
+          </Typography>
           <Heart />
         </CustomContainer>
         <Input>Username</Input>
