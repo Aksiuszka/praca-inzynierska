@@ -5,7 +5,7 @@ export const CustomContainer = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
   ${(props) => props.theme.breakpoints.down('md')} {
     flex-direction: column;
 `;
@@ -26,5 +26,5 @@ export const StyledGrid = styled(Grid)`
   display: flex;
   flex-direction: column;
 
-  gap: 3rem;
+  gap: 2rem;
 `;

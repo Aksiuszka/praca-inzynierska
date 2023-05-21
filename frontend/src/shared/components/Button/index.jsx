@@ -27,10 +27,9 @@ const CustomButton = ({
         disableFocusRipple={disableFocusRipple}
         onClick={onClick}
         {...props}
+        sx={sx}
       >
-        <Typography variant='regular' sx={sx?.label}>
-          {label}
-        </Typography>
+        <Typography variant='regular'>{label}</Typography>
         {icon}
       </Button>
     );
@@ -45,7 +44,7 @@ const CustomButton = ({
         {...props}
       >
         {icon}
-        <Typography variant='regular' sx={sx?.label}>
+        <Typography variant='paragraph' sx={{ fontSize: '0.85rem' }}>
           {label}
         </Typography>
       </SocialMediaBtn>
