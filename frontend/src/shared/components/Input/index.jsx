@@ -9,7 +9,7 @@ const CustomInput = ({ onChange, value, placeholder, type, children }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        variant='standard'
+        variant='outlined'
       />
     </Stack>
   );
