@@ -1,11 +1,11 @@
-import { Container, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const CustomContainer = styled(Container)`
+export const CustomContainer = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
   ${(props) => props.theme.breakpoints.down('md')} {
     flex-direction: column;
 `;
