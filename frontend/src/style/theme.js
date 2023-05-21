@@ -76,7 +76,7 @@ theme = createTheme(theme, {
     },
     regular: {
       fontFamily: 'Poppins',
-      fontSize: '1.2rem',
+      fontSize: '1rem',
       letterSpacing: '0.1em',
       [theme.breakpoints.down('lg')]: {
         fontSize: '0.95rem',
