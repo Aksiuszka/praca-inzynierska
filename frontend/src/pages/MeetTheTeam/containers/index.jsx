@@ -1,4 +1,4 @@
-import HomeMeetTheTeam from '../components/MeetTheTeamUI';
+import MeetTheTeam from '../components/MeetTheTeamUI';
 
 const MeetTheTeamContainer = () => {
   return <MeetTheTeam />;

@@ -1,6 +1,7 @@
 export default {
   headline: {
     main: 'meettheteam.headline.main',
+    mainAccent: 'meettheteam.headline.mainAccent',
     sub: 'meettheteam.headline.sub',
   },
   fe: {

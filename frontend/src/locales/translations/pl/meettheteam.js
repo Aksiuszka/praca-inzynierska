@@ -1,7 +1,8 @@
 import keys from '../../keys';
 
 export default {
-  [keys.meettheteam.headline.main]: 'Meet the Team',
+  [keys.meettheteam.headline.main]: 'Meet',
+  [keys.meettheteam.headline.mainAccent]: 'the team',
   [keys.meettheteam.headline.sub]:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
   [keys.meettheteam.fe.name]: 'Aksiuszka',
