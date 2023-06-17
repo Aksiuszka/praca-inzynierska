@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import About from './pages/About/containers';
 import Auth from './pages/Auth/containers';
 import Layout from './shared/components/Layout';
+import Meettheteam from './pages/MeetTheTeam/containers';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ const App = () => {
             <Route path={ROUTES.auth} element={<Auth />} />
             <Route path={ROUTES.dashboard} element={<Dashboard />} />
             <Route path={ROUTES.about} element={<About />} />
+            <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
           </Routes>
         </Layout>
       </QueryClientProvider>
