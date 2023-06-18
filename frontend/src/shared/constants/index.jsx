@@ -55,3 +55,15 @@ export const SOCIALMEDIA = [
   { title: 'linkedin', icon: <Linkedin /> },
   { title: 'twitter', icon: <Twitter /> },
 ];
+
+export const SOCIALMEDIALINKSFE = [
+  { title: 'github', route: 'https://github.com/Aksiuszka' },
+  { title: 'linkedin', route: 'https://www.linkedin.com/in/anna-kawecka-679a69236/' },
+  { title: 'twitter', iconroute: '' },
+];
+
+export const SOCIALMEDIALINKSBE = [
+  { title: 'github', route: 'https://github.com/Giovanna-89' },
+  { title: 'linkedin', route: '' },
+  { title: 'twitter', route: '' },
+];
