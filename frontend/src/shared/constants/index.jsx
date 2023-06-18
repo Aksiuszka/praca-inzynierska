@@ -1,3 +1,7 @@
+import Linkedin from '../assets/icons/Linkedin';
+import Github from '../assets/icons/Github';
+import Twitter from '../assets/icons/Twitter';
+
 export const ROUTES = {
   root: '/',
   dashboard: '/dashboard',
@@ -45,3 +49,9 @@ export const settings = {
     },
   ],
 };
+
+export const SOCIALMEDIA = [
+  { title: 'github', icon: <Github /> },
+  { title: 'linkedin', icon: <Linkedin /> },
+  { title: 'twitter', icon: <Twitter /> },
+];

@@ -5,7 +5,7 @@ import keys from '../../../../locales/keys';
 const Headline = () => {
   const { t } = useTranslation();
   return (
-    <Grid container direction='column' sx={{ marginBlock: '5rem', width: '100%' }}>
+    <Grid container direction='column' sx={{ marginBlockEnd: '5rem', width: '100%' }}>
       <Typography variant='decorated' sx={{ marginBlockEnd: '2rem' }}>
         {t(keys.meettheteam.headline.main)}{' '}
         <span style={{ color: '#F379A1' }}>{t(keys.meettheteam.headline.mainAccent)}</span>
