@@ -16,7 +16,7 @@ const Footer = () => {
       </Container>
       <Grid item container sm={7} alignItems='center' justifyContent='space-between'>
         <Grid item sm={2}>
-          <Link to={ROUTES.meettheteam}>
+          <Link to={ROUTES.meettheteam} style={{ textDecoration: 'none' }}>
             <Typography variant='highlighted'> {t(keys.common.footer.teamLink)}</Typography>
           </Link>
         </Grid>

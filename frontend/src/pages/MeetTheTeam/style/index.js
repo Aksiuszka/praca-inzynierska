@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const CustomBox = styled(Box)`
@@ -10,4 +10,12 @@ export const CustomBox = styled(Box)`
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
+`;
+
+export const CustomGridItem = styled(Grid)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
 `;
