@@ -3,6 +3,7 @@ import homeKeys from './home';
 import aboutKeys from './about';
 import authKeys from './auth';
 import meettheteamKeys from './meettheteam';
+import privacyKeys from './privacy';
 
 export default {
   common: commonKeys,
@@ -10,4 +11,5 @@ export default {
   about: aboutKeys,
   auth: authKeys,
   meettheteam: meettheteamKeys,
+  privacy: privacyKeys,
 };
