@@ -8,6 +8,7 @@ export const ROUTES = {
   about: '/about',
   auth: '/auth',
   meettheteam: '/meettheteam',
+  privacy: '/privacy',
 };
 
 export const LanguageKeysEnum = {

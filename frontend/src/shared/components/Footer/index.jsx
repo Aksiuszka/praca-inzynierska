@@ -22,7 +22,9 @@ const Footer = () => {
         </Grid>
         <Dot />
         <Grid item sm={2}>
-          <Typography variant='highlighted'>{t(keys.common.footer.privacyLink)}</Typography>
+          <Link to={ROUTES.privacy} style={{ textDecoration: 'none' }}>
+            <Typography variant='highlighted'>{t(keys.common.footer.privacyLink)}</Typography>
+          </Link>
         </Grid>
         <Dot />
         <Grid item sm={2}>

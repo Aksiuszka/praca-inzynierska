@@ -7,6 +7,7 @@ import About from './pages/About/containers';
 import Auth from './pages/Auth/containers';
 import Layout from './shared/components/Layout';
 import Meettheteam from './pages/MeetTheTeam/containers';
+import Privacy from './pages/Privacy/containers';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => {
             <Route path={ROUTES.dashboard} element={<Dashboard />} />
             <Route path={ROUTES.about} element={<About />} />
             <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
+            <Route path={ROUTES.privacy} element={<Privacy />} />
           </Routes>
         </Layout>
       </QueryClientProvider>

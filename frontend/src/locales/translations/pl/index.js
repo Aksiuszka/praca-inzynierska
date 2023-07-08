@@ -3,6 +3,7 @@ import home from './home';
 import about from './about';
 import auth from './auth';
 import meettheteam from './meettheteam';
+import privacy from './privacy';
 
 const translations = {
   ...common,
@@ -10,6 +11,7 @@ const translations = {
   ...about,
   ...auth,
   ...meettheteam,
+  ...privacy,
 };
 
 export default { translations };
