@@ -23,13 +23,25 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
-    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "import/no-unresolved": [
+      2,
+      {
+        "caseSensitive": false
+      }
+    ],
     "react/function-component-definition": [
       "error",
       {
