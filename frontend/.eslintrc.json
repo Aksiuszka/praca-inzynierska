@@ -20,6 +20,13 @@
     "sourceType": "module",
     "project": "./jsconfig.json"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "plugins": ["react"],
   "rules": {
     "import/no-unresolved": [2, { "caseSensitive": false }],
@@ -29,14 +36,13 @@
         "namedComponents": "arrow-function"
       }
     ],
-    "react-destructuring-assignment": "off",
+    "react/destructuring-assignment": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
-    "react-props-no-spreading": "off",
     "react/prop-types": "off",
     "import/prefer-default-export": "off",
     "arrow-body-style": "off",
-    "react/jsx-uses-react": ["off"],
-    "react/react-in-jsx-scope": ["off"]
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }
