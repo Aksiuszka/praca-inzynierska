@@ -1,6 +1,6 @@
 import { Stack, TextField, Typography } from '@mui/material';
 
-const CustomInput = ({ onChange, value, placeholder, type, children, sx }) => {
+const CustomInput = ({ onChange, value, placeholder, type, children, sx, multiline, rows }) => {
   return (
     <Stack>
       <Typography variant='regular'>{children}</Typography>
@@ -12,6 +12,8 @@ const CustomInput = ({ onChange, value, placeholder, type, children, sx }) => {
         variant='outlined'
         size='medium'
         sx={sx}
+        multiline={multiline}
+        rows={rows}
       />
     </Stack>
   );

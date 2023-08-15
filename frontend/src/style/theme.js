@@ -17,6 +17,7 @@ theme = createTheme(theme, {
     },
     background: {
       default: '#FFFFFF',
+      paper: '#FFF3F1',
     },
     secondary: {
       main: '#F7D2CA',
