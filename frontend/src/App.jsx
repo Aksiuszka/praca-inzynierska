@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './shared/constants';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import About from './pages/About';
+import { AboutContainer as About } from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './pages/Auth';
 import Layout from './shared/components/Layout';
 import Meettheteam from './pages/MeetTheTeam';
 import Privacy from './pages/Privacy';
+import Prescreening from './pages/Prescreening';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => {
             <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
             <Route path={ROUTES.privacy} element={<Privacy />} />
             <Route path={ROUTES.contact} element={<Contact />} />
+            <Route path={ROUTES.prescreening} element={<Prescreening />} />
           </Routes>
         </Layout>
       </QueryClientProvider>

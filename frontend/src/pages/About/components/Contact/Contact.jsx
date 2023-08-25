@@ -5,7 +5,7 @@ import { BottomContainer, Title } from '../../style';
 import CustomButton from '../../../../shared/components/Button';
 import LaptopGirl from '../../../../shared/assets/images/misc/LaptopGirl';
 
-const Contact = () => {
+export const Contact = () => {
   const { t } = useTranslation();
   return (
     <BottomContainer container>
@@ -27,4 +27,3 @@ const Contact = () => {
     </BottomContainer>
   );
 };
-export default Contact;

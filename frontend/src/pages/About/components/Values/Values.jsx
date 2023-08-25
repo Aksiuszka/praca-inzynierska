@@ -5,7 +5,7 @@ import FlipCard from '../../../../shared/components/FlipCard';
 import { MiddleContainer, Wrapper } from '../../style';
 import { FlipCardData } from '../../data';
 
-const Values = () => {
+export const Values = () => {
   // const { t } = useTranslation();
   return (
     <MiddleContainer>

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
 import keys from '../../../locales/keys';
+import { Slider, Values, Contact } from '../components';
 import {
   AccentTypography,
   CustomContainer,
@@ -8,11 +9,8 @@ import {
   Title,
   ContentContainer,
 } from '../style';
-import Slider from './Slider';
-import Values from './Values';
-import Contact from './Contact';
 
-const AboutUI = () => {
+export const AboutUI = () => {
   const { t } = useTranslation();
   return (
     <CustomContainer>
@@ -35,4 +33,3 @@ const AboutUI = () => {
     </CustomContainer>
   );
 };
-export default AboutUI;
