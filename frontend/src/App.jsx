@@ -6,10 +6,10 @@ import Dashboard from './pages/Dashboard';
 import { AboutContainer as About } from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './pages/Auth';
-import Layout from './shared/components/Layout';
+import Layout from './shared/components/Layouts/MainLayout';
 import Meettheteam from './pages/MeetTheTeam';
 import Privacy from './pages/Privacy';
-import Prescreening from './pages/Prescreening';
+import { PrescreeningContainer as Prescreening } from './pages/Prescreening';
 
 const App = () => {
   const queryClient = new QueryClient();
