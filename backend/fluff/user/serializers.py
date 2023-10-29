@@ -13,19 +13,28 @@ from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
     """Serializer for the user object."""
+    password = serializers.CharField(write_only=True, style={'input_type': 'password'})
+    password_confirm = serializers.CharField(write_only=True, style={'input_type': 'password'})
 
     class Meta:
         model = get_user_model()
-        fields = ['email', 'password', 'name']
-        extra_kwargs = {'password': {'write_only': True, 'min_length': 5}}
+        fields = ['email','name', 'password', 'password_confirm']
+        extra_kwargs = {'password': {'write_only': True, 'min_length': 8}}
+
+    def validate(self, data):
+        if data.get('password') != data.get('password_confirm'):
+            raise serializers.ValidationError(_("Passwords do not match."))
+        return data
 
     def create(self, validated_data):
         """Create and return a user with encrypted password."""
+        validated_data.pop('password_confirm')
         return get_user_model().objects.create_user(**validated_data)
 
     def update(self, instance, validated_data):
         """Update and return user."""
         password = validated_data.pop('password', None)
+        validated_data.pop('password_confirm')
         user = super().update(instance, validated_data)
 
         if password:
