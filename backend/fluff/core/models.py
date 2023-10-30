@@ -1,6 +1,7 @@
 """
 Database models.
 """
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -48,7 +49,7 @@ class Address(models.Model):
         max_length=10,
         validators=[
             RegexValidator(
-                regex=r'^\d{2}-\d{3}$',  # przykład: 12-345
+                regex=r'^\d{2}-\d{3}$',
                 message='Enter a valid postal code in the format XX-XXX.',
             )
         ],
@@ -112,3 +113,28 @@ class Role(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class SmartTestAnswer(models.Model):
+    """SmartTest Answer objects."""
+
+    TEMPERAMENT_CHOICES = [
+        ('C', 'Choleryk'),
+        ('S', 'Sangwinik'),
+        ('F', 'Flegmatyk'),
+        ('M', 'Melancholik'),
+    ]
+
+    answer = models.CharField(max_length=100)
+    position = models.IntegerField()
+    temperament = models.CharField(max_length=1, choices=TEMPERAMENT_CHOICES)
+
+    def __str__(self):
+        return self.answer
+
+class SmartTestResult(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    temperament = models.CharField()
