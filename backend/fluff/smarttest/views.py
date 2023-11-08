@@ -63,10 +63,12 @@ class SmartTestResultViewSet(viewsets.ModelViewSet):
         return Response({'results': result_serializer.data}, status=status.HTTP_200_OK)
 
     def calculate_personality_logic(self, user_answer):
-        temperament_counts = {'C': 0, 'S': 0, 'F': 0, 'M': 0}
-        for answer in user_answer:
-            temperamnet = answer.get('temperament')
-            temperament_counts[temperamnet] += 1
+        # temperament_counts = {'C': 0, 'S': 0, 'F': 0, 'M': 0}
+        # for answer in user_answer:
+        #     temperamnet = answer.get('temperament')
+        #     temperament_counts[temperamnet] += 1
+
+        temperament_counts = collections.Counter(answer.get('temperament') for answer in user_answer)
 
         moost_common_temperament = max(temperament_counts,  key=temperament_counts.get)
         return moost_common_temperament
