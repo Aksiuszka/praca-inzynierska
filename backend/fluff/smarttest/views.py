@@ -16,19 +16,34 @@ from .serializers import (
     SmartTestResultSerializer
 )
 
-class SmartTestAnswerviewSet(viewsets.ModelViewSet):
-    queryset = SmartTestAnswer.objects.all()
+class SmartTestAnswerViewSet(viewsets.ModelViewSet):
+    queryset = SmartTestAnswer.objects.all().order_by('position')
     serializer_class = SmartTestAnswerSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+
+    @action(detail=False, methods=['get'])
+    def get_test(self, request):
+        test_questions = SmartTestAnswer.objects.all().order_by('position')
+        test_data = []
+
+        for test_question in test_questions:
+                test_data.append({
+                    'position': test_question.position,
+                    'answers':[
+                        test_question.answer
+                    ]
+                })
+
+        return Response(test_data)
 
 class SmartTestResultViewSet(viewsets.ModelViewSet):
     queryset = SmartTestResult.objects.all()
     serializer_class = SmartTestResultSerializer
     authentication_classes = [TokenAuthentication]
-    authentication_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
-    @action(detail=False, methods=['post'])
+    @action(detail=False, methods=['get'])
     def calculate_personality_result(self, request):
         user_answer = request.data.get('user_answer')
 
@@ -39,6 +54,13 @@ class SmartTestResultViewSet(viewsets.ModelViewSet):
 
         result_serializer = SmartTestAnswerSerializer(test_result)
         return Response({'result': result_serializer.data}, status=status.HTTP_201_CREATED)
+
+    @action(detail=False, methods=['get'])
+    def get_results(self, request):
+        user = request.user
+        test_results = SmartTestResult.objects.filter(user=user)
+        result_serializer = SmartTestResultSerializer(test_results, many=True)
+        return Response({'results': result_serializer.data}, status=status.HTTP_200_OK)
 
     def calculate_personality_logic(self, user_answer):
         temperament_counts = {'C': 0, 'S': 0, 'F': 0, 'M': 0}
