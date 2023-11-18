@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Layout from './index';
+import Layout from './MainLayout';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('Testing the Layout component', () => {

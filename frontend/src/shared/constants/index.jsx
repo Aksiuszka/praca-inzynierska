@@ -10,6 +10,7 @@ export const ROUTES = {
   meettheteam: '/meettheteam',
   privacy: '/privacy',
   contact: '/contact',
+  prescreening: 'prescreening',
 };
 
 export const LanguageKeysEnum = {

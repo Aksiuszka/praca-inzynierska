@@ -5,7 +5,7 @@ import SliderComponent from '../../../../shared/components/Slider';
 import CustomButton from '../../../../shared/components/Button';
 import { TopContainer } from '../../style';
 
-const Slider = () => {
+export const Slider = () => {
   const { t } = useTranslation();
   return (
     <TopContainer>
@@ -20,4 +20,3 @@ const Slider = () => {
     </TopContainer>
   );
 };
-export default Slider;

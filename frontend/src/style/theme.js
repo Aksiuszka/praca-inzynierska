@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 
 let theme = createTheme();
 
-theme = createTheme(theme, {
+theme = createTheme({
   palette: {
     action: {
       selected: '#F4E6EB',

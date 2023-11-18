@@ -1,3 +1,1 @@
-import About from './containers';
-
-export default About;
+export { AboutContainer } from './containers/AboutContainer';
