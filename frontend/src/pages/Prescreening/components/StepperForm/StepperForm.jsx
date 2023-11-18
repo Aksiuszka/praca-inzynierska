@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../../shared/constants';
 import keys from '../../../../locales/keys';
-import { Stepper } from '../../../../shared/components/Stepper';
+import { Stepper } from '../../../../shared/components/Stepper/Stepper';
 import { generateQuestions } from '../../../../shared/utils/generateQuestions';
 
 export const StepperForm = ({ category }) => {
