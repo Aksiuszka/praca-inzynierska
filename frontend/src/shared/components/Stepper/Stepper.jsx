@@ -7,8 +7,9 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { Header } from './styled';
 
-export const Stepper = ({ steps, activeStep, onNext, onBack, maxSteps }) => {
+export const Stepper = ({ steps, activeStep, onNext, onBack, maxSteps, onFinalClick }) => {
   const theme = useTheme();
+  const isLastStep = activeStep === maxSteps - 1;
 
   return (
     <Box sx={{ maxWidth: 1400, flexGrow: 1 }}>
@@ -18,7 +19,7 @@ export const Stepper = ({ steps, activeStep, onNext, onBack, maxSteps }) => {
         </Typography>
       </Header>
       <Box sx={{ height: 255, maxWidth: '100%', width: '100%', pt: 5 }}>
-        {steps[activeStep].description}
+        {steps[activeStep].content}
       </Box>
       <MobileStepper
         variant='text'
@@ -26,14 +27,20 @@ export const Stepper = ({ steps, activeStep, onNext, onBack, maxSteps }) => {
         position='static'
         activeStep={activeStep}
         nextButton={
-          <Button size='small' onClick={onNext} disabled={activeStep === maxSteps - 1}>
-            Następne
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowLeft sx={{ color: '#DF7CA8' }} />
-            ) : (
-              <KeyboardArrowRight sx={{ color: '#DF7CA8' }} />
-            )}
-          </Button>
+          isLastStep ? (
+            <Button size='small' onClick={onFinalClick}>
+              Koniec
+            </Button>
+          ) : (
+            <Button size='small' onClick={onNext}>
+              Następne
+              {theme.direction === 'rtl' ? (
+                <KeyboardArrowLeft sx={{ color: '#DF7CA8' }} />
+              ) : (
+                <KeyboardArrowRight sx={{ color: '#DF7CA8' }} />
+              )}
+            </Button>
+          )
         }
         backButton={
           <Button size='small' onClick={onBack} disabled={activeStep === 0}>

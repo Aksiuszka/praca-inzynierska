@@ -11,6 +11,7 @@ export const ROUTES = {
   privacy: '/privacy',
   contact: '/contact',
   prescreening: 'prescreening',
+  review: 'review',
 };
 
 export const LanguageKeysEnum = {

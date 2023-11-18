@@ -4,6 +4,8 @@ import aboutKeys from './about';
 import authKeys from './auth';
 import meettheteamKeys from './meettheteam';
 import privacyKeys from './privacy';
+import prescreeningKeys from './prescreening';
+import flufffinderKeys from './flufffinder';
 
 export default {
   common: commonKeys,
@@ -12,4 +14,6 @@ export default {
   auth: authKeys,
   meettheteam: meettheteamKeys,
   privacy: privacyKeys,
+  prescreening: prescreeningKeys,
+  fluffinder: flufffinderKeys,
 };
