@@ -9,6 +9,8 @@ import Auth from './pages/Auth';
 import Layout from './shared/components/Layouts/MainLayout';
 import Meettheteam from './pages/MeetTheTeam';
 import Privacy from './pages/Privacy';
+import { PrescreeningContainer as Prescreening } from './pages/Prescreening';
+import { ReviewContainer as Review } from './pages/Prescreening/containers/ReviewContainer';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => {
             <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
             <Route path={ROUTES.privacy} element={<Privacy />} />
             <Route path={ROUTES.contact} element={<Contact />} />
+            <Route path={ROUTES.prescreening} element={<Prescreening />} />
+            <Route path={ROUTES.review} element={<Review />} />
           </Routes>
         </Layout>
       </QueryClientProvider>
