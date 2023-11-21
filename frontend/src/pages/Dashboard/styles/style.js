@@ -7,7 +7,7 @@ const getPastelColor = (index) => {
 };
 
 export const LinkBox = styled(Box)(({ theme, index }) => ({
-  width: '20rem',
+  width: '35rem',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -17,4 +17,5 @@ export const LinkBox = styled(Box)(({ theme, index }) => ({
   gap: '2rem',
   padding: '7rem 16rem',
   textAlign: 'center',
+  textDecoration: 'none',
 }));
