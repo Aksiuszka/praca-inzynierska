@@ -32,6 +32,7 @@ theme = createTheme({
     pastels: {
       pink: '#FFF6FA',
       yellow: '#FFF6E3',
+      green: '#DDF3E7',
       orange: '#FFF3F1',
       grey: '#D5D3DE',
     },
