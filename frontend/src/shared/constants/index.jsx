@@ -10,7 +10,7 @@ export const ROUTES = {
   meettheteam: '/meettheteam',
   privacy: '/privacy',
   contact: '/contact',
-  prescreening: 'prescreening',
+  prescreening: '/prescreening',
   review: 'review',
 };
 
@@ -73,7 +73,7 @@ export const SOCIALMEDIALINKSBE = [
 ];
 
 export const AVAILABLE_TESTS = [
-  { title: 'Prescreening', route: '' },
+  { title: 'Prescreening', route: ROUTES.prescreening },
   { title: 'SmartTest', route: '' },
   { title: 'PetTest', route: '' },
 ];
