@@ -1,5 +1,5 @@
 export default {
-  // For footerooter
+  // For footer
   footer: {
     teamLink: 'common.footer.teamLink',
     privacyLink: 'common.footer.privacyLink',

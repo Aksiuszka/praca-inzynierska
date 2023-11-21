@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './shared/constants';
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
+import { TestDashboardContainer as Dashboard } from './pages/Dashboard';
 import { AboutContainer as About } from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './pages/Auth';

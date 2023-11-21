@@ -71,3 +71,9 @@ export const SOCIALMEDIALINKSBE = [
   { title: 'linkedin', route: '' },
   { title: 'twitter', route: '' },
 ];
+
+export const AVAILABLE_TESTS = [
+  { title: 'Prescreening', route: '' },
+  { title: 'SmartTest', route: '' },
+  { title: 'PetTest', route: '' },
+];

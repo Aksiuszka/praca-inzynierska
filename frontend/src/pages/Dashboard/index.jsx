@@ -1,4 +1,1 @@
-const Dashboard = () => {
-  return <div>Dashboard</div>;
-};
-export default Dashboard;
+export { TestDashboardContainer } from './containers/TestDashboard';
