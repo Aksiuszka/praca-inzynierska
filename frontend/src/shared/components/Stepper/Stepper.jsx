@@ -5,11 +5,24 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import CustomRadioGroup from '../RadioGroup/CustomRadioGroup';
 import { Header } from './styled';
 
-export const Stepper = ({ steps, activeStep, onNext, onBack, maxSteps, onFinalClick }) => {
+export const Stepper = ({
+  steps,
+  activeStep,
+  onNext,
+  onBack,
+  maxSteps,
+  onFinalClick,
+  onQuestionResponse,
+}) => {
   const theme = useTheme();
   const isLastStep = activeStep === maxSteps - 1;
+
+  const handleQuestionResponse = (e) => {
+    onQuestionResponse(activeStep, e.target.value);
+  };
 
   return (
     <Box sx={{ maxWidth: 1400, flexGrow: 1 }}>
@@ -19,7 +32,10 @@ export const Stepper = ({ steps, activeStep, onNext, onBack, maxSteps, onFinalCl
         </Typography>
       </Header>
       <Box sx={{ height: 255, maxWidth: '100%', width: '100%', pt: 5 }}>
-        {steps[activeStep].content}
+        <CustomRadioGroup
+          key={`custom-group-key-${activeStep}`}
+          onChange={(e) => handleQuestionResponse(e)}
+        />
       </Box>
       <MobileStepper
         variant='text'

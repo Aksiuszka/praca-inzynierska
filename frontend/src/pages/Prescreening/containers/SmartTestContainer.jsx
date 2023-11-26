@@ -1,10 +1,10 @@
 import { TestPageLayout } from '../../../shared/components/Layouts';
 import { StepperForm } from '../components/StepperForm/StepperForm';
 
-export const PrescreeningContainer = () => {
+export const SmartTestContainer = () => {
   return (
-    <TestPageLayout title='Prescreening'>
-      <StepperForm category='prescreen' />
+    <TestPageLayout title='SmartTest'>
+      <StepperForm category='smartTest' />
     </TestPageLayout>
   );
 };

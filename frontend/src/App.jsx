@@ -2,14 +2,18 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './shared/constants';
 import Home from './pages/Home';
-import { TestDashboardContainer as Dashboard } from './pages/Dashboard';
+import { TestDashboardContainer as Dashboard } from './pages/Dashboard/containers/TestDashboard';
 import { AboutContainer as About } from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './pages/Auth';
 import Layout from './shared/components/Layouts/MainLayout';
 import Meettheteam from './pages/MeetTheTeam';
 import Privacy from './pages/Privacy';
-import { PrescreeningContainer as Prescreening } from './pages/Prescreening';
+import {
+  PrescreeningContainer as Prescreening,
+  PetTestContainer as PetTest,
+  SmartTestContainer as SmartTest,
+} from './pages/Prescreening';
 import { ReviewContainer as Review } from './pages/Prescreening/containers/ReviewContainer';
 
 const App = () => {
@@ -27,6 +31,8 @@ const App = () => {
             <Route path={ROUTES.privacy} element={<Privacy />} />
             <Route path={ROUTES.contact} element={<Contact />} />
             <Route path={ROUTES.prescreening} element={<Prescreening />} />
+            <Route path={ROUTES.petTest} element={<PetTest />} />
+            <Route path={ROUTES.smartTest} element={<SmartTest />} />
             <Route path={ROUTES.review} element={<Review />} />
           </Routes>
         </Layout>

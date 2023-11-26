@@ -6,6 +6,7 @@ import meettheteamKeys from './meettheteam';
 import privacyKeys from './privacy';
 import prescreeningKeys from './prescreening';
 import flufffinderKeys from './flufffinder';
+import petTestKeys from './petTest';
 
 export default {
   common: commonKeys,
@@ -16,4 +17,5 @@ export default {
   privacy: privacyKeys,
   prescreening: prescreeningKeys,
   fluffinder: flufffinderKeys,
+  petTest: petTestKeys,
 };
