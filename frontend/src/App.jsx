@@ -13,6 +13,7 @@ import {
   PrescreeningContainer as Prescreening,
   PetTestContainer as PetTest,
   SmartTestContainer as SmartTest,
+  ResultContainer as Result,
 } from './pages/Prescreening';
 import { ReviewContainer as Review } from './pages/Prescreening/containers/ReviewContainer';
 
@@ -34,6 +35,7 @@ const App = () => {
             <Route path={ROUTES.petTest} element={<PetTest />} />
             <Route path={ROUTES.smartTest} element={<SmartTest />} />
             <Route path={ROUTES.review} element={<Review />} />
+            <Route path={ROUTES.result} element={<Result />} />
           </Routes>
         </Layout>
       </QueryClientProvider>

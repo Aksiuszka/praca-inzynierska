@@ -10,3 +10,13 @@ export const WrapContainer = styled('div')`
   align-items: center;
   gap: 5rem;
 `;
+
+export const RightButtonContainer = styled('div')`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: end;
+  align-items: end;
+  gap: 2rem;
+`;
