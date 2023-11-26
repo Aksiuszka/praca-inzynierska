@@ -138,3 +138,4 @@ class SmartTestResult(models.Model):
         on_delete=models.CASCADE,
     )
     temperament = models.CharField()
+
