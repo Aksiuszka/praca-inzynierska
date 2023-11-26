@@ -11,7 +11,9 @@ export const ROUTES = {
   privacy: '/privacy',
   contact: '/contact',
   prescreening: '/prescreening',
-  review: 'review',
+  review: '/review',
+  smartTest: '/smartTest',
+  petTest: '/petTest',
 };
 
 export const LanguageKeysEnum = {
@@ -74,6 +76,6 @@ export const SOCIALMEDIALINKSBE = [
 
 export const AVAILABLE_TESTS = [
   { title: 'Prescreening', route: ROUTES.prescreening },
-  { title: 'SmartTest', route: '' },
-  { title: 'PetTest', route: '' },
+  { title: 'SmartTest', route: ROUTES.smartTest },
+  { title: 'PetTest', route: ROUTES.petTest },
 ];

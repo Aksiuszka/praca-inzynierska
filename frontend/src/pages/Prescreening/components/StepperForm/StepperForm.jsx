@@ -8,6 +8,7 @@ import { generateQuestions } from '../../../../shared/utils/generateQuestions';
 
 export const StepperForm = ({ category }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [userResponses, setUserResponses] = useState([]);
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -33,21 +34,46 @@ export const StepperForm = ({ category }) => {
     return generateQuestions(translatedQuestions);
   };
 
-  const generateTestSteps = () => {
+  const generatePetTestSteps = () => {
+    const petTestQuestionKeys = [
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight',
+      'nine',
+      'ten',
+      'eleven',
+      'twelve',
+      'thirteen',
+      'fourteen',
+      'fifteen',
+      'sixteen',
+    ];
+    const translatedQuestions = petTestQuestionKeys.map((key) => t(keys.petTest.questions[key]));
+    return generateQuestions(translatedQuestions);
+  };
+
+  const generateSmartTestSteps = () => {
     const testSteps = [
-      { label: 'Test Step 1', content: 'Description for Test Step 1' },
+      { label: 'SmartTest Step 1', content: 'Description for Test Step 1' },
       { label: 'Test Step 2', content: 'Description for Test Step 2' },
       { label: 'Test Step 3', content: 'Description for Test Step 3' },
     ];
     return testSteps;
   };
 
-  const renderSteps = (stepperType = 'prescreen') => {
+  const renderSteps = (stepperType) => {
     switch (stepperType) {
       case 'prescreen':
         return generatePrescreenSteps();
-      case 'test':
-        return generateTestSteps();
+      case 'smartTest':
+        return generateSmartTestSteps();
+      case 'petTest':
+        return generatePetTestSteps();
       default:
         return [];
     }
@@ -65,7 +91,25 @@ export const StepperForm = ({ category }) => {
   };
 
   const handleFinalClick = () => {
-    navigate(ROUTES.review);
+    navigate(ROUTES.review, { state: { userResponses, category } });
+  };
+
+  const handleQuestionResponse = (questionIndex, response) => {
+    setUserResponses((prevResponses) => {
+      const updatedResponses = [...prevResponses];
+
+      const existingResponse = updatedResponses.find(
+        (item) => item.questionIndex === questionIndex,
+      );
+
+      if (existingResponse) {
+        existingResponse.response = response;
+      } else {
+        updatedResponses.push({ questionIndex, response });
+      }
+
+      return updatedResponses;
+    });
   };
 
   return (
@@ -74,6 +118,7 @@ export const StepperForm = ({ category }) => {
       onNext={handleNext}
       maxSteps={maxSteps}
       activeStep={activeStep}
+      onQuestionResponse={handleQuestionResponse}
       steps={steps}
       onFinalClick={handleFinalClick}
     />

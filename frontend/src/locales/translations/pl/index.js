@@ -5,6 +5,7 @@ import auth from './auth';
 import meettheteam from './meettheteam';
 import privacy from './privacy';
 import prescreening from './prescreening';
+import petTest from './petTest';
 
 const translations = {
   ...common,
@@ -14,6 +15,7 @@ const translations = {
   ...meettheteam,
   ...privacy,
   ...prescreening,
+  ...petTest,
 };
 
 export default { translations };
