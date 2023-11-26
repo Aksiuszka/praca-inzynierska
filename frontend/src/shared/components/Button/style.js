@@ -48,7 +48,7 @@ export const AccentBtn = styled(Button)`
   background: ${(props) => props.theme.palette.background.default};
   color: ${(props) => props.theme.palette.secondary.dark};
   border: 3px solid ${(props) => props.theme.palette.secondary.dark};
-  padding: 0.7rem 8.5rem;
+  padding: 0.5rem 6.5rem;
   text-transform: lowercase;
   '& muibutton-root:hover': {
     background-color: ${(props) => props.theme.palette.background.default};

@@ -14,6 +14,7 @@ export const ROUTES = {
   review: '/review',
   smartTest: '/smartTest',
   petTest: '/petTest',
+  result: '/result',
 };
 
 export const LanguageKeysEnum = {

@@ -50,21 +50,14 @@ const CustomButton = ({
       </SocialMediaBtn>
     );
   }
-  if (disabled) {
-    return (
-      <Button
-        color={color}
-        size={size}
-        disableFocusRipple={disableFocusRipple}
-        onClick={onClick}
-        {...props}
-      >
-        <Typography sx={sx?.label}>{label}</Typography>
-      </Button>
-    );
-  }
   return (
-    <AccentBtn color={color} size={size} disableFocusRipple={disableFocusRipple} {...props}>
+    <AccentBtn
+      color={color}
+      size={size}
+      disableFocusRipple={disableFocusRipple}
+      onClick={onClick}
+      {...props}
+    >
       <AccentTypography sx={sx?.label}>{label}</AccentTypography>
     </AccentBtn>
   );
