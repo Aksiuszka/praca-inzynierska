@@ -23,6 +23,30 @@ export const CustomBox = styled('div')`
   }
 `;
 
+export const SharpBox = styled('div')`
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => {
+    switch (props.color) {
+      case 'blue':
+        return '#EAEFFF';
+      case 'red':
+        return 'red';
+      case 'green':
+        return 'green';
+      case 'yellow':
+        return 'yellow';
+      default:
+        return 'transparent'; // or provide a default color
+    }
+  }};
+  padding: 2.3rem;
+  margin: 1rem;
+`;
+
 export const SliderContainer = styled(Container)`
 margin: 0,
 width: '100%',

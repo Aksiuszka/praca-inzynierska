@@ -8,7 +8,8 @@ import { SliderContainer } from './style';
 import AlternativeItem from './SliderItem/alternatives/about';
 import ResultItem from './SliderItem/alternatives/resultPetTest';
 
-const SliderComponent = ({ variant, information }) => {
+const SliderComponent = ({ variant, information, color }) => {
+  console.log(color, 'parent');
   return (
     <SliderContainer>
       {variant === 'about' && (
@@ -21,24 +22,24 @@ const SliderComponent = ({ variant, information }) => {
       {variant === 'petTest' && (
         <Slider {...simpleSliderSettings}>
           {information.map((item) => (
-            <ResultItem key={item.id} content={item.content} />
+            <ResultItem key={item.id} content={item.content} color={color} />
           ))}
         </Slider>
       )}
-      (
-      <Slider {...settings}>
-        {data.map((item) => (
-          <SliderItem
-            key={item.id}
-            picture={item.picture}
-            login={item.login}
-            city={item.city}
-            rating={item.rating}
-            content={item.content}
-          />
-        ))}
-      </Slider>
-      )
+      {variant !== 'about' && variant !== 'petTest' && (
+        <Slider {...settings}>
+          {data.map((item) => (
+            <SliderItem
+              key={item.id}
+              picture={item.picture}
+              login={item.login}
+              city={item.city}
+              rating={item.rating}
+              content={item.content}
+            />
+          ))}
+        </Slider>
+      )}
     </SliderContainer>
   );
 };
