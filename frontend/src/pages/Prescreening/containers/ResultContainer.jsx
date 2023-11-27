@@ -18,7 +18,7 @@ export const melancholicData = [
   },
   {
     id: 4,
-    content: 'kurwa dzien',
+    content: 'kurwa dzien!!!!!!!!!!',
   },
 ];
 
