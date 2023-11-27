@@ -20,3 +20,11 @@ export const RightButtonContainer = styled('div')`
   align-items: end;
   gap: 2rem;
 `;
+
+export const ColumnContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+`;

@@ -57,6 +57,14 @@ export const settings = {
   ],
 };
 
+export const simpleSliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
 export const SOCIALMEDIA = [
   { title: 'github', icon: <Github /> },
   { title: 'linkedin', icon: <Linkedin /> },
