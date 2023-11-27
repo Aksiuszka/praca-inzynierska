@@ -24,7 +24,7 @@ export const melancholicData = [
 
 export const ResultContainer = () => {
   const { state } = useLocation();
-  console.log(state);
+  console.log(state, '!!!!');
   return (
     <ColumnContainer>
       <FlegmaticPet />
