@@ -6,11 +6,11 @@ import SliderComponent from '../../../shared/components/Slider';
 export const melancholicData = [
   {
     id: 1,
-    content: 'kurwa',
+    content: 'kurw!!!a',
   },
   {
     id: 2,
-    content: 'mac',
+    content: 'mac!!!!',
   },
   {
     id: 3,
