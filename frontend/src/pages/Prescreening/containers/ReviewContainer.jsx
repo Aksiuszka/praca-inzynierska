@@ -61,7 +61,7 @@ export const ReviewContainer = () => {
   const data = mapUserResponsesToLabels();
 
   const handleSubmit = () => {
-    navigate(ROUTES.result);
+    navigate(ROUTES.result, { state: { category } });
   };
   const handleBack = () => {
     renderTest(category);
