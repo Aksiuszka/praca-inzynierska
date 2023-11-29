@@ -15,6 +15,8 @@ from django.core.validators import (
     EmailValidator,
     FileExtensionValidator,
 )
+from django.utils import timezone
+
 from datetime import datetime
 
 
@@ -137,5 +139,38 @@ class SmartTestResult(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    temperament = models.CharField()
+    temperament = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.temperament
+
+
+class DogPersonaltyQuestion(models.Model):
+    EXTRAVERSION = 'Ekstrawersja/Introwersja'
+    NEUROTICISM = 'Neurotyzm'
+    OPENNESS = 'Otwartość na nowe doświadczenia'
+    AGREEABLENESS = 'Ugodowość'
+
+    DOMAIN_CHOICES = [
+        (EXTRAVERSION, 'Ekstrawersja/Introwersja'),
+        (NEUROTICISM, 'Neurotyzm'),
+        (OPENNESS, 'Otwartość na nowe doświadczenia'),
+        (AGREEABLENESS, 'Ugodowość'),
+    ]
+    question_number = models.PositiveIntegerField(unique=True)
+    question_text = models.CharField(max_length=255)
+    domain = models.CharField(max_length=255, choices=DOMAIN_CHOICES)
+    answer_choice = models.CharField(max_length=1, choices=[('1', 'Tak'), ('0', 'Nie')], default='0')
+
+    def __str__(self):
+        return self.question_text
+
+class DogPersonalityResult(models.Model):
+
+    name = models.CharField(max_length=255)
+    temperament = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.temperament

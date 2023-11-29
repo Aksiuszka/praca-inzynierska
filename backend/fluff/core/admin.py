@@ -50,3 +50,5 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.SmartTestAnswer)
 admin.site.register(models.SmartTestResult)
+admin.site.register(models.DogPersonalityResult)
+admin.site.register(models.DogPersonaltyQuestion)
