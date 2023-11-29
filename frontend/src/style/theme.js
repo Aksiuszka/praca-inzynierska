@@ -91,6 +91,7 @@ theme = createTheme({
       fontFamily: 'Poppins',
       fontSize: '2rem',
       fontWeight: '800',
+      color: '#2D2D2D',
       [theme.breakpoints.between('xs', 'sm')]: {
         fontWeight: '700',
         fontSize: '1.7rem',
@@ -105,6 +106,7 @@ theme = createTheme({
     paragraph: {
       fontFamily: 'Poppins',
       fontSize: '1rem',
+      color: '#2D2D2D',
     },
     accent: {
       fontFamily: 'Poppins',

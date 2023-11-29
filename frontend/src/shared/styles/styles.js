@@ -1,4 +1,4 @@
-import { styled } from '@mui/material';
+import { Grid, styled } from '@mui/material';
 
 export const WrapContainer = styled('div')`
   width: 100%;
@@ -27,4 +27,27 @@ export const ColumnContainer = styled('div')`
   justify-content: center;
   align-items: center;
   gap: 4rem;
+`;
+
+export const CustomGrid = styled(Grid)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-inline: 5rem;
+  border-radius: 2rem;
+  background-color: ${(props) => {
+    switch (props.color) {
+      case 'blue':
+        return '#EAEFFF';
+      case 'red':
+        return '#FAF3F6';
+      case 'green':
+        return 'green';
+      case 'yellow':
+        return 'yellow';
+      default:
+        return 'transparent';
+    }
+  }};
 `;
