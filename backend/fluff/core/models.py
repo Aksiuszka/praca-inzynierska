@@ -12,12 +12,14 @@ from django.core.validators import (
     MaxValueValidator,
     RegexValidator,
     EmailValidator,
-    FileExtensionValidator
+    FileExtensionValidator,
 )
 from datetime import datetime
 
+
 class Province(models.Model):
     name = models.CharField(max_length=255)
+
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, role=None, **extra_fields):
@@ -38,18 +40,25 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("birth_year", 2000)
         return self.create_user(email, password, **extra_fields)
 
+
 class Address(models.Model):
     province = models.ForeignKey(Province, on_delete=models.CASCADE)
     city_name = models.CharField(max_length=255)
-    postal_code = models.CharField(max_length=10, validators=[
-        RegexValidator(
-            regex=r'^\d{2}-\d{3}$',  # przykład: 12-345
-            message='Enter a valid postal code in the format XX-XXX.',
-        )
-    ])
+    postal_code = models.CharField(
+        max_length=10,
+        validators=[
+            RegexValidator(
+                regex=r'^\d{2}-\d{3}$',  # przykład: 12-345
+                message='Enter a valid postal code in the format XX-XXX.',
+            )
+        ],
+    )
+
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=255, unique=True, validators=[EmailValidator()])
+    email = models.EmailField(
+        max_length=255, unique=True, validators=[EmailValidator()]
+    )
     name = models.CharField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -59,20 +68,31 @@ class User(AbstractBaseUser, PermissionsMixin):
         validators=[
             MinValueValidator(1900),
             MaxValueValidator(datetime.now().year),
-        ]
+        ],
     )
     address = models.OneToOneField(Address, on_delete=models.CASCADE, null=True)
-    profile_picture = models.ImageField(upload_to="profile_images", null=True, validators=[FileExtensionValidator(['jpg', 'png', 'gif'])])
+    profile_picture = models.ImageField(
+        upload_to="profile_images",
+        null=True,
+        validators=[FileExtensionValidator(['jpg', 'png', 'gif'])],
+    )
     last_login = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
-    role = models.ForeignKey("Role", on_delete=models.SET_NULL, null=True, blank=True, related_name='user_roles')
+    role = models.ForeignKey(
+        "Role",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='user_roles',
+    )
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'name'
-    REQUIRED_FIELDS = ["email"]
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ["name"]
+
 
 class Role(models.Model):
     REGULAR_USER = "User"
