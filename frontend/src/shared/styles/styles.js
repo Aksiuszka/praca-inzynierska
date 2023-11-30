@@ -29,6 +29,14 @@ export const ColumnContainer = styled('div')`
   gap: 4rem;
 `;
 
+export const LeftColumnContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 4rem;
+`;
+
 export const CustomGrid = styled(Grid)`
   display: flex;
   justify-content: center;
@@ -48,6 +56,24 @@ export const CustomGrid = styled(Grid)`
         return 'yellow';
       default:
         return 'transparent';
+    }
+  }};
+`;
+
+export const CustomBall = styled('div')`
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: ${(props) => {
+    switch (props.color) {
+      case 'red':
+        return '#F379A1';
+      case 'green':
+        return '#DDF3E7';
+      case 'yellow':
+        return '#FFE7BE';
+      default:
+        return 'blue';
     }
   }};
 `;
