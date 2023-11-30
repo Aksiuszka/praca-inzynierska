@@ -51,7 +51,7 @@ export const CustomGrid = styled(Grid)`
       case 'red':
         return '#FAF3F6';
       case 'green':
-        return 'green';
+        return '#F0FFF6';
       case 'yellow':
         return 'yellow';
       default:
