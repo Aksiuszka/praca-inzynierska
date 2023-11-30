@@ -1,14 +1,17 @@
 import { Grid, Typography } from '@mui/material';
 import { Line } from './style';
 
-const FaqItem = ({ number, title, content }) => {
+const FaqItem = ({ number, title, content, variant, noLine }) => {
   return (
     <>
       <Grid container>
         <Grid item md={2}>
           <Typography
             variant='headline'
-            sx={{ paddingInlineEnd: '0.75rem', color: (theme) => theme.palette.primary.dark }}
+            sx={{
+              paddingInlineEnd: '0.75rem',
+              color: (theme) => (variant === 'result' ? '#F379A1' : theme.palette.primary.dark),
+            }}
           >
             {number}
           </Typography>
@@ -23,7 +26,7 @@ const FaqItem = ({ number, title, content }) => {
           <Typography variant='paragraph'>{content}</Typography>
         </Grid>
       </Grid>
-      <Line />
+      {!noLine && <Line />}
     </>
   );
 };
