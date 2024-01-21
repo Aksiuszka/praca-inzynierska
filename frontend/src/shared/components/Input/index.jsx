@@ -1,7 +1,8 @@
+import { forwardRef } from 'react';
 import { Stack, TextField, Typography } from '@mui/material';
 
-const CustomInput = ({ onChange, value, placeholder, type, children, sx, multiline, rows }) => {
-  return (
+const CustomInput = forwardRef(
+  ({ onChange, value, placeholder, type, children, sx, multiline, rows }, ref) => (
     <Stack>
       <Typography variant='regular'>{children}</Typography>
       <TextField
@@ -14,8 +15,12 @@ const CustomInput = ({ onChange, value, placeholder, type, children, sx, multili
         sx={sx}
         multiline={multiline}
         rows={rows}
+        inputRef={ref}
       />
     </Stack>
-  );
-};
+  ),
+);
+
+CustomInput.displayName = 'CustomInput';
+
 export default CustomInput;
