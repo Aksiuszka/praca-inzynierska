@@ -8,7 +8,7 @@ import FFinder from '../../assets/icons/FFinder';
 
 export const PAGES = [
   { title: 'home', path: ROUTES.root, icon: <Home /> },
-  { title: 'fluff finder', path: ROUTES.root, icon: <FFinder /> },
+  { title: 'fluff finder', path: ROUTES.dashboard, icon: <FFinder /> },
   { title: 'about', path: ROUTES.about, icon: <About /> },
 ];
 

@@ -16,6 +16,7 @@ export const ROUTES = {
   petTest: '/petTest',
   result: '/result',
   profile: '/profile',
+  stories: '/stories',
 };
 
 export const LanguageKeysEnum = {

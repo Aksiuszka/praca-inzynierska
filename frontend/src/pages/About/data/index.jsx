@@ -9,31 +9,31 @@ export const FlipCardData = [
   {
     id: 1,
     picture: <Robot />,
-    text: 'Lorem ipsum',
+    text: 'Innowacja',
   },
   {
     id: 2,
     picture: <Books />,
-    text: 'Lorem ipsum',
+    text: 'Wiedza',
   },
   {
     id: 3,
     picture: <HeartBalloon />,
-    text: 'Lorem ipsum',
+    text: 'Współczucie',
   },
   {
     id: 4,
     picture: <Rocket />,
-    text: 'Lorem ipsum',
+    text: 'Postep',
   },
   {
     id: 5,
     picture: <Bulb />,
-    text: 'Lorem ipsum',
+    text: 'Technologia',
   },
   {
     id: 6,
     picture: <Cat />,
-    text: 'Lorem ipsum',
+    text: 'Przyjazn',
   },
 ];

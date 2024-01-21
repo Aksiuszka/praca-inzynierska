@@ -23,7 +23,6 @@ export const AboutUI = () => {
           {t(keys.about.description.title)}
         </Title>
         <Typography variant='paragraph'>{t(keys.about.description.paragraph)}</Typography>
-        <Typography variant='paragraph'>{t(keys.about.description.paragraph)}</Typography>
       </FlexContainer>
       <ContentContainer>
         <Slider />
