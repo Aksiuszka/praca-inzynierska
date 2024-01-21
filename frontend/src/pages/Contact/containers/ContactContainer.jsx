@@ -23,7 +23,7 @@ const ContactContainer = () => {
         from_email: refs.emailRef.current.value,
         message: refs.messageRef.current.value,
       });
-      alert('Sukces, Twój e-mail został wysłany!');
+      alert('Sukces, Twój e-mail został wysłany!!');
     } catch (error) {
       console.error(error);
     } finally {
