@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import emailjs from '@emailjs/browser';
 import ContactUI from '../components/ContactUI';
 
-const Contact = () => {
+const ContactContainer = () => {
   const [loading, setLoading] = useState(false);
   const [refs, setRefs] = useState({});
 
@@ -23,7 +23,7 @@ const Contact = () => {
         from_email: refs.emailRef.current.value,
         message: refs.messageRef.current.value,
       });
-      alert('Sukces wysłania emaila');
+      alert('Sukces, Twój e-mail został wysłany!');
     } catch (error) {
       console.error(error);
     } finally {
@@ -36,4 +36,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactContainer;
