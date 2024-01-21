@@ -9,11 +9,11 @@ const ContactList = () => {
     <Stack gap='2rem' width='100%'>
       <Typography variant='decoratedSmall'>info kontaktowe</Typography>
       <Typography variant='paragraph'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor{' '}
+        Masz pytanie? Napisz! Chętnie odpowiemy na wszystkie Twoje pytania i wątpliwości.
       </Typography>
       <Stack gap='3rem' direction='row'>
         <Phone />
-        <Typography variant='paragraph'> 1223425456456575 </Typography>
+        <Typography variant='paragraph'> +48 500 00 00 </Typography>
       </Stack>
       <Stack gap='3rem' direction='row'>
         <Mail />
