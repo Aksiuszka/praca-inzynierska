@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import keys from '../../../../locales/keys';
 import Button from '../../../../shared/components/Button';
 import CoffeeGirl from '../../../../shared/assets/images/misc/CoffeGirl';
@@ -6,6 +7,10 @@ import { CTAContainer, CustomGrid, StyledTypography } from '../../style';
 
 const CTA = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/auth');
+  };
   return (
     <CTAContainer container>
       <CustomGrid item sm={12} md={5}>
@@ -33,7 +38,7 @@ const CTA = () => {
           </StyledTypography>
         </StyledTypography>
 
-        <Button variant='regular' label='sign up now' />
+        <Button variant='regular' label='sign up now' onClick={handleClick} />
       </CustomGrid>
     </CTAContainer>
   );
