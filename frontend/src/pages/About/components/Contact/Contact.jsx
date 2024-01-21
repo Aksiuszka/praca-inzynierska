@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import keys from '../../../../locales/keys';
 import { BottomContainer, Title } from '../../style';
 import CustomButton from '../../../../shared/components/Button';
@@ -7,6 +8,10 @@ import LaptopGirl from '../../../../shared/assets/images/misc/LaptopGirl';
 
 export const Contact = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/contact');
+  };
   return (
     <BottomContainer container>
       <Grid item md={6}>
@@ -22,7 +27,7 @@ export const Contact = () => {
           {t(keys.about.contact.title)}
         </Title>
         <Typography variant='paragraph'>{t(keys.about.contact.paragraph)}</Typography>
-        <CustomButton variant='regular' label='Contact us' />
+        <CustomButton variant='regular' label='Contact us' onClick={handleClick} />
       </Grid>
     </BottomContainer>
   );

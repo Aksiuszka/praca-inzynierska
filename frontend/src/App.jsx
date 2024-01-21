@@ -10,6 +10,7 @@ import Auth from './pages/Auth';
 import Layout from './shared/components/Layouts/MainLayout';
 import Meettheteam from './pages/MeetTheTeam';
 import Privacy from './pages/Privacy';
+import { Stories } from './pages/Stories';
 import {
   PrescreeningContainer as Prescreening,
   PetTestContainer as PetTest,
@@ -38,6 +39,7 @@ const App = () => {
             <Route path={ROUTES.review} element={<Review />} />
             <Route path={ROUTES.result} element={<Result />} />
             <Route path={ROUTES.profile} element={<Profile />} />
+            <Route path={ROUTES.stories} element={<Stories />} />
           </Routes>
         </Layout>
       </QueryClientProvider>

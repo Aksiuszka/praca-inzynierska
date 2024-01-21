@@ -11,8 +11,9 @@ export const Values = () => {
     <MiddleContainer>
       <Typography variant='decorated'>Our Values</Typography>
       <Typography variant='regular'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna
+        Nasze wartości są fundamentem, na którym budujemy naszą markę i podejście do świata. To one
+        kierują naszym codziennym działaniem i stanowią solidną bazę dla każdego aspektu naszej
+        działalności.
       </Typography>
       <Wrapper>
         {FlipCardData.map((item) => (
