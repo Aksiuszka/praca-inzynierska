@@ -45,7 +45,7 @@ const ContactContainer = () => {
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <Typography variant='headline'>Hurra! 🎉</Typography>
           <Typography variant='paragraph'>
-            Twoja wiadomosc zostala wyslana. 📨 Nie martw się, odpiszemy! ✨
+            Twoja wiadomosc zostala wyslana.📨 Nie martw się, odpiszemy! ✨
           </Typography>
         </Modal>
       )}
