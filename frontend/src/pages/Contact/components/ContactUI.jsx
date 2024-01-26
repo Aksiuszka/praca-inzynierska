@@ -38,9 +38,7 @@ const ContactUI = ({ onSubmit, loading, updateParentRefs }) => {
           gap: '1rem',
         }}
       >
-        <AbsoluteBox>
-          <Cat />
-        </AbsoluteBox>
+        <AbsoluteBox>{!loading && <Cat />}</AbsoluteBox>
         <PinkGrid item>
           <ContactList />
           <CustomBox>
