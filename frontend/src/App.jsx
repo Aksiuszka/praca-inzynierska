@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './shared/constants';
 import Home from './pages/Home';
 import { TestDashboardContainer as Dashboard } from './pages/Dashboard/containers/TestDashboard';
-import { UserDashboardContainer as Profile } from './pages/Dashboard/containers/UserDashboard';
+import { UserDashboardContainer as UserDashboard } from './pages/Dashboard/containers/UserDashboard';
+import { InstitutionDashboardContainer as InstitutionDashboard } from './pages/Dashboard';
 import { AboutContainer as About } from './pages/About';
 import Contact from './pages/Contact';
 import Auth from './pages/Auth';
@@ -38,8 +39,10 @@ const App = () => {
             <Route path={ROUTES.smartTest} element={<SmartTest />} />
             <Route path={ROUTES.review} element={<Review />} />
             <Route path={ROUTES.result} element={<Result />} />
-            <Route path={ROUTES.profile} element={<Profile />} />
+            <Route path={ROUTES.profile} element={<UserDashboard />} />
             <Route path={ROUTES.stories} element={<Stories />} />
+            <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
+            <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
           </Routes>
         </Layout>
       </QueryClientProvider>
