@@ -1,14 +1,14 @@
 import { Typography, Grid, Stack, Container } from '@mui/material';
 import { CustomGrid, WrapContainer, ColumnContainer } from '../../../shared/styles/styles';
 import CustomButton from '../../../shared/components/Button';
-import Dog from '../../../shared/assets/images/dashboard/user/Dog';
-import { LINK_ITEMS } from '../data/resultsData';
+import { INSTITUTION_LINK_ITEMS } from '../data/resultsData';
+import CoffeeGirl from '../../../shared/assets/images/misc/CoffeGirl';
 
-export const UserDashboardContainer = () => {
+export const InstitutionDashboardContainer = () => {
   return (
     <WrapContainer>
-      <CustomGrid color='green'>
-        <Grid item sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <CustomGrid color='green' sx={{ py: '3rem' }}>
+        <Grid item sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           <Typography variant='display' sx={{ color: (theme) => theme.palette.text.primary }}>
             Hej hej Joanna!
           </Typography>
@@ -19,10 +19,10 @@ export const UserDashboardContainer = () => {
             ut aliquip ex ea commodo consequat.
           </Typography>
           <br />
-          <CustomButton variant='regular' label='explore' sx={{ width: '3rem' }} />
+          <CustomButton variant='regular' label='Dodaj zwierzę' sx={{ width: '22rem' }} />
         </Grid>
         <Grid item>
-          <Dog />
+          <CoffeeGirl />
         </Grid>
       </CustomGrid>
       <Stack sx={{ width: '100%', gap: '2rem' }}>
@@ -35,7 +35,7 @@ export const UserDashboardContainer = () => {
         </Typography>
       </Stack>
       <Container sx={{ display: 'flex', gap: '10rem' }}>
-        {LINK_ITEMS.map((item) => (
+        {INSTITUTION_LINK_ITEMS.map((item) => (
           <ColumnContainer key={item.id} sx={{ width: '28rem', textAlign: 'center' }}>
             <div>{item.icon}</div>
             <Typography variant='headline'>{item.title}</Typography>

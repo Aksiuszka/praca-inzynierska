@@ -17,6 +17,8 @@ export const ROUTES = {
   result: '/result',
   profile: '/profile',
   stories: '/stories',
+  userDashboard: '/user-dashboard',
+  institutionDashboard: '/institution-dashboard',
 };
 
 export const LanguageKeysEnum = {

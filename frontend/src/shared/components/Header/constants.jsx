@@ -14,6 +14,6 @@ export const PAGES = [
 
 export const SETTINGS = [
   { title: 'dashboard', path: ROUTES.dashboard, icon: <Dashboard /> },
-  { title: 'profile', path: ROUTES.root, icon: <Profile /> },
+  { title: 'profile', path: ROUTES.profile, icon: <Profile /> },
   { title: 'logout', path: ROUTES.root, icon: <Logout /> },
 ];

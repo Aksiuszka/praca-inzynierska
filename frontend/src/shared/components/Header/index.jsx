@@ -130,15 +130,17 @@ const Header = () => {
               {SETTINGS.map((setting) => (
                 <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
                   {setting.icon}
-                  <Typography
-                    sx={{
-                      color: 'black',
-                      paddingInline: '1rem',
-                    }}
-                    variant='highlighted'
-                  >
-                    {setting.title}
-                  </Typography>
+                  <Link style={{ textDecoration: 'none', color: '#2D2D2D' }} to={setting.path}>
+                    <Typography
+                      sx={{
+                        color: 'black',
+                        paddingInline: '1rem',
+                      }}
+                      variant='highlighted'
+                    >
+                      {setting.title}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
