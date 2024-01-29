@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from smarttest import views
+from companioncompatibility import views
 
 router = DefaultRouter()
 router.register("smart-test-answers", views.SmartTestAnswerViewSet)
@@ -10,7 +10,7 @@ router.register("smart-test-dog-results", views.DogPersonalityResultViewSet)
 router.register("prescreening-questions", views.PrescreeningViewSet)
 
 
-app_name = "smarttest"
+app_name = "companioncompatibility"
 
 urlpatterns = [
     path("", include(router.urls)),
