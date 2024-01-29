@@ -1,7 +1,7 @@
 import { Modal, Box } from '@mui/material';
 import Button from '../Button';
 
-export const CustomModal = ({ isOpen, onClose, children }) => {
+export const CustomModal = ({ isOpen, onClose, children, variant }) => {
   return (
     <Modal open={isOpen} onClose={onClose}>
       <Box
@@ -25,7 +25,7 @@ export const CustomModal = ({ isOpen, onClose, children }) => {
         }}
       >
         {children}
-        <Button onClick={onClose} variant='regular' label='Zamknij' />
+        {variant !== 'login' && <Button onClick={onClose} variant='regular' label='Zamknij' />}
       </Box>
     </Modal>
   );

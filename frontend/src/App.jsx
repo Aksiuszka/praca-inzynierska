@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './shared/constants';
 import Home from './pages/Home';
@@ -19,33 +18,34 @@ import {
   ResultContainer as Result,
 } from './pages/Prescreening';
 import { ReviewContainer as Review } from './pages/Prescreening/containers/ReviewContainer';
+import Login from './pages/Auth/components/Login';
+import ForgotPassword from './pages/Auth/components/ForgotPassword/ForgotPassword';
 
 const App = () => {
-  const queryClient = new QueryClient();
   return (
     <Router>
-      <QueryClientProvider client={queryClient}>
-        <Layout>
-          <Routes>
-            <Route path={ROUTES.root} element={<Home />} />
-            <Route path={ROUTES.auth} element={<Auth />} />
-            <Route path={ROUTES.dashboard} element={<Dashboard />} />
-            <Route path={ROUTES.about} element={<About />} />
-            <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
-            <Route path={ROUTES.privacy} element={<Privacy />} />
-            <Route path={ROUTES.contact} element={<Contact />} />
-            <Route path={ROUTES.prescreening} element={<Prescreening />} />
-            <Route path={ROUTES.petTest} element={<PetTest />} />
-            <Route path={ROUTES.smartTest} element={<SmartTest />} />
-            <Route path={ROUTES.review} element={<Review />} />
-            <Route path={ROUTES.result} element={<Result />} />
-            <Route path={ROUTES.profile} element={<UserDashboard />} />
-            <Route path={ROUTES.stories} element={<Stories />} />
-            <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
-            <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
-          </Routes>
-        </Layout>
-      </QueryClientProvider>
+      <Layout>
+        <Routes>
+          <Route path={ROUTES.root} element={<Home />} />
+          <Route path={ROUTES.auth} element={<Auth />} />
+          <Route path={ROUTES.dashboard} element={<Dashboard />} />
+          <Route path={ROUTES.about} element={<About />} />
+          <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
+          <Route path={ROUTES.privacy} element={<Privacy />} />
+          <Route path={ROUTES.contact} element={<Contact />} />
+          <Route path={ROUTES.prescreening} element={<Prescreening />} />
+          <Route path={ROUTES.petTest} element={<PetTest />} />
+          <Route path={ROUTES.smartTest} element={<SmartTest />} />
+          <Route path={ROUTES.review} element={<Review />} />
+          <Route path={ROUTES.result} element={<Result />} />
+          <Route path={ROUTES.profile} element={<UserDashboard />} />
+          <Route path={ROUTES.stories} element={<Stories />} />
+          <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
+          <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
+          <Route path={ROUTES.login} element={<Login />} />
+          <Route path={ROUTES.resetPassword} element={<ForgotPassword />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };
