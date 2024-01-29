@@ -20,8 +20,8 @@ from django.utils import timezone
 from datetime import datetime
 
 
-class Province(models.Model):
-    name = models.CharField(max_length=255)
+# class Province(models.Model):
+#     name = models.CharField(max_length=255)
 
 
 class UserManager(BaseUserManager):
@@ -44,18 +44,18 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-class Address(models.Model):
-    province = models.ForeignKey(Province, on_delete=models.CASCADE)
-    city_name = models.CharField(max_length=255)
-    postal_code = models.CharField(
-        max_length=10,
-        validators=[
-            RegexValidator(
-                regex=r"^\d{2}-\d{3}$",
-                message="Enter a valid postal code in the format XX-XXX.",
-            )
-        ],
-    )
+# class Address(models.Model):
+#     province = models.ForeignKey(Province, on_delete=models.CASCADE)
+#     city_name = models.CharField(max_length=255)
+#     postal_code = models.CharField(
+#         max_length=10,
+#         validators=[
+#             RegexValidator(
+#                 regex=r"^\d{2}-\d{3}$",
+#                 message="Enter a valid postal code in the format XX-XXX.",
+#             )
+#         ],
+#     )
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -73,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             MaxValueValidator(datetime.now().year),
         ],
     )
-    address = models.OneToOneField(Address, on_delete=models.CASCADE, null=True)
+    # address = models.OneToOneField(Address, on_delete=models.CASCADE, null=True)
     profile_picture = models.ImageField(
         upload_to="profile_images",
         null=True,
@@ -101,13 +101,13 @@ class Role(models.Model):
     REGULAR_USER = "User"
     VOLUNTEER = "Volunteer"
     ADMINISTRATOR = "Administrator"
-    BREEDER = "Breeder"
+    # BREEDER = "Breeder"
 
     ROLE_CHOICES = [
         (REGULAR_USER, "User"),
         (VOLUNTEER, "Volunteer"),
         (ADMINISTRATOR, "Administrator"),
-        (BREEDER, "Breeder"),
+        # (BREEDER, "Breeder"),
     ]
 
     name = models.CharField(max_length=255, choices=ROLE_CHOICES, unique=True)
