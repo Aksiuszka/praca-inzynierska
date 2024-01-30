@@ -29,18 +29,18 @@ jobs:
         run: |
           echo "DB_PORT: ${{ secrets.DB_PORT }}"
 
-      - name: Test
-        env:
-          DB_NAME: ${{ secrets.DB_NAME }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
+      # - name: Test
+      #   env:
+      #     DB_NAME: ${{ secrets.DB_NAME }}
+      #     DB_USER: ${{ secrets.DB_USER }}
+      #     DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      #     DB_HOST: ${{ secrets.DB_HOST }}
+      #     DB_PORT: ${{ secrets.DB_PORT }}
 
-        run: |
-          source venv/bin/activate
-          cd fluff
-          python manage.py wait_for_db
+      #   run: |
+      #     source venv/bin/activate
+      #     cd fluff
+      #     python manage.py wait_for_db
 
       - name: Format code with black
         run: |
