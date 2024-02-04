@@ -6,8 +6,18 @@ const CustomRadioGroup = ({ onChange }) => {
   };
 
   return (
-    <FormControl component='fieldset'>
-      <RadioGroup row onChange={handleRadioChange}>
+    <FormControl component='fieldset' sx={{ width: '100', display: 'flex', alignItems: 'center' }}>
+      <RadioGroup
+        row
+        onChange={handleRadioChange}
+        sx={{
+          width: '100',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4rem',
+          fontFamily: 'Poppins',
+        }}
+      >
         <FormControlLabel value='yes' control={<Radio />} label='Yes' />
         <FormControlLabel value='no' control={<Radio />} label='No' />
       </RadioGroup>

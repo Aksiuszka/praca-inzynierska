@@ -58,14 +58,14 @@ const Login = () => {
     <form onSubmit={handleLogin}>
       <AuthLayout>
         <Grid container>
-          <Grid container item md={7}>
+          <Grid container item md={6}>
             <PictureContainer>
-              <LoginPic width='112%' />
+              <LoginPic width='102%' />
             </PictureContainer>
           </Grid>
-          <StyledGrid container item md={5} sx={{ paddingInlineEnd: '3rem' }}>
+          <StyledGrid container item md={6} sx={{ paddingInlineEnd: '3rem' }}>
             <CustomContainer>
-              <Typography variant='decorated' style={{ fontSize: '32px' }}>
+              <Typography variant='decorated' style={{ fontSize: '28px' }}>
                 Witaj ponownie
               </Typography>
               <Heart />
@@ -76,7 +76,7 @@ const Login = () => {
             <Input name='password' onChange={handleChange}>
               Password
             </Input>
-            <CustomButton variant='regular' label='Zaloguj się' size='small' type='submit' />
+            <CustomButton variant='regular' label='Zaloguj' size='small' type='submit' />
             <SocialMedia />
           </StyledGrid>
         </Grid>

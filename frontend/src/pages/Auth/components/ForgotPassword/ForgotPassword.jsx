@@ -14,7 +14,6 @@ import { Modal } from '../../../../shared/components/Modal';
 import CustomButton from '../../../../shared/components/Button';
 import { useResetPasswordMutation } from '../../../../services/auth';
 
-import SocialMedia from '../SocialMedia';
 import ForgotPass from '../../../../shared/assets/images/misc/ForgotPassword';
 
 const ForgotPassword = () => {
@@ -90,7 +89,6 @@ const ForgotPassword = () => {
                 Napisz email ponownie
               </Input>
               <CustomButton variant='regular' label='Reset' size='small' type='submit' />
-              <SocialMedia />
             </StyledGrid>
           </Grid>
         </AuthLayout>

@@ -6,7 +6,7 @@ import { Modal } from '../../../shared/components/Modal';
 
 const ContactContainer = () => {
   const [loading, setLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [refs, setRefs] = useState({});
 
   useEffect(() => emailjs.init('U9sCxq8aC60I3J1e3'), []);
