@@ -2,3 +2,19 @@
   font-family: 'Futura';
   src: local('FuturaBold'), url('./../shared/assets/fonts/FuturaBold.otf') format('opentype');
 }
+#cc-main {
+  /** Change font **/
+  --cc-font-family: Poppins;
+
+  /** Change button primary color to black **/
+  --cc-btn-primary-bg: #f379a1;
+  --cc-btn-primary-border-color: #f4e6eb;
+  --cc-btn-primary-hover-bg: #f379a1;
+  --cc-btn-primary-hover-border-color: #f4e6eb;
+
+  /** Also make toggles the same color as the button **/
+  --cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+  /** Make the buttons a bit rounder **/
+  --cc-btn-border-radius: 10px;
+}

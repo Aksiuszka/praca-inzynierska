@@ -32,10 +32,6 @@ const Footer = () => {
             <Typography variant='highlighted'>{t(keys.common.footer.contactLink)}</Typography>
           </Link>
         </Grid>
-        <Dot />
-        <Grid item sm={2}>
-          <Typography variant='highlighted'>{t(keys.common.footer.faqLink)}</Typography>
-        </Grid>
       </Grid>
     </CustomGrid>
   );

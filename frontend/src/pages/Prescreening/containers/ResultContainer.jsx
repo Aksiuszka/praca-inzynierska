@@ -177,7 +177,7 @@ export const ResultContainer = () => {
         <FlegmaticPet />
         <SliderComponent variant='petTest' information={data} color={color} />
         <RightButtonContainer>
-          <Button variant='regular' label='Twoje wyniki' onClick={handleSubmit} />
+          <Button variant='regular' label='Twoje testy' onClick={handleSubmit} />
           <Button label='cofnij' onClick={handleBack} />
         </RightButtonContainer>
       </ColumnContainer>
