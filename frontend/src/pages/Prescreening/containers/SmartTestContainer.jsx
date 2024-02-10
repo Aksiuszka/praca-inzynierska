@@ -1,7 +1,9 @@
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/no-array-index-key */
+// import { useState } from 'react';
 import { TestPageLayout } from '../../../shared/components/Layouts';
-// import { StepperForm } from '../components/StepperForm/StepperForm';
-import { SMART_TEST_QUESTION } from '../constants/smartTest';
+import { StepperForm } from '../components/StepperForm/StepperForm';
+// import { SMART_TEST_QUESTION } from '../constants/smartTest';
 
 export const SmartTestContainer = () => {
   const [selectedValues, setSelectedValues] = useState({});

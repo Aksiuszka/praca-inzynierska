@@ -59,34 +59,4 @@ export const SMART_TEST_QUESTION = [
   {
     20: ['żywotny', 'śmiały', 'taktowny', 'zrównoważony'],
   },
-  {
-    21: ['buńczuczny', 'apodyktyczny', 'wstydliwy', 'chłodny'],
-  },
-  {
-    22: ['niezdyscyplinowany', 'beznamiętny', 'pamiętliwy', 'apatyczny'],
-  },
-  {
-    23: ['powtarzający się', 'oporny', 'obraźliwy', 'małomówny'],
-  },
-  {
-    24: ['zapominalski', 'zuchwały', 'kapryśny', 'lękliwy'],
-  },
-  {
-    25: ['wtrącający się', 'niecierpliwy', 'niepewny', 'niezdecydowany'],
-  },
-  {
-    26: ['niestały', 'skryty', 'niepopularny', 'odludek'],
-  },
-  {
-    27: ['chaotyczny', 'twardogłowy', 'wybredny', 'ociągający się'],
-  },
-  {
-    28: ['na wszystko pozwala', 'megaloman', 'pesymista', 'bezbarwny'],
-  },
-  {
-    29: ['złośnik', 'dyskutant', 'wyobcowany', 'niemający celu'],
-  },
-  {
-    30: ['naiwny', 'denerwujący', 'nastawiony negatywnie', 'nonszalancki'],
-  },
 ];

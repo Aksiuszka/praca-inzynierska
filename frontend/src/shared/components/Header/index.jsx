@@ -5,7 +5,9 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
+import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../../context/language';
 import { PAGES, SETTINGS } from './constants';
 import Logo from '../Logo';
 import {
@@ -25,6 +27,7 @@ import {
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { language, changeLanguage } = useLanguage();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,6 +42,11 @@ const Header = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const handleLanguageChange = (event, newLanguage) => {
+    if (newLanguage !== null) {
+      changeLanguage(newLanguage);
+    }
   };
 
   return (
@@ -102,6 +110,38 @@ const Header = () => {
             ))}
           </List>
           <Box sx={{ flexGrow: 0 }}>
+            <ToggleButtonGroup
+              sx={{ marginInline: '2rem' }}
+              value={language}
+              exclusive
+              onChange={handleLanguageChange}
+              aria-label='Language Selector'
+            >
+              <ToggleButton
+                value='en'
+                aria-label='EN'
+                sx={{
+                  borderRadius: '0.5rem',
+                  background: '#F379A1',
+                  color: 'white',
+                  border: 'none',
+                }}
+              >
+                EN
+              </ToggleButton>
+              <ToggleButton
+                value='pl'
+                aria-label='PL'
+                sx={{
+                  borderRadius: '0.5rem',
+                  background: '#F379A1',
+                  color: 'white',
+                  border: 'none',
+                }}
+              >
+                PL
+              </ToggleButton>
+            </ToggleButtonGroup>
             <Tooltip title='Open settings'>
               <IconButton data-testid='avatarBtn' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
