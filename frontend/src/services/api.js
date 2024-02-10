@@ -1,6 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import { createApi } from '@reduxjs/toolkit/query/react';
-import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_BASE_URL } from '../shared/constants/base_api';
 
 export const api = createApi({
