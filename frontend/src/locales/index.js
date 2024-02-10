@@ -2,9 +2,11 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { LanguageKeysEnum } from '../shared/constants';
 import pl from './translations/pl';
+import en from './translations/en';
 
 export const resources = {
   pl,
+  en,
 };
 
 const DEFAULT_LOCALE = LanguageKeysEnum.pl;

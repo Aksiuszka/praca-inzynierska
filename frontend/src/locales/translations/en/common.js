@@ -3,10 +3,10 @@ import keys from '../../keys';
 export default {
   // Footer
   [keys.common.footer.teamLink]: 'team',
-  [keys.common.footer.privacyLink]: 'prywata',
-  [keys.common.footer.contactLink]: 'kontakt',
+  [keys.common.footer.privacyLink]: 'privacy',
+  [keys.common.footer.contactLink]: 'contact',
   [keys.common.footer.faqLink]: 'faq',
 
   // home
-  [keys.common.hero.mainText]: 'Psijaciel',
+  [keys.common.hero.mainText]: 'Get Yourself',
 };

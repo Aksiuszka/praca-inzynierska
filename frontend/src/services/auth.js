@@ -10,6 +10,19 @@ export const auth = api.injectEndpoints({
         body: credentials,
       }),
     }),
+    loginWithGoogle: builder.mutation({
+      query: (credentials) => ({
+        url: 'accounts:signInWithIdp?key=AIzaSyBB1w53vqOzDjYreV4cDfYIwKGHDEE5Hb8',
+        contentType: 'application/json',
+        method: 'POST',
+        body: {
+          postBody: `id_token=${credentials.accessToken}&providerId=[google.com]`,
+          requestUri: credentials.requestUri,
+          returnIdpCredential: true,
+          returnSecureToken: true,
+        },
+      }),
+    }),
     signup: builder.mutation({
       query: (credentials) => ({
         url: 'accounts:signUp?key=AIzaSyBB1w53vqOzDjYreV4cDfYIwKGHDEE5Hb8',
@@ -29,4 +42,9 @@ export const auth = api.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation, useSignupMutation, useResetPasswordMutation } = auth;
+export const {
+  useLoginMutation,
+  useSignupMutation,
+  useResetPasswordMutation,
+  useLoginWithGoogleMutation,
+} = auth;

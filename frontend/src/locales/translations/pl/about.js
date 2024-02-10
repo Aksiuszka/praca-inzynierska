@@ -17,5 +17,5 @@ export default {
   [keys.about.slider.title.two]: 'to be happy ',
   [keys.about.slider.paragraph]:
     'W Fluff wierzymy, że każdy z Was powinien być szczęś. Nasza misja opiera się na przekonaniu, że każde zwierzę zasługuje na radosne i pełne miłości życie u boku swojego właściciela.',
-  [keys.about.slider.btn]: 'read success stories',
+  [keys.about.slider.btn]: 'przeczytaj nasze historie',
 };

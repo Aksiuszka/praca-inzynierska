@@ -59,9 +59,10 @@ export const StepperForm = ({ category }) => {
 
   const generateSmartTestSteps = () => {
     const testSteps = [
-      { label: 'SmartTest Step 1', content: 'Description for Test Step 1' },
-      { label: 'Test Step 2', content: 'Description for Test Step 2' },
-      { label: 'Test Step 3', content: 'Description for Test Step 3' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 1.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 2.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 3.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 4.' },
     ];
     return testSteps;
   };
@@ -121,6 +122,7 @@ export const StepperForm = ({ category }) => {
       onQuestionResponse={handleQuestionResponse}
       steps={steps}
       onFinalClick={handleFinalClick}
+      category={category}
     />
   );
 };
