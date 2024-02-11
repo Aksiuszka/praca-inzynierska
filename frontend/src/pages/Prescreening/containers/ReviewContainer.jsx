@@ -10,6 +10,8 @@ import { RightButtonContainer } from '../../../shared/styles/styles';
 import { ROUTES } from '../../../shared/constants';
 import { calculateTemperament } from '../utils/calculatePetTemperament';
 import { TEMPERAMENT_MAPPING } from '../constants/petTest';
+import { POINTS_MAP, THRESHOLDS } from '../constants/prescreening';
+import { calculateAdoptionReadiness } from '../utils/calculatePrescreenReadiness';
 
 export const ReviewContainer = () => {
   const navigate = useNavigate();
@@ -18,9 +20,17 @@ export const ReviewContainer = () => {
   const { state } = useMemo(() => location, [location]);
 
   const { userResponses, category } = state || {};
-  const petTestResult = calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
-  console.log(petTestResult, 'pet test res');
-  console.log(userResponses, 'answer');
+
+  const calculateResults = (type) => {
+    switch (type) {
+      case 'petTest':
+        return calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
+      case 'prescreen':
+        return calculateAdoptionReadiness(userResponses, POINTS_MAP, THRESHOLDS);
+      default:
+        return null;
+    }
+  };
 
   const renderSteps = (stepperType) => {
     switch (stepperType) {
@@ -65,8 +75,10 @@ export const ReviewContainer = () => {
 
   const data = mapUserResponsesToLabels();
 
+  const testResults = calculateResults(category);
+
   const handleSubmit = () => {
-    navigate(ROUTES.result, { state: { category, petTestResult } });
+    navigate(ROUTES.result, { state: { category, testResults } });
   };
   const handleBack = () => {
     renderTest(category);
