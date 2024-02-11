@@ -3,13 +3,13 @@ import { melancholicData, sanguineData, cholericData, flegmaticData } from '../d
 export const getPetTestResultInfo = (result) => {
   switch (result) {
     case 'melancholic':
-      return { data: melancholicData, color: 'blue' };
+      return { data: melancholicData, color: 'green' };
     case 'sanguine':
       return { data: sanguineData, color: 'red' };
     case 'choleric':
-      return { data: cholericData, color: 'green' };
-    case 'flegmatic':
-      return { data: flegmaticData, color: 'yellow' };
+      return { data: cholericData, color: 'yellow' };
+    case 'phlegmatic':
+      return { data: flegmaticData, color: 'blue' };
     default:
       return { data: [], color: 'transparent' };
   }

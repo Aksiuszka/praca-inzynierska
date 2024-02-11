@@ -20,14 +20,12 @@ const SocialMedia = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    console.log('click');
     signInWithPopup(auth, provider).then((data) => {
       const updatedValue = {
         email: data.user.email,
         token: data.user.stsTokenManager.refreshToken,
         username: data.user.displayName,
       };
-      console.log(updatedValue);
       setValue(updatedValue);
       localStorage.setItem('user', data.user);
     });
