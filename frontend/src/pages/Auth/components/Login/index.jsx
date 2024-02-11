@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 // import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Grid, Typography } from '@mui/material';
 // import { auth } from '../../../../config/firebaseConfig';
@@ -12,6 +13,7 @@ import Input from '../../../../shared/components/Input';
 import { ROUTES } from '../../../../shared/constants';
 import CustomButton from '../../../../shared/components/Button';
 import { useLoginMutation } from '../../../../services/auth';
+import { setCredentials } from '../../../../slices/authSlice';
 
 import SocialMedia from '../SocialMedia';
 
@@ -20,7 +22,13 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [values, setValues] = useState({
+    email: '',
+    token: '',
+    username: '',
+  });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [login, { error }] = useLoginMutation();
 
   const handleLogin = async (e) => {
@@ -31,7 +39,13 @@ const Login = () => {
         password: formData.password,
         returnSecureToken: true,
       }).unwrap();
-      navigate(ROUTES.root);
+      const updatedValues = {
+        email: user.email,
+        token: user.refreshToken,
+        username: user.email,
+      };
+      setValues(updatedValues);
+      localStorage.setItem('user', user);
     } catch (er) {
       console.error(error, er);
     }
@@ -41,6 +55,13 @@ const Login = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+
+  useEffect(() => {
+    if (values.email && values.token && values.username) {
+      dispatch(setCredentials(values));
+      navigate(ROUTES.root);
+    }
+  }, [dispatch, values.email, values.token, values.username, values, navigate]);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();

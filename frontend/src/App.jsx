@@ -7,6 +7,7 @@ import { TestDashboardContainer as Dashboard } from './pages/Dashboard/container
 import { UserDashboardContainer as UserDashboard } from './pages/Dashboard/containers/UserDashboard';
 import { InstitutionDashboardContainer as InstitutionDashboard } from './pages/Dashboard';
 import { AboutContainer as About } from './pages/About';
+import { ProtectedRoute } from './shared/components/ProtectedRoute/ProtectedRoute';
 import Contact from './pages/Contact';
 import Auth from './pages/Auth';
 import Layout from './shared/components/Layouts/MainLayout';
@@ -88,22 +89,24 @@ const App = () => {
         <Routes>
           <Route path={ROUTES.root} element={<Home />} />
           <Route path={ROUTES.auth} element={<Auth />} />
-          <Route path={ROUTES.dashboard} element={<Dashboard />} />
           <Route path={ROUTES.about} element={<About />} />
-          <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
           <Route path={ROUTES.privacy} element={<Privacy />} />
           <Route path={ROUTES.contact} element={<Contact />} />
-          <Route path={ROUTES.prescreening} element={<Prescreening />} />
-          <Route path={ROUTES.petTest} element={<PetTest />} />
-          <Route path={ROUTES.smartTest} element={<SmartTest />} />
-          <Route path={ROUTES.review} element={<Review />} />
-          <Route path={ROUTES.result} element={<Result />} />
-          <Route path={ROUTES.profile} element={<UserDashboard />} />
           <Route path={ROUTES.stories} element={<Stories />} />
-          <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
-          <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
-          <Route path={ROUTES.login} element={<Login />} />
+          <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
           <Route path={ROUTES.resetPassword} element={<ForgotPassword />} />
+          <Route path={ROUTES.login} element={<Login />} />
+          <Route path={ROUTES.root} element={<ProtectedRoute />}>
+            <Route path={ROUTES.dashboard} element={<Dashboard />} />
+            <Route path={ROUTES.prescreening} element={<Prescreening />} />
+            <Route path={ROUTES.petTest} element={<PetTest />} />
+            <Route path={ROUTES.smartTest} element={<SmartTest />} />
+            <Route path={ROUTES.review} element={<Review />} />
+            <Route path={ROUTES.result} element={<Result />} />
+            <Route path={ROUTES.profile} element={<UserDashboard />} />
+            <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
+            <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
+          </Route>
         </Routes>
       </Layout>
     </Router>
