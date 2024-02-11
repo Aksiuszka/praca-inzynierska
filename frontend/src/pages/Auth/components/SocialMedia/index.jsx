@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Stack, Typography, Box } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth, provider } from '../../../../config/firebase';
+import { doc, setDoc } from 'firebase/firestore';
+import { auth, provider, db } from '../../../../config/firebase';
 import Albo from '../../../../shared/assets/svg/Albo';
 import CustomButton from '../../../../shared/components/Button';
 import Google from '../../../../shared/assets/icons/Google';
@@ -19,12 +20,14 @@ const SocialMedia = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
+    console.log('click');
     signInWithPopup(auth, provider).then((data) => {
       const updatedValue = {
         email: data.user.email,
         token: data.user.stsTokenManager.refreshToken,
         username: data.user.displayName,
       };
+      console.log(updatedValue);
       setValue(updatedValue);
       localStorage.setItem('user', data.user);
     });
@@ -32,7 +35,12 @@ const SocialMedia = () => {
 
   useEffect(() => {
     if (value.email && value.token && value.username) {
+      setDoc(doc(db, 'users', value.email), {
+        email: value.email,
+        role: 'subscriber',
+      });
       dispatch(setCredentials(value));
+      navigate('/');
     }
   }, [dispatch, value.email, value.token, value.username, value]);
 
