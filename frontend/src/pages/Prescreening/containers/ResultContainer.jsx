@@ -11,7 +11,6 @@ import {
   RightButtonContainer,
   WrapContainer,
 } from '../../../shared/styles/styles';
-import FlegmaticPet from '../../../shared/assets/images/results/petTest/Flegmatic';
 import Button from '../../../shared/components/Button';
 import SliderComponent from '../../../shared/components/Slider';
 import { getPetTestResultInfo } from '../utils/getPetTestResultInfo';
@@ -22,6 +21,7 @@ import Ready from '../../../shared/assets/images/results/prescreening/Ready.png'
 import FaqItem from '../../../shared/components/FAQ';
 import ThinkingMan from '../../../shared/assets/images/results/prescreening/ThinkingMan';
 import { newPetExpectationsData, newPetPreparationData } from '../data/common';
+import { renderPetResultImg } from '../utils/renderPetTemperamentPicture';
 
 export const ResultContainer = () => {
   const { t } = useTranslation();
@@ -29,9 +29,8 @@ export const ResultContainer = () => {
   const location = useLocation();
 
   const { state } = useMemo(() => location, [location]);
-  const { category } = state || {};
-
-  const result = 'melancholic';
+  const { category, petTestResult: result } = state || {};
+  console.log(result);
 
   const { data, color } = getPetTestResultInfo(result);
 
@@ -174,7 +173,7 @@ export const ResultContainer = () => {
   return (
     category === 'petTest' && (
       <ColumnContainer>
-        <FlegmaticPet />
+        {renderPetResultImg(result)}
         <SliderComponent variant='petTest' information={data} color={color} />
         <RightButtonContainer>
           <Button variant='regular' label='Twoje testy' onClick={handleSubmit} />

@@ -34,11 +34,11 @@ export const SharpBox = styled('div')`
       case 'blue':
         return '#EAEFFF';
       case 'red':
-        return 'red';
+        return '#FFF0F5';
       case 'green':
-        return 'green';
+        return '#F0FFF6';
       case 'yellow':
-        return 'yellow';
+        return '#FFF7F1';
       default:
         return 'transparent'; // or provide a default color
     }

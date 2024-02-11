@@ -8,6 +8,8 @@ import { GeneratePrescreenSteps } from '../utils/generatePrescreenSteps';
 import { GeneratePetTestSteps } from '../utils/generatePetTestSteps';
 import { RightButtonContainer } from '../../../shared/styles/styles';
 import { ROUTES } from '../../../shared/constants';
+import { calculateTemperament } from '../utils/calculatePetTemperament';
+import { TEMPERAMENT_MAPPING } from '../constants/petTest';
 
 export const ReviewContainer = () => {
   const navigate = useNavigate();
@@ -16,6 +18,9 @@ export const ReviewContainer = () => {
   const { state } = useMemo(() => location, [location]);
 
   const { userResponses, category } = state || {};
+  const petTestResult = calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
+  console.log(petTestResult, 'pet test res');
+  console.log(userResponses, 'answer');
 
   const renderSteps = (stepperType) => {
     switch (stepperType) {
@@ -61,7 +66,7 @@ export const ReviewContainer = () => {
   const data = mapUserResponsesToLabels();
 
   const handleSubmit = () => {
-    navigate(ROUTES.result, { state: { category } });
+    navigate(ROUTES.result, { state: { category, petTestResult } });
   };
   const handleBack = () => {
     renderTest(category);
