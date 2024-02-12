@@ -67,7 +67,6 @@ const Header = () => {
     if (setting.title === 'logout') {
       localStorage.removeItem('user');
       dispatch(logout());
-      console.log(email, username);
 
       signOut(auth)
         .then(() => {
