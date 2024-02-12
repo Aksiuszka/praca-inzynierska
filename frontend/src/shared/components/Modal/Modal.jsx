@@ -18,7 +18,7 @@ export const CustomModal = ({ isOpen, onClose, children, variant }) => {
           transform: 'translate(-50%, -50%)',
           bgcolor: 'white',
           height: '22rem',
-          width: '46rem',
+          width: '49rem',
           boxShadow: 24,
           p: 4,
           borderRadius: '8px',

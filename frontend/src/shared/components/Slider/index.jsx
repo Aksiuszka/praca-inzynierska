@@ -9,7 +9,6 @@ import AlternativeItem from './SliderItem/alternatives/about';
 import ResultItem from './SliderItem/alternatives/resultPetTest';
 
 const SliderComponent = ({ variant, information, color }) => {
-  console.log(color, 'parent');
   return (
     <SliderContainer>
       {variant === 'about' && (
