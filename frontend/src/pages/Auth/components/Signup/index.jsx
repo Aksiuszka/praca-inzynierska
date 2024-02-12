@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Grid, Typography, Alert } from '@mui/material';
-// import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from 'firebase/firestore';
+import { db, auth, provider } from '../../../../config/firebase';
 import AuthLayout from '../../../../shared/components/AuthLayout';
 import Heart from '../../../../shared/assets/icons/Heart';
 import Input from '../../../../shared/components/Input';
@@ -11,7 +13,6 @@ import { CustomContainer } from '../../styles';
 import Albo from '../../../../shared/assets/svg/Albo';
 import CustomButton from '../../../../shared/components/Button';
 import Google from '../../../../shared/assets/icons/Google';
-// import { auth } from '../../../../config/firebaseConfig';
 import { Modal } from '../../../../shared/components/Modal';
 import { ROUTES } from '../../../../shared/constants';
 import { useSignupMutation } from '../../../../services/auth';
@@ -22,6 +23,8 @@ const Signup = () => {
     email: '',
     password: '',
     retypedPassword: '',
+    token: '',
+    photoUrl: '',
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -57,6 +60,13 @@ const Signup = () => {
         password: formData.password,
         returnSecureToken: true,
       }).unwrap();
+      if (user) {
+        setFormData((prevData) => ({
+          email: user.email,
+          token: user.refreshToken,
+          photoUrl: user.photoUrl,
+        }));
+      }
     } catch (er) {
       console.error(error, er);
     } finally {
@@ -65,25 +75,27 @@ const Signup = () => {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleClick = () => {
+    signInWithPopup(auth, provider).then((data) => {
+      const updatedValue = {
+        email: data.user.email,
+        token: data.user.stsTokenManager.refreshToken,
+        username: data.user.displayName,
+      };
+      setFormData(updatedValue);
+      localStorage.setItem('user', data.user);
+    });
+  };
 
-  //   const { password, retypedPassword } = formData;
-
-  //   if (password !== retypedPassword) {
-  //     setError(true);
-  //     return;
-  //   }
-
-  //   try {
-  //     await createUserWithEmailAndPassword(auth, formData.email, formData.password);
-  //   } catch (err) {
-  //     console.error(err);
-  //   } finally {
-  //     localStorage.setItem('userData', JSON.stringify(Object.values(formData)));
-  //     setIsModalOpen(true);
-  //   }
-  // };
+  useEffect(() => {
+    if (formData.email && formData.token) {
+      setDoc(doc(db, 'users', formData.email), {
+        email: formData.email,
+        role: 'subscriber',
+      });
+      navigate('/login');
+    }
+  }, [formData.email, formData.token, navigate]);
 
   return (
     <>
@@ -130,7 +142,12 @@ const Signup = () => {
           </CustomContainer>
           <Button variant='regular' label='Zarejestruj się' type='submit' />
           <Albo />
-          <CustomButton variant='socialmedia' icon={<Google />} label='Zaloguj się przez Google' />
+          <CustomButton
+            variant='socialmedia'
+            icon={<Google />}
+            label='Zaloguj się przez Google'
+            onClick={handleClick}
+          />
         </AuthLayout>
       </form>
       {isModalOpen && (

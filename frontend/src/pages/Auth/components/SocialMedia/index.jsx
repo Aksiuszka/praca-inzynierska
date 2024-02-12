@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Stack, Typography, Box } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { doc, setDoc } from 'firebase/firestore';
-import { auth, provider, db } from '../../../../config/firebase';
+// import { doc, setDoc } from 'firebase/firestore';
+import { auth, provider } from '../../../../config/firebase';
 import Albo from '../../../../shared/assets/svg/Albo';
 import CustomButton from '../../../../shared/components/Button';
 import Google from '../../../../shared/assets/icons/Google';
@@ -33,10 +33,10 @@ const SocialMedia = () => {
 
   useEffect(() => {
     if (value.email && value.token && value.username) {
-      setDoc(doc(db, 'users', value.email), {
-        email: value.email,
-        role: 'subscriber',
-      });
+      // setDoc(doc(db, 'users', value.email), {
+      //   email: value.email,
+      //   role: 'subscriber',
+      // });
       dispatch(setCredentials(value));
       navigate('/');
     }

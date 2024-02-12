@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { signOut } from 'firebase/auth';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -6,7 +8,9 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../../../config/firebase';
+import { logout } from '../../../slices/authSlice';
 import { useLanguage } from '../../context/language';
 import { PAGES, SETTINGS } from './constants';
 import Logo from '../Logo';
@@ -23,11 +27,15 @@ import {
   Dot,
   CustomMenuItem as MenuItem,
 } from './styles';
+import CustomButton from '../Button';
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { language, changeLanguage } = useLanguage();
+  const { email, username, photoUrl } = useSelector((data) => data.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,6 +54,27 @@ const Header = () => {
   const handleLanguageChange = (event, newLanguage) => {
     if (newLanguage !== null) {
       changeLanguage(newLanguage);
+    }
+  };
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleMenuItemClick = (setting) => {
+    handleCloseUserMenu();
+
+    if (setting.title === 'logout') {
+      localStorage.removeItem('user');
+      dispatch(logout());
+
+      signOut(auth)
+        .then(() => {
+          navigate('/');
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
@@ -109,7 +138,7 @@ const Header = () => {
               </BoxDown>
             ))}
           </List>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ display: 'flex' }}>
             <ToggleButtonGroup
               sx={{ marginInline: '2rem' }}
               value={language}
@@ -142,48 +171,61 @@ const Header = () => {
                 PL
               </ToggleButton>
             </ToggleButtonGroup>
-            <Tooltip title='Open settings'>
-              <IconButton data-testid='avatarBtn' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt='Remy Sharp'
-                  src='/static/images/avatar/2.jpg'
-                  sx={{ background: '#F379A1' }}
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {SETTINGS.map((setting) => (
-                <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
-                  {setting.icon}
-                  <Link style={{ textDecoration: 'none', color: '#2D2D2D' }} to={setting.path}>
-                    <Typography
-                      sx={{
-                        color: 'black',
-                        paddingInline: '1rem',
-                      }}
-                      variant='highlighted'
-                    >
-                      {setting.title}
-                    </Typography>
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
+            {email || username ? (
+              <>
+                <Tooltip title='Open settings'>
+                  <IconButton data-testid='avatarBtn' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    {photoUrl !== '' ? (
+                      <Avatar alt='User Photo' src={photoUrl} sx={{ background: '#F379A1' }} />
+                    ) : (
+                      <Avatar alt='User Initial' sx={{ background: '#F379A1' }}>
+                        {email.charAt(0).toUpperCase()}
+                      </Avatar>
+                    )}
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id='menu-appbar'
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {SETTINGS.map((setting) => (
+                    <MenuItem key={setting.title} onClick={() => handleMenuItemClick(setting)}>
+                      {setting.icon}
+                      <Link style={{ textDecoration: 'none', color: '#2D2D2D' }} to={setting.path}>
+                        <Typography
+                          sx={{
+                            color: 'black',
+                            paddingInline: '1rem',
+                          }}
+                          variant='highlighted'
+                        >
+                          {setting.title}
+                        </Typography>
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </>
+            ) : (
+              <CustomButton
+                sx={{ padding: '0.2rem 1.4rem' }}
+                variant='regular'
+                label='Login'
+                onClick={handleLogin}
+              />
+            )}
           </Box>
         </Toolbar>
       </Container>
