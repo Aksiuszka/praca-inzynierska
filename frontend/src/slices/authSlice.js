@@ -5,6 +5,7 @@ const initialState = {
   email: null,
   token: null,
   username: null,
+  photoUrl: '',
 };
 
 const authSlice = createSlice({
@@ -15,6 +16,7 @@ const authSlice = createSlice({
       state.email = payload.email;
       state.token = payload.token;
       state.username = payload.username;
+      state.photoUrl = payload.photoUrl;
     },
     logout: () => {
       return initialState;
