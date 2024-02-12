@@ -52,7 +52,7 @@ export const ResultContainer = () => {
         return <img src={Ready} alt='ready' />;
       case 'notbad':
         return <img src={NotBad} alt='almost ready' />;
-      case 'notready':
+      case 'notReady':
         return <img src={NotReady} alt='not ready' />;
       default:
         return null;
@@ -74,7 +74,7 @@ export const ResultContainer = () => {
         content =
           ' Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, coteturadipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sitamet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsumdolor sit amet, cotetur adipiscing.';
         break;
-      case 'notready':
+      case 'notReady':
         title = 'Not Ready!';
         content =
           ' Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, coteturadipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sitamet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsumdolor sit amet, cotetur adipiscing.';
