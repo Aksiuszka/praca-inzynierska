@@ -24,6 +24,9 @@ export const ReviewContainer = () => {
   const userRef = doc(db, 'users', user.email);
 
   const { userResponses, category } = state || {};
+  const petTestResult = calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
+  console.log(petTestResult, 'pet test res');
+  console.log(userResponses, 'answer');
 
   const calculateResults = (type) => {
     switch (type) {
