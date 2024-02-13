@@ -40,6 +40,17 @@ export const ReviewContainer = () => {
     }
   };
 
+  const calculateResults = (type) => {
+    switch (type) {
+      case 'petTest':
+        return calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
+      case 'prescreen':
+        return calculateAdoptionReadiness(userResponses, POINTS_MAP, THRESHOLDS);
+      default:
+        return null;
+    }
+  };
+
   const renderSteps = (stepperType) => {
     switch (stepperType) {
       case 'prescreen':
