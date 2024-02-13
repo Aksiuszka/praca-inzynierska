@@ -1,4 +1,4 @@
-export const calculateTemperament = (responses, temperamentMapping) => {
+export const calculatePetTemperament = (responses, temperamentMapping) => {
   const temperamentPoints = {
     choleric: 0,
     sanguine: 0,

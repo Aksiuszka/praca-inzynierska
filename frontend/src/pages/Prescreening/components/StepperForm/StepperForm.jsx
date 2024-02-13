@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/no-array-index-key */
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -5,12 +7,16 @@ import { ROUTES } from '../../../../shared/constants';
 import keys from '../../../../locales/keys';
 import { Stepper } from '../../../../shared/components/Stepper/Stepper';
 import { generateQuestions } from '../../../../shared/utils/generateQuestions';
+import { SMART_TEST_QUESTION } from '../../constants/smartTest';
 
 export const StepperForm = ({ category }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [userResponses, setUserResponses] = useState([]);
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const [selectedValues, setSelectedValues] = useState({});
+  console.log(category, 'nowe');
 
   const generatePrescreenSteps = () => {
     const prescreenQuestionKeys = [
@@ -59,10 +65,12 @@ export const StepperForm = ({ category }) => {
 
   const generateSmartTestSteps = () => {
     const testSteps = [
-      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 1.' },
-      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 2.' },
-      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 3.' },
-      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Częśc 4.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Część 1.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Część 2.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Część 3.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Część 4.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Część 5.' },
+      { label: 'Wybierz cechę charakteru, która najbardziej do Ciebie pasuje. Część 6.' },
     ];
     return testSteps;
   };
@@ -95,6 +103,58 @@ export const StepperForm = ({ category }) => {
     navigate(ROUTES.review, { state: { userResponses, category } });
   };
 
+  const handleSmartTestRadioChange = (questionNumber, value) => {
+    setSelectedValues({
+      ...selectedValues,
+      [questionNumber]: value,
+    });
+
+    // Update userResponses with the selected answer
+    const updatedResponses = [...userResponses];
+    const existingResponseIndex = updatedResponses.findIndex(
+      (item) => item.questionIndex === questionNumber,
+    );
+
+    if (existingResponseIndex !== -1) {
+      // If response for this question already exists, update it
+      updatedResponses[existingResponseIndex].response = value;
+    } else {
+      // If response for this question doesn't exist, add it to userResponses
+      updatedResponses.push({ questionIndex: questionNumber, response: value });
+    }
+
+    setUserResponses(updatedResponses);
+  };
+
+  const renderSmartTestQuestions = () => {
+    const questionsPerStep = 2; // Set the number of questions per step
+    const startQuestion = activeStep * questionsPerStep + 1;
+    const endQuestion = Math.min(startQuestion + questionsPerStep - 1, SMART_TEST_QUESTION.length);
+
+    return SMART_TEST_QUESTION.slice(startQuestion - 1, endQuestion).map((question, index) => {
+      const questionNumber = Object.keys(question)[0];
+      const options = question[questionNumber];
+
+      return (
+        <div key={index} style={{ width: '40rem', padding: '1rem' }}>
+          {options.map((option, i) => (
+            <label key={i}>
+              <input
+                style={{ margin: '1rem', fontFamily: 'Poppins' }}
+                type='radio'
+                name={`question_${questionNumber}`}
+                value={option}
+                checked={selectedValues[questionNumber] === option}
+                onChange={() => handleSmartTestRadioChange(questionNumber, option)}
+              />
+              {option}
+            </label>
+          ))}
+        </div>
+      );
+    });
+  };
+
   const handleQuestionResponse = (questionIndex, response) => {
     setUserResponses((prevResponses) => {
       const updatedResponses = [...prevResponses];
@@ -123,6 +183,7 @@ export const StepperForm = ({ category }) => {
       steps={steps}
       onFinalClick={handleFinalClick}
       category={category}
+      renderSmartTestQuestions={renderSmartTestQuestions}
     />
   );
 };

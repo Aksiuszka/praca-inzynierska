@@ -33,7 +33,6 @@ export const UserDashboardContainer = () => {
       setIsModalOpen(true);
     }
   };
-  console.log(results);
   const { title, content } = getHeroImgInfo(results.prescreening);
 
   return (
