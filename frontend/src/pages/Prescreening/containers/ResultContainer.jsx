@@ -30,7 +30,7 @@ export const ResultContainer = () => {
 
   const { state } = useMemo(() => location, [location]);
   const { category, testResults: result } = state || {};
-
+  console.log(result);
   const { data, color } = getPetTestResultInfo(result);
 
   const renderTest = (type) => {
@@ -168,6 +168,9 @@ export const ResultContainer = () => {
         </LeftColumnContainer>
       </ColumnContainer>
     );
+  }
+  if (category === 'smartTest') {
+    return <ColumnContainer>{result}</ColumnContainer>;
   }
   return (
     category === 'petTest' && (

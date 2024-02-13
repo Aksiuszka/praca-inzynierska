@@ -8,10 +8,12 @@ import { Accordeon } from '../../../shared/components/Accordeon/Accordeon';
 import { getLabelValues } from '../../../shared/utils/getValuesFromArrOfObjects';
 import { GeneratePrescreenSteps } from '../utils/generatePrescreenSteps';
 import { GeneratePetTestSteps } from '../utils/generatePetTestSteps';
+import { GenerateSmartTestSteps } from '../utils/generateSmartTestSteps';
 import { RightButtonContainer } from '../../../shared/styles/styles';
 import { ROUTES } from '../../../shared/constants';
 import { db } from '../../../config/firebase';
-import { calculateTemperament } from '../utils/calculatePetTemperament';
+import { calculatePetTemperament } from '../utils/calculatePetTemperament';
+import { calculateSmartTestResult } from '../utils/calculateSmartTestTemperament';
 import { TEMPERAMENT_MAPPING } from '../constants/petTest';
 import { POINTS_MAP, THRESHOLDS } from '../constants/prescreening';
 import { calculateAdoptionReadiness } from '../utils/calculatePrescreenReadiness';
@@ -24,16 +26,15 @@ export const ReviewContainer = () => {
   const userRef = doc(db, 'users', user.email);
 
   const { userResponses, category } = state || {};
-  const petTestResult = calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
-  console.log(petTestResult, 'pet test res');
-  console.log(userResponses, 'answer');
 
   const calculateResults = (type) => {
     switch (type) {
       case 'petTest':
-        return calculateTemperament(userResponses, TEMPERAMENT_MAPPING);
+        return calculatePetTemperament(userResponses, TEMPERAMENT_MAPPING);
       case 'prescreen':
         return calculateAdoptionReadiness(userResponses, POINTS_MAP, THRESHOLDS);
+      case 'smartTest':
+        return calculateSmartTestResult(userResponses);
       default:
         return null;
     }
@@ -44,7 +45,7 @@ export const ReviewContainer = () => {
       case 'prescreen':
         return GeneratePrescreenSteps();
       case 'smartTest':
-        return GeneratePrescreenSteps();
+        return GenerateSmartTestSteps();
       case 'petTest':
         return GeneratePetTestSteps();
       default:
@@ -83,10 +84,15 @@ export const ReviewContainer = () => {
   const generatedSteps = renderSteps(category);
   const labels = getLabelValues(generatedSteps);
 
-  const mapUserResponsesToLabels = () => {
+  const mapUserResponsesToLabels = (testcategory) => {
     const mappedQuestions = userResponses.map((response) => {
       const label = labels[response.questionIndex];
-
+      if (testcategory === 'smartTest') {
+        return {
+          question: response.response,
+          response: '',
+        };
+      }
       return {
         question: label,
         response: response.response,
@@ -96,7 +102,7 @@ export const ReviewContainer = () => {
     return mappedQuestions;
   };
 
-  const data = mapUserResponsesToLabels();
+  const data = mapUserResponsesToLabels(category);
 
   const handleSubmit = () => {
     submitResults(category);
