@@ -5,6 +5,7 @@ import Twitter from '../assets/icons/Twitter';
 export const ROUTES = {
   root: '/',
   dashboard: '/dashboard',
+  dashboardRedirect: '/dashboard-redirect',
   about: '/about',
   auth: '/auth',
   meettheteam: '/meettheteam',
@@ -21,6 +22,7 @@ export const ROUTES = {
   institutionDashboard: '/institution-dashboard',
   login: '/login',
   resetPassword: '/reset-password',
+  addPet: '/add-pet',
 };
 
 export const LanguageKeysEnum = {

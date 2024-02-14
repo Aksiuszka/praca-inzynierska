@@ -13,7 +13,7 @@ export const PAGES = [
 ];
 
 export const SETTINGS = [
-  { title: 'dashboard', path: ROUTES.userDashboard, icon: <Dashboard /> },
+  { title: 'dashboard', path: ROUTES.dashboardRedirect, icon: <Dashboard /> },
   { title: 'profile', path: ROUTES.profile, icon: <Profile /> },
   { title: 'logout', path: ROUTES.root, icon: <Logout /> },
 ];

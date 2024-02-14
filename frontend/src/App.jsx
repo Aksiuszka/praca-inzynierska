@@ -24,6 +24,7 @@ import { ReviewContainer as Review } from './pages/Prescreening/containers/Revie
 import Login from './pages/Auth/components/Login';
 import ForgotPassword from './pages/Auth/components/ForgotPassword/ForgotPassword';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
+import { DashboardContainer } from './pages/Dashboard/containers/DashboardContainer';
 
 const App = () => {
   useEffect(() => {
@@ -106,6 +107,8 @@ const App = () => {
             <Route path={ROUTES.profile} element={<UserDashboard />} />
             <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
             <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
+            <Route path={ROUTES.addPet} element={<InstitutionDashboard />} />
+            <Route path={ROUTES.dashboardRedirect} element={<DashboardContainer />} />
           </Route>
         </Routes>
       </Layout>

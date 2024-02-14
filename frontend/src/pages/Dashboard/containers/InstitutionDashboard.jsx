@@ -10,7 +10,7 @@ export const InstitutionDashboardContainer = () => {
       <CustomGrid color='green' sx={{ py: '3rem' }}>
         <Grid item sx={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           <Typography variant='display' sx={{ color: (theme) => theme.palette.text.primary }}>
-            Hej hej Joanna!
+            Hej hej Joanna !
           </Typography>
           <br />
           <Typography variant='paragraph'>

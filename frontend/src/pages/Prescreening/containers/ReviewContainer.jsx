@@ -74,6 +74,9 @@ export const ReviewContainer = () => {
         });
         break;
       case 'smartTest':
+        updateDoc(userRef, {
+          smartTest: testResults,
+        });
         break;
       default:
         return null;
