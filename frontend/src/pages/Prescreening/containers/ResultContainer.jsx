@@ -22,6 +22,7 @@ import FaqItem from '../../../shared/components/FAQ';
 import ThinkingMan from '../../../shared/assets/images/results/prescreening/ThinkingMan';
 import { newPetExpectationsData, newPetPreparationData } from '../data/common';
 import { renderPetResultImg } from '../utils/renderPetTemperamentPicture';
+import { renderSmartTestResultImg } from '../utils/renderSmartTestPicture';
 
 export const ResultContainer = () => {
   const { t } = useTranslation();
@@ -30,7 +31,6 @@ export const ResultContainer = () => {
 
   const { state } = useMemo(() => location, [location]);
   const { category, testResults: result } = state || {};
-  console.log(result);
   const { data, color } = getPetTestResultInfo(result);
 
   const renderTest = (type) => {
@@ -170,7 +170,12 @@ export const ResultContainer = () => {
     );
   }
   if (category === 'smartTest') {
-    return <ColumnContainer>{result}</ColumnContainer>;
+    return (
+      <ColumnContainer>
+        <div>{renderSmartTestResultImg(result)}</div>{' '}
+        <SliderComponent variant='petTest' information={data} color={color} />
+      </ColumnContainer>
+    );
   }
   return (
     category === 'petTest' && (
