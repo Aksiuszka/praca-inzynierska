@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Typography, Grid, Stack, Container } from '@mui/material';
 import { CustomGrid, WrapContainer, ColumnContainer } from '../../../shared/styles/styles';
 import CustomButton from '../../../shared/components/Button';
@@ -5,6 +6,11 @@ import { INSTITUTION_LINK_ITEMS } from '../data/resultsData';
 import CoffeeGirl from '../../../shared/assets/images/misc/CoffeGirl';
 
 export const InstitutionDashboardContainer = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (route) => {
+    navigate(route);
+  };
   return (
     <WrapContainer>
       <CustomGrid color='green' sx={{ py: '3rem' }}>
@@ -36,7 +42,11 @@ export const InstitutionDashboardContainer = () => {
       </Stack>
       <Container sx={{ display: 'flex', gap: '10rem' }}>
         {INSTITUTION_LINK_ITEMS.map((item) => (
-          <ColumnContainer key={item.id} sx={{ width: '28rem', textAlign: 'center' }}>
+          <ColumnContainer
+            key={item.id}
+            sx={{ width: '28rem', textAlign: 'center' }}
+            onClick={() => handleClick(item.route)}
+          >
             <div>{item.icon}</div>
             <Typography variant='headline'>{item.title}</Typography>
             <Typography variant='paragraph'>{item.content}</Typography>
