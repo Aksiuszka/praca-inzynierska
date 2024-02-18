@@ -31,7 +31,7 @@ export const INSTITUTION_LINK_ITEMS = [
   {
     icon: <SmartTestResultSvg />,
     title: 'Dodaj podopiecznego',
-    route: ROUTES.prescreening,
+    route: ROUTES.addPet,
     content:
       'Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing.',
   },

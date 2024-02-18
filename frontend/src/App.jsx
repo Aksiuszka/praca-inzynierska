@@ -25,6 +25,7 @@ import Login from './pages/Auth/components/Login';
 import ForgotPassword from './pages/Auth/components/ForgotPassword/ForgotPassword';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import { DashboardContainer } from './pages/Dashboard/containers/DashboardContainer';
+import { PetFormContainer } from './pages/Pet/containers/PetFormContainer';
 
 const App = () => {
   useEffect(() => {
@@ -107,7 +108,7 @@ const App = () => {
             <Route path={ROUTES.profile} element={<UserDashboard />} />
             <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
             <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
-            <Route path={ROUTES.addPet} element={<InstitutionDashboard />} />
+            <Route path={ROUTES.addPet} element={<PetFormContainer />} />
             <Route path={ROUTES.dashboardRedirect} element={<DashboardContainer />} />
           </Route>
         </Routes>
