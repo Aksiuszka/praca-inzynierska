@@ -4,26 +4,21 @@ import { Grid, Typography, Select, MenuItem, InputLabel, FormControl } from '@mu
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../../config/firebase';
-import { CustomContainer } from '../styles';
+import { CustomContainer } from '../style';
 import Input from '../../../shared/components/Input';
 import Button from '../../../shared/components/Button';
-import { VOIVODESHIPS } from '../constants';
+import { VOIVODESHIPS } from '../data';
 import { Modal } from '../../../shared/components/Modal';
-import DigitalPet from '../../../shared/assets/images/misc/DigitalPet';
+import ProfileLogo from '../../../shared/assets/svg/ProfileLogo';
 
-export const PetFormContainer = () => {
+export const InstitutionProfileContainer = () => {
   const [formData, setFormData] = useState({
-    species: '',
     name: '',
-    breed: '',
+    address: '',
     town: '',
     post: '',
-    email: '',
-    birthDate: '',
     area: '',
     phone: '',
-    temperament: '',
-    note: '',
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,21 +38,16 @@ export const PetFormContainer = () => {
       file: file || null,
     };
     if (submitData && submitData.email && file) {
-      setDoc(doc(db, 'pets', submitData.email), {
-        species: submitData.species,
+      setDoc(doc(db, 'institutionProfile', submitData.email), {
         name: submitData.name,
-        breed: submitData.breed,
+        address: submitData.address,
         town: submitData.town,
         post: submitData.post,
-        email: submitData.email,
-        birthDate: submitData.birthDate,
         area: submitData.area,
         phone: submitData.phone,
-        temperament: submitData.temperament,
-        note: submitData.note,
         file: submitData.file,
       });
-      navigate('/pet-list');
+      navigate('/dashboard-redirect');
     }
   };
 
@@ -85,7 +75,7 @@ export const PetFormContainer = () => {
                 }}
               />
             ) : (
-              <DigitalPet />
+              <ProfileLogo />
             )}
             <label htmlFor='upload-input'>
               Wybierz zdjęcie
@@ -98,15 +88,12 @@ export const PetFormContainer = () => {
               />
             </label>
           </CustomContainer>
-          <Typography variant='decorated'>Dodaj podopiecznego</Typography>
+          <Typography variant='decorated'>Informacje Profilowe</Typography>
         </CustomContainer>
         <CustomContainer>
           <Grid container item sm={12} md={6} sx={{ gap: '2rem', flexDirection: 'column' }}>
             <Input sx={{ width: '23rem' }} name='name' onChange={handleChange}>
-              Nazwa
-            </Input>
-            <Input sx={{ width: '23rem' }} name='breed' onChange={handleChange}>
-              Rasa
+              Nazwa Organizacji
             </Input>
             <Input sx={{ width: '23rem' }} name='town' onChange={handleChange}>
               Miasto
@@ -114,27 +101,10 @@ export const PetFormContainer = () => {
             <Input sx={{ width: '23rem' }} name='post' onChange={handleChange}>
               Kod Pocztowy
             </Input>
-            <Input sx={{ width: '23rem' }} name='email' onChange={handleChange}>
-              Email do kontaktu
-            </Input>
           </Grid>
           <Grid container item sm={12} md={6} sx={{ gap: '2rem', flexDirection: 'column' }}>
-            <FormControl sx={{ marginBlockStart: '1.3rem' }}>
-              <InputLabel sx={{ fontFamily: 'Poppins' }}>Gatunek</InputLabel>
-              <Select
-                sx={{ width: '23rem' }}
-                id='demo-simple-select'
-                label='Gatunek'
-                value={formData.species}
-                onChange={handleChange}
-                name='species'
-              >
-                <MenuItem value='Pies'>Pies</MenuItem>
-                <MenuItem value='Kot'>Kot</MenuItem>
-              </Select>
-            </FormControl>
-            <Input sx={{ width: '23rem' }} name='birthDate' onChange={handleChange}>
-              Oszacowany Rok Urodzenia
+            <Input sx={{ width: '23rem' }} name='address' onChange={handleChange}>
+              Adres
             </Input>
             <FormControl sx={{ marginBlockStart: '1.3rem' }}>
               <InputLabel sx={{ fontFamily: 'Poppins' }}>Województwo</InputLabel>
@@ -156,20 +126,11 @@ export const PetFormContainer = () => {
             <Input sx={{ width: '23rem' }} name='phone' onChange={handleChange}>
               Telefon do kontaktu
             </Input>
-            <Input sx={{ width: '23rem' }} name='temperament' onChange={handleChange}>
-              Temperament
-            </Input>
           </Grid>
         </CustomContainer>
-        <div style={{ marginTop: '1.5rem' }}>
-          <Input sx={{ width: '100%' }} name='note' onChange={handleChange} type='text' multiline>
-            Notka o zwierzęciu
-          </Input>
-        </div>
-
         <Button
           variant='regular'
-          label='Zapisz zwierzę'
+          label='Zapisz dane'
           type='submit'
           sx={{ marginTop: '3rem', width: '100%' }}
         />
@@ -177,10 +138,8 @@ export const PetFormContainer = () => {
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal} variant='login'>
           <Typography variant='headline'>Hurra! 🎉</Typography>
-          <Typography variant='paragraph'>
-            Konto zostało założone.🐧 Chcesz się zalogować? Klikaj! ✨
-          </Typography>
-          <Button variant='regular' label='Zaloguj się' />
+          <Typography variant='paragraph'>Dane zapisane.🐧 ✨</Typography>
+          <Button variant='regular' label='Zamknij' />
         </Modal>
       )}
     </>
