@@ -40,6 +40,7 @@ export const Stepper = ({
           width: '100%',
           pt: 5,
           display: 'flex',
+          flexDirection: category === 'smartTest' ? 'column' : 'row',
           flexWrap: 'wrap',
           justifyContent: 'center',
         }}

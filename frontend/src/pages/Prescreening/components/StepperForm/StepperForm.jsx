@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-array-index-key */
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../../shared/constants';
@@ -136,19 +136,40 @@ export const StepperForm = ({ category }) => {
       const options = question[questionNumber];
 
       return (
-        <div key={index} style={{ width: '40rem', padding: '1rem' }}>
+        <div
+          key={index}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+            width: '100%',
+            padding: '1rem',
+            height: '3rem',
+          }}
+        >
           {options.map((option, i) => (
-            <label key={i}>
-              <input
-                style={{ margin: '1rem', fontFamily: 'Poppins' }}
-                type='radio'
-                name={`question_${questionNumber}`}
-                value={option}
-                checked={selectedValues[questionNumber] === option}
-                onChange={() => handleSmartTestRadioChange(questionNumber, option)}
-              />
-              {option}
-            </label>
+            <Fragment key={i}>
+              <label
+                style={{
+                  marginBottom: '1rem',
+                  fontFamily: 'Poppins',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '1rem',
+                }}
+              >
+                <input
+                  type='radio'
+                  name={`question_${questionNumber}`}
+                  value={option}
+                  checked={selectedValues[questionNumber] === option}
+                  onChange={() => handleSmartTestRadioChange(questionNumber, option)}
+                />
+                {option}
+              </label>
+            </Fragment>
           ))}
         </div>
       );
