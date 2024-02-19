@@ -23,6 +23,8 @@ export const ROUTES = {
   login: '/login',
   resetPassword: '/reset-password',
   addPet: '/add-pet',
+  petList: '/pet-list',
+  institutionProfile: '/institution-profile',
 };
 
 export const LanguageKeysEnum = {

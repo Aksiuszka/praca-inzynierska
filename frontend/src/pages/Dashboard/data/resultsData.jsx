@@ -38,14 +38,14 @@ export const INSTITUTION_LINK_ITEMS = [
   {
     icon: <PrescreeningResultsSvg />,
     title: 'Dane Organizacji',
-    route: ROUTES.smartTest,
+    route: ROUTES.profile,
     content:
       'Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing.',
   },
   {
     icon: <DataSvg />,
     title: 'Twoi podopieczni',
-    route: ROUTES.petTest,
+    route: ROUTES.petList,
     content:
       'Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing.',
   },
