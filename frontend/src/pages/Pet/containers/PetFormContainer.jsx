@@ -57,6 +57,7 @@ export const PetFormContainer = () => {
         note: submitData.note,
         file: submitData.file,
       });
+      setIsModalOpen(true);
       navigate('/pet-list');
     }
   };
@@ -156,9 +157,22 @@ export const PetFormContainer = () => {
             <Input sx={{ width: '23rem' }} name='phone' onChange={handleChange}>
               Telefon do kontaktu
             </Input>
-            <Input sx={{ width: '23rem' }} name='temperament' onChange={handleChange}>
-              Temperament
-            </Input>
+            <FormControl sx={{ marginBlockStart: '1.3rem' }}>
+              <InputLabel sx={{ fontFamily: 'Poppins' }}>Temperament</InputLabel>
+              <Select
+                sx={{ width: '23rem' }}
+                id='demo-simple-select'
+                label='Temperament'
+                value={formData.temperament}
+                onChange={handleChange}
+                name='temperament'
+              >
+                <MenuItem value='choleric'>Choleryk</MenuItem>
+                <MenuItem value='melancholic'>Melancholik</MenuItem>
+                <MenuItem value='sanguine'>Sangwinik</MenuItem>
+                <MenuItem value='flegmatic'>Flegmatyk</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
         </CustomContainer>
         <div style={{ marginTop: '1.5rem' }}>
@@ -176,10 +190,8 @@ export const PetFormContainer = () => {
       </form>
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal} variant='login'>
-          <Typography variant='headline'>Hurra! 🎉</Typography>
-          <Typography variant='paragraph'>
-            Konto zostało założone.🐧 Chcesz się zalogować? Klikaj! ✨
-          </Typography>
+          <Typography variant='headline'>Zapisany! 👌</Typography>
+          <Typography variant='paragraph'>Udało Ci się zapisać pupila do bazy! ✨</Typography>
           <Button variant='regular' label='Zaloguj się' />
         </Modal>
       )}
