@@ -57,7 +57,10 @@ export const PetFormContainer = () => {
         note: submitData.note,
         file: submitData.file,
       });
+<<<<<<< HEAD
       setIsModalOpen(true);
+=======
+>>>>>>> main
       navigate('/pet-list');
     }
   };
