@@ -33,7 +33,6 @@ export const PetListContainer = () => {
     };
 
     fetchUserListData();
-    console.log(petList);
   }, [email, petList]);
 
   return (

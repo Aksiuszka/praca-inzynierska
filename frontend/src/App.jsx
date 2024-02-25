@@ -27,7 +27,8 @@ import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import { DashboardContainer } from './pages/Dashboard/containers/DashboardContainer';
 import { PetFormContainer } from './pages/Pet/containers/PetFormContainer';
 import { PetListContainer } from './pages/Pet/containers/PetListContainer';
-import { InstitutionProfileContainer } from './pages/Profile/containers/InstitutionProfileContainer';
+import { ProfileContainer } from './pages/Profile/containers/ProfileContainer';
+import { PetProfileContainer } from './pages/Profile/containers/PetProfileContainer';
 
 const App = () => {
   useEffect(() => {
@@ -100,6 +101,7 @@ const App = () => {
           <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
           <Route path={ROUTES.resetPassword} element={<ForgotPassword />} />
           <Route path={ROUTES.login} element={<Login />} />
+          <Route path={ROUTES.petDetails} element={<PetProfileContainer />} />
           <Route path={ROUTES.root} element={<ProtectedRoute />}>
             <Route path={ROUTES.dashboard} element={<Dashboard />} />
             <Route path={ROUTES.prescreening} element={<Prescreening />} />
@@ -107,13 +109,12 @@ const App = () => {
             <Route path={ROUTES.smartTest} element={<SmartTest />} />
             <Route path={ROUTES.review} element={<Review />} />
             <Route path={ROUTES.result} element={<Result />} />
-            <Route path={ROUTES.profile} element={<InstitutionProfileContainer />} />
             <Route path={ROUTES.userDashboard} element={<UserDashboard />} />
             <Route path={ROUTES.institutionDashboard} element={<InstitutionDashboard />} />
             <Route path={ROUTES.addPet} element={<PetFormContainer />} />
             <Route path={ROUTES.dashboardRedirect} element={<DashboardContainer />} />
             <Route path={ROUTES.petList} element={<PetListContainer />} />
-            <Route path={ROUTES.institutionProfile} element={<InstitutionProfileContainer />} />
+            <Route path={ROUTES.profileRedirect} element={<ProfileContainer />} />
           </Route>
         </Routes>
       </Layout>
