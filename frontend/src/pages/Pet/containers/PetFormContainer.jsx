@@ -58,7 +58,6 @@ export const PetFormContainer = () => {
         file: submitData.file,
       });
       setIsModalOpen(true);
-
       navigate('/pet-list');
     }
   };
