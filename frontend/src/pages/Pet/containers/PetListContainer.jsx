@@ -22,18 +22,19 @@ export const PetListContainer = () => {
   const { email, username } = useSelector((data) => data.auth);
   const blobUrl = 'blob:http://localhost:3000/41cdd43d-b294-445b-96c5-8a659524a2d5';
   const docRef = doc(db, 'pets', email);
-  //   useEffect(() => {
-  //     const fetchUserListData = async () => {
-  //       if (email && Object.keys(petList).length === 0) {
-  //         const userdata = await getDoc(docRef);
-  //         const fetchedPetList = userdata.data();
-  //         fetchedPetList.fileUrl = blobToUrl(fetchedPetList.file);
-  //         setPetList(fetchedPetList);
-  //       }
-  //     };
+  useEffect(() => {
+    const fetchUserListData = async () => {
+      if (email && Object.keys(petList).length === 0) {
+        const userdata = await getDoc(docRef);
+        const fetchedPetList = userdata.data();
+        fetchedPetList.fileUrl = blobToUrl(fetchedPetList.file);
+        setPetList(fetchedPetList);
+      }
+    };
 
-  //     fetchUserListData();
-  //   }, [email, petList]);
+    fetchUserListData();
+    console.log(petList);
+  }, [email, petList]);
 
   return (
     <PinkCard>
