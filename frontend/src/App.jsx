@@ -9,6 +9,7 @@ import { InstitutionDashboardContainer as InstitutionDashboard } from './pages/D
 import { AboutContainer as About } from './pages/About';
 import { ProtectedRoute } from './shared/components/ProtectedRoute/ProtectedRoute';
 import Contact from './pages/Contact';
+import { EmailContainer } from './pages/Contact/containers/EmailContainer';
 import Auth from './pages/Auth';
 import Layout from './shared/components/Layouts/MainLayout';
 import Meettheteam from './pages/MeetTheTeam';
@@ -102,6 +103,7 @@ const App = () => {
           <Route path={ROUTES.resetPassword} element={<ForgotPassword />} />
           <Route path={ROUTES.login} element={<Login />} />
           <Route path={ROUTES.petDetails} element={<PetProfileContainer />} />
+          <Route path={ROUTES.email} element={<EmailContainer />} />
           <Route path={ROUTES.root} element={<ProtectedRoute />}>
             <Route path={ROUTES.dashboard} element={<Dashboard />} />
             <Route path={ROUTES.prescreening} element={<Prescreening />} />
