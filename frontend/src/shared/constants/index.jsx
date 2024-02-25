@@ -25,6 +25,8 @@ export const ROUTES = {
   addPet: '/add-pet',
   petList: '/pet-list',
   institutionProfile: '/institution-profile',
+  profileRedirect: '/profile-redirect',
+  petDetails: '/pet',
 };
 
 export const LanguageKeysEnum = {
