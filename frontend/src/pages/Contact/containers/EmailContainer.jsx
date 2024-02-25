@@ -40,6 +40,7 @@ export const EmailContainer = () => {
 
   return (
     <>
+      EMAIL UI HERE
       <ContactUI onSubmit={handleSubmit} loading={loading} updateParentRefs={updateParentRefs} />
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
