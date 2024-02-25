@@ -4,13 +4,13 @@ import { SMART_TEST_QUESTION } from '../constants/smartTest';
 const getTemperamentByIndex = (index) => {
   switch (index) {
     case 0:
-      return 'melancholic';
-    case 1:
-      return 'phlegmatic';
-    case 2:
       return 'sanguine';
-    case 3:
+    case 1:
       return 'choleric';
+    case 2:
+      return 'melancholic';
+    case 3:
+      return 'flegmatic';
     default:
       return '';
   }
