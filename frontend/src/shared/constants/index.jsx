@@ -27,6 +27,7 @@ export const ROUTES = {
   institutionProfile: '/institution-profile',
   profileRedirect: '/profile-redirect',
   petDetails: '/pet',
+  email: '/email',
 };
 
 export const LanguageKeysEnum = {
