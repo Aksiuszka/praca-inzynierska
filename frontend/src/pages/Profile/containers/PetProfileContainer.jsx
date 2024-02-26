@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, Typography, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
+import { Grid, Typography, Stack, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import { CustomContainer } from '../style';
 import DigitalPet from '../../../shared/assets/images/misc/DigitalPet';
 import CustomButton from '../../../shared/components/Button';
 import Input from '../../../shared/components/Input';
+import { Textfield } from '../../../shared/components/Textfield';
 import { Modal } from '../../../shared/components/Modal';
 
 export const PetProfileContainer = () => {
@@ -18,6 +19,9 @@ export const PetProfileContainer = () => {
     post: '',
     area: '',
     phone: '',
+    age: '',
+    temperament: '',
+    note: '',
   });
   const navigate = useNavigate();
 
@@ -82,19 +86,15 @@ export const PetProfileContainer = () => {
         <Typography color='#4E5460' variant='decoratedSmall'>
           Dane zwierzecia
         </Typography>
+
         <CustomButton variant='regular' label='adoptuj mnie' onClick={handleClick} />
       </CustomContainer>
+      <hr style={{ border: '2px solid pink', marginBottom: '2rem' }} />
       <CustomContainer>
         <Grid container item sm={12} md={6} sx={{ gap: '2rem', flexDirection: 'column' }}>
-          <Input sx={{ width: '33rem' }} name='name' value={(formData.name && formData.name) || ''}>
-            Imię
-          </Input>
-          <Input sx={{ width: '33rem' }} name='town' value={(formData.town && formData.town) || ''}>
-            Miasto
-          </Input>
-          <Input sx={{ width: '33rem' }} name='post' value={(formData.post && formData.post) || ''}>
-            Wiek
-          </Input>
+          <Textfield label='Imię'> {(formData.name && formData.name) || 'Faficzekk'}</Textfield>
+          <Textfield label='Miasto'> {(formData.town && formData.town) || 'Warszawa'}</Textfield>
+          <Textfield label='Wiek'> {(formData.age && formData.age) || '3lata'}</Textfield>
         </Grid>
         <Grid
           container
@@ -104,31 +104,17 @@ export const PetProfileContainer = () => {
           sx={{
             gap: '2rem',
             flexDirection: 'column',
-            justifyContent: 'end',
-            alignItems: 'end',
+            justifyContent: 'start',
+            alignItems: 'start',
           }}
         >
-          <Input
-            sx={{ width: '33rem' }}
-            name='address'
-            value={(formData.address && formData.address) || ''}
-          >
-            Adres
-          </Input>
-          <Input
-            sx={{ width: '33rem' }}
-            name='phone'
-            value={(formData.phone && formData.phone) || ''}
-          >
-            Telefon do kontaktu
-          </Input>
-          <Input
-            sx={{ width: '33rem' }}
-            name='phone'
-            value={(formData.phone && formData.phone) || ''}
-          >
-            Temperament
-          </Input>
+          <Textfield label='Adres'>
+            {(formData.address && formData.address) || 'Faficzekk'}
+          </Textfield>
+          <Textfield label='Telefon'> {(formData.phone && formData.phone) || 'Warszawa'}</Textfield>
+          <Textfield label='Temperament'>
+            {(formData.temperament && formData.temperament) || '3lata'}
+          </Textfield>
         </Grid>
       </CustomContainer>
       <CustomContainer
@@ -155,7 +141,7 @@ export const PetProfileContainer = () => {
         }}
       >
         <Typography color='#4E5460' variant='paragraph'>
-          Tu jest wpisana notka
+          {(formData.note && formData.note) || 'Fallback notki'}
         </Typography>
       </CustomContainer>
       {isModalOpen && (
