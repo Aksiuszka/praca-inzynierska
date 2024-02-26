@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import emailjs from '@emailjs/browser';
 import { Typography } from '@mui/material';
-import ContactUI from '../components/ContactUI';
+import { EmailUI } from '../components/EmailUI';
 import { Modal } from '../../../shared/components/Modal';
 
 export const EmailContainer = () => {
@@ -40,8 +40,7 @@ export const EmailContainer = () => {
 
   return (
     <>
-      EMAIL UI HEREczxczxc
-      <ContactUI onSubmit={handleSubmit} loading={loading} updateParentRefs={updateParentRefs} />
+      <EmailUI onSubmit={handleSubmit} loading={loading} updateParentRefs={updateParentRefs} />
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <Typography variant='headline'>Hurra! 🎉</Typography>
