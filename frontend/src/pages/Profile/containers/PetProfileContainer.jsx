@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { Grid, Typography, Stack, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
+import { getBlob } from 'firebase/storage';
 import { CustomContainer } from '../style';
 import DigitalPet from '../../../shared/assets/images/misc/DigitalPet';
 import CustomButton from '../../../shared/components/Button';
@@ -9,6 +10,11 @@ import Input from '../../../shared/components/Input';
 import { Textfield } from '../../../shared/components/Textfield';
 import { Modal } from '../../../shared/components/Modal';
 import { petArr } from '../../Pet/mock/mockData';
+
+const extractStringBeforeHyphen = (documentId) => {
+  const hyphenIndex = documentId.indexOf('-');
+  return hyphenIndex !== -1 ? documentId.substring(0, hyphenIndex) : documentId;
+};
 
 export const PetProfileContainer = () => {
   const { id } = useParams();
@@ -25,13 +31,17 @@ export const PetProfileContainer = () => {
     temperament: '',
     note: '',
   });
+  const location = useLocation();
+  const { state } = useMemo(() => location, [location]);
   const navigate = useNavigate();
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  const selectedPet = petArr.find((pet, index) => `${pet.name}-${index}` === id);
+  const docuId = extractStringBeforeHyphen(id);
+  const selectedPet = state.petList.find((pet) => `${pet.id}` === docuId);
+  console.log(state.petList, id, selectedPet);
 
   const handleClick = () => {
     setIsModalOpen(true);
@@ -48,19 +58,19 @@ export const PetProfileContainer = () => {
     if (selectedPet) {
       // Update the state with the details of the selected pet
       setFormData({
-        name: selectedPet.name,
-        address: selectedPet.address,
-        town: selectedPet.town,
-        post: selectedPet.post,
-        area: selectedPet.area,
-        phone: selectedPet.phone,
-        age: selectedPet.age,
-        temperament: selectedPet.temperament,
-        note: selectedPet.note,
+        name: selectedPet.data.name,
+        address: selectedPet.data.address,
+        town: selectedPet.data.town,
+        post: selectedPet.data.post,
+        area: selectedPet.data.area,
+        phone: selectedPet.data.phone,
+        age: selectedPet.data.age,
+        file: selectedPet.data.file,
+        temperament: selectedPet.data.temperament,
+        note: selectedPet.data.note,
       });
     }
   }, [selectedPet]);
-
   return (
     <div style={{ width: '70%' }}>
       <CustomContainer style={{ marginBlock: '2rem', justifyContent: 'start' }}>
@@ -71,9 +81,9 @@ export const PetProfileContainer = () => {
             alignItems: 'start',
           }}
         >
-          {file ? (
+          {formData.file ? (
             <img
-              src={file}
+              src={formData.file}
               alt='img'
               style={{
                 borderRadius: '50%',
