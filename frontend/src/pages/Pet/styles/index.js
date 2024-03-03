@@ -39,7 +39,8 @@ export const GridContainer = styled(Grid)`
 `;
 
 export const TopSection = styled('img')`
-  height: 100%;
+  height: 10.5rem;
+  width: 100%;
   background-size: cover;
   background-position: center;
 `;

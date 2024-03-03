@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Grid, Typography, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
 import { db } from '../../../config/firebase';
 import { CustomContainer } from '../styles';
 import Input from '../../../shared/components/Input';
@@ -29,6 +31,7 @@ export const PetFormContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [file, setFile] = useState();
   const navigate = useNavigate();
+  let saveData;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,14 +39,49 @@ export const PetFormContainer = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const storage = getStorage();
+    const imageRef = ref(storage, `pets/${uuid()}`);
+    const uploadTask = uploadBytes(imageRef, file)
+      .then((snapshot) => {
+        getDownloadURL(snapshot.ref)
+          .then((url) => {
+            saveData = url;
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+
+    const petRef = doc(db, 'pets', formData.email, 'PetArray', formData.name);
+    const temperamentRef = doc(db, 'pets', formData.temperament, 'PetArray', formData.name);
+
+    await uploadTask;
+    const downloadURL = await getDownloadURL(imageRef);
     const submitData = {
       ...formData,
-      file: file || null,
+      file: downloadURL || null,
     };
-    if (submitData && submitData.email && file) {
-      setDoc(doc(db, 'pets', submitData.email), {
+    if (submitData && submitData.email) {
+      await setDoc(petRef, {
+        species: submitData.species,
+        name: submitData.name,
+        breed: submitData.breed,
+        town: submitData.town,
+        post: submitData.post,
+        email: submitData.email,
+        birthDate: submitData.birthDate,
+        area: submitData.area,
+        phone: submitData.phone,
+        temperament: submitData.temperament,
+        note: submitData.note,
+        file: submitData.file,
+      });
+      await setDoc(temperamentRef, {
         species: submitData.species,
         name: submitData.name,
         breed: submitData.breed,
@@ -61,6 +99,32 @@ export const PetFormContainer = () => {
       navigate('/pet-list');
     }
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const submitData = {
+  //     ...formData,
+  //     file: file || null,
+  //   };
+  //   if (submitData && submitData.email && file) {
+  //     setDoc(doc(db, 'pets', submitData.email), {
+  //       species: submitData.species,
+  //       name: submitData.name,
+  //       breed: submitData.breed,
+  //       town: submitData.town,
+  //       post: submitData.post,
+  //       email: submitData.email,
+  //       birthDate: submitData.birthDate,
+  //       area: submitData.area,
+  //       phone: submitData.phone,
+  //       temperament: submitData.temperament,
+  //       note: submitData.note,
+  //       file: submitData.file,
+  //     });
+  //     setIsModalOpen(true);
+  //     navigate('/pet-list');
+  //   }
+  // };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -93,8 +157,9 @@ export const PetFormContainer = () => {
               <input
                 id='upload-input'
                 style={{ display: 'none' }}
+                accept='image/png,image/jpeg'
                 name='img'
-                onChange={(e) => setFile(URL.createObjectURL(e.target.files[0]))}
+                onChange={(e) => setFile(e.target.files[0])}
                 type='file'
               />
             </label>

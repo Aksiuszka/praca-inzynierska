@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, Grid, Stack, Container } from '@mui/material';
@@ -9,9 +10,11 @@ import { db } from '../../../config/firebase';
 import { Modal } from '../../../shared/components/Modal';
 import { LINK_ITEMS } from '../data/resultsData';
 import { getHeroImgInfo } from '../../../shared/utils/renderReadinessData';
+import { getTemperamentInfo } from '../../../shared/utils/renderTemperamentData';
 
 export const UserDashboardContainer = () => {
-  const [results, setResults] = useState({ prescreening: '' });
+  const [results, setResults] = useState({ prescreening: '', smartTest: '' });
+  const [modalContent, setModalContent] = useState({ title: '', content: '' });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { email, username } = useSelector((data) => data.auth);
   const firstName = username ? username.split(' ')[0] : null;
@@ -21,19 +24,45 @@ export const UserDashboardContainer = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  const handleClick = async () => {
+
+  // const { title, content } = getHeroImgInfo(results.prescreening);
+
+  const renderTestResult = (type, result) => {
+    let title;
+    let content;
+
+    switch (type) {
+      case 'smartTest':
+        ({ title, content } = getTemperamentInfo(result?.smartTest));
+        break;
+      case 'prescreening':
+        ({ title, content } = getHeroImgInfo(result?.prescreening));
+        break;
+      case 'data':
+        return console.log('elo');
+      default:
+        return null;
+    }
+    return { title, content };
+  };
+  const handleClick = async (id) => {
+    console.log(id, 'id!!!!!!!!!!!!!!!!!!!!!!!!!');
     try {
       const userdata = await getDoc(docRef);
       const profileDetails = userdata.data();
-      setResults({ prescreening: profileDetails.prescreening });
-      console.log('Cached document data:', userdata.data());
+      setResults({
+        prescreening: profileDetails.prescreening,
+        smartTest: profileDetails.smartTest,
+      });
     } catch (e) {
       console.log('Error getting cached document:', e);
     } finally {
+      renderTestResult(id, results);
+      const { title, content } = renderTestResult(id, results);
+      setModalContent({ title, content });
       setIsModalOpen(true);
     }
   };
-  const { title, content } = getHeroImgInfo(results.prescreening);
 
   return (
     <WrapContainer>
@@ -69,7 +98,7 @@ export const UserDashboardContainer = () => {
           <ColumnContainer
             key={item.id}
             sx={{ width: '28rem', textAlign: 'center' }}
-            onClick={handleClick}
+            onClick={() => handleClick(item.id)}
           >
             <div>{item.icon}</div>
             <Typography variant='headline'>{item.title}</Typography>
@@ -79,8 +108,8 @@ export const UserDashboardContainer = () => {
       </Container>
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <Typography variant='headline'>{title}</Typography>
-          <Typography variant='paragraph'>{content}</Typography>
+          <Typography variant='headline'>{modalContent.title}</Typography>
+          <Typography variant='paragraph'>{modalContent.content}</Typography>
         </Modal>
       )}
     </WrapContainer>

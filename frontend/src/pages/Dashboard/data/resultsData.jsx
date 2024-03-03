@@ -5,6 +5,7 @@ import PrescreeningResultsSvg from '../../../shared/assets/svg/PrescreeningResul
 
 export const LINK_ITEMS = [
   {
+    id: 'smartTest',
     icon: <SmartTestResultSvg />,
     title: 'Wyniki smartTestu',
     route: ROUTES.prescreening,
@@ -12,6 +13,7 @@ export const LINK_ITEMS = [
       'Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing.',
   },
   {
+    id: 'prescreening',
     icon: <PrescreeningResultsSvg />,
     title: 'Wyniki prescreeningu',
     route: ROUTES.smartTest,
@@ -19,9 +21,10 @@ export const LINK_ITEMS = [
       'Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing.',
   },
   {
+    id: 'data',
     icon: <DataSvg />,
     title: 'Twoje Dane',
-    route: ROUTES.petTest,
+    route: ROUTES.profileRedirect,
     content:
       'Lorem ipsum dolor sit amet, cotetur adipiscing. Lorem ipsum dolor sit amet, cotetur adipiscing.',
   },
