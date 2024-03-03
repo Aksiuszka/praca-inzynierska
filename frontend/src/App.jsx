@@ -102,8 +102,8 @@ const App = () => {
           <Route path={ROUTES.meettheteam} element={<Meettheteam />} />
           <Route path={ROUTES.resetPassword} element={<ForgotPassword />} />
           <Route path={ROUTES.login} element={<Login />} />
-          <Route path={ROUTES.petDetails} element={<PetProfileContainer />} />
           <Route path={ROUTES.email} element={<EmailContainer />} />
+          <Route path='pet-list/:id' element={<PetProfileContainer />} />
           <Route path={ROUTES.root} element={<ProtectedRoute />}>
             <Route path={ROUTES.dashboard} element={<Dashboard />} />
             <Route path={ROUTES.prescreening} element={<Prescreening />} />

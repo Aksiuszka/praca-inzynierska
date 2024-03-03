@@ -1,11 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import { Grid, Typography } from '@mui/material';
 import { GridContainer, BottomSection, CustomBox } from '../../styles';
 import DigitalPet from '../../../../shared/assets/images/misc/DigitalPet';
 import Bin from '../../../../shared/assets/icons/Bin';
 
-export const PetListItem = ({ name, town }) => {
+export const PetListItem = ({ name, town, id }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(id);
+  };
   return (
-    <GridContainer container>
+    <GridContainer container onClick={handleClick}>
       <Grid item xs={12}>
         {/* <TopSection src={img} elevation={3} /> */}
         <DigitalPet />

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Grid, Typography, Stack, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import { CustomContainer } from '../style';
 import DigitalPet from '../../../shared/assets/images/misc/DigitalPet';
@@ -8,8 +8,10 @@ import CustomButton from '../../../shared/components/Button';
 import Input from '../../../shared/components/Input';
 import { Textfield } from '../../../shared/components/Textfield';
 import { Modal } from '../../../shared/components/Modal';
+import { petArr } from '../../Pet/mock/mockData';
 
 export const PetProfileContainer = () => {
+  const { id } = useParams();
   const [file, setFile] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -29,6 +31,8 @@ export const PetProfileContainer = () => {
     setIsModalOpen(false);
   };
 
+  const selectedPet = petArr.find((pet, index) => `${pet.name}-${index}` === id);
+
   const handleClick = () => {
     setIsModalOpen(true);
   };
@@ -39,6 +43,23 @@ export const PetProfileContainer = () => {
   const handleContinue = () => {
     navigate('/email');
   };
+
+  useEffect(() => {
+    if (selectedPet) {
+      // Update the state with the details of the selected pet
+      setFormData({
+        name: selectedPet.name,
+        address: selectedPet.address,
+        town: selectedPet.town,
+        post: selectedPet.post,
+        area: selectedPet.area,
+        phone: selectedPet.phone,
+        age: selectedPet.age,
+        temperament: selectedPet.temperament,
+        note: selectedPet.note,
+      });
+    }
+  }, [selectedPet]);
 
   return (
     <div style={{ width: '70%' }}>
@@ -70,9 +91,11 @@ export const PetProfileContainer = () => {
           style={{ flexDirection: 'column', justifyContenf: 'center', alignItems: 'start', gap: 1 }}
         >
           <Typography variant='decorated' sx={{ margin: 0, padding: 0 }}>
-            Faficzek
+            {(formData.name && formData.name) || 'Faficzekk'}
           </Typography>
-          <Typography variant='paragraph'>Warszawskie schronisko Cztery Łapy</Typography>
+          <Typography variant='paragraph'>
+            {(formData.town && formData.town) || 'Warszawskie Schronisko 4 Łapy'}
+          </Typography>
         </CustomContainer>
       </CustomContainer>
       <CustomContainer
