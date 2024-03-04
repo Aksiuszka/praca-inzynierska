@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FormControl, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 
 const CustomRadioGroup = ({ onChange }) => {
@@ -8,6 +9,7 @@ const CustomRadioGroup = ({ onChange }) => {
   return (
     <FormControl component='fieldset' sx={{ width: '100', display: 'flex', alignItems: 'center' }}>
       <RadioGroup
+        required
         row
         onChange={handleRadioChange}
         sx={{
@@ -25,4 +27,7 @@ const CustomRadioGroup = ({ onChange }) => {
   );
 };
 
+CustomRadioGroup.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};
 export default CustomRadioGroup;

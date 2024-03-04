@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Grid, Typography, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
@@ -31,6 +32,7 @@ export const PetFormContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [file, setFile] = useState();
   const navigate = useNavigate();
+  const { email } = useSelector((data) => data.auth);
   let saveData;
 
   const handleChange = (e) => {
@@ -73,7 +75,7 @@ export const PetFormContainer = () => {
         breed: submitData.breed,
         town: submitData.town,
         post: submitData.post,
-        email: submitData.email,
+        email,
         birthDate: submitData.birthDate,
         area: submitData.area,
         phone: submitData.phone,
@@ -87,7 +89,7 @@ export const PetFormContainer = () => {
         breed: submitData.breed,
         town: submitData.town,
         post: submitData.post,
-        email: submitData.email,
+        email,
         birthDate: submitData.birthDate,
         area: submitData.area,
         phone: submitData.phone,
@@ -180,7 +182,7 @@ export const PetFormContainer = () => {
             <Input sx={{ width: '23rem' }} name='post' onChange={handleChange}>
               Kod Pocztowy
             </Input>
-            <Input sx={{ width: '23rem' }} name='email' onChange={handleChange}>
+            <Input sx={{ width: '23rem' }} name='email' value={email}>
               Email do kontaktu
             </Input>
           </Grid>
