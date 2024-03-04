@@ -49,10 +49,8 @@ export const PetListContainer = () => {
 
   const navigate = useNavigate();
   const handleClick = (id) => {
-    console.log(id);
     navigate(id, { state: { petList } });
   };
-  console.log(petList);
   return (
     <PinkCard>
       <Typography variant='decoratedSmall'>Twoi podopieczni!</Typography>

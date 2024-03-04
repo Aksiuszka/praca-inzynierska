@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Typography, Grid, Stack, Container } from '@mui/material';
 import { doc, getDoc } from 'firebase/firestore';
 import { CustomGrid, WrapContainer, ColumnContainer } from '../../../shared/styles/styles';
@@ -16,6 +17,7 @@ export const UserDashboardContainer = () => {
   const [results, setResults] = useState({ prescreening: '', smartTest: '' });
   const [modalContent, setModalContent] = useState({ title: '', content: '' });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const { email, username } = useSelector((data) => data.auth);
   const firstName = username ? username.split(' ')[0] : null;
   const name = firstName || email;
@@ -39,14 +41,13 @@ export const UserDashboardContainer = () => {
         ({ title, content } = getHeroImgInfo(result?.prescreening));
         break;
       case 'data':
-        return console.log('elo');
+        return navigate('/profile-redirect');
       default:
         return null;
     }
     return { title, content };
   };
   const handleClick = async (id) => {
-    console.log(id, 'id!!!!!!!!!!!!!!!!!!!!!!!!!');
     try {
       const userdata = await getDoc(docRef);
       const profileDetails = userdata.data();

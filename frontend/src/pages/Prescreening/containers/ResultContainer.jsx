@@ -1,7 +1,12 @@
-import { useMemo } from 'react';
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable import/no-useless-path-segments */
+/* eslint-disable no-unused-vars */
+import { useMemo, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { doc, getDocs, collection, query } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
 import { Typography, Grid } from '@mui/material';
+import { db } from '../../../config/firebase';
 import keys from '../../../locales/keys';
 import {
   ColumnContainer,
@@ -23,8 +28,11 @@ import ThinkingMan from '../../../shared/assets/images/results/prescreening/Thin
 import { newPetExpectationsData, newPetPreparationData } from '../data/common';
 import { renderPetResultImg } from '../utils/renderPetTemperamentPicture';
 import { renderSmartTestResultImg } from '../utils/renderSmartTestPicture';
+import { PinkCard } from '../../../pages/Pet/styles';
+import { PetListItem } from '../../../pages/Pet/components/PetListItem/PetListItem';
 
 export const ResultContainer = () => {
+  const [petList, setPetList] = useState([]);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
@@ -92,6 +100,33 @@ export const ResultContainer = () => {
   };
   const handleBack = () => {
     renderTest(category);
+  };
+
+  useEffect(() => {
+    if (category === 'smartTest' && petList.length === 0) {
+      const fetchUserListData = async () => {
+        try {
+          const q = query(collection(db, 'pets', result, 'PetArray'));
+          const querySnapshot = await getDocs(q);
+
+          const fetchedPetList = querySnapshot.docs.map((docu) => ({
+            id: docu.id,
+            data: docu.data(),
+          }));
+
+          setPetList(fetchedPetList);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+
+      fetchUserListData(); // Move this outside the try-catch block
+    }
+  }, [petList, result, category]);
+  console.log(petList);
+
+  const handleClick = (id) => {
+    console.log(id);
   };
 
   if (category === 'prescreen') {
@@ -172,8 +207,26 @@ export const ResultContainer = () => {
   if (category === 'smartTest') {
     return (
       <ColumnContainer>
-        <div>{renderSmartTestResultImg(result)}</div>{' '}
+        <div>{renderSmartTestResultImg(result)}</div>
         <SliderComponent variant='petTest' information={data} color={color} />
+        <PinkCard style={{ height: '100%', width: '70rem' }}>
+          <Typography variant='highlighted'>Te zwierzęta do Ciebie pasują!!</Typography>
+          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '4rem' }}>
+            {petList.length > 0
+              ? petList.map((pet, index) => (
+                  <PetListItem
+                    key={`${pet.id}-${index}`}
+                    id={`${pet.id}-${index}`}
+                    name={pet.data.name}
+                    town={pet.data.town}
+                    img={pet.data.file}
+                    handleClick={() => handleClick(`${pet.id}-${index}`)}
+                    email={pet.data.email}
+                  />
+                ))
+              : 'Nie masz dodanych podopiecznych'}
+          </div>
+        </PinkCard>
       </ColumnContainer>
     );
   }
