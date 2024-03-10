@@ -120,7 +120,7 @@ export const ResultContainer = () => {
         }
       };
 
-      fetchUserListData(); // Move this outside the try-catch block
+      fetchUserListData();
     }
   }, [petList, result, category]);
   console.log(petList);

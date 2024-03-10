@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import Box from '@mui/material/Box';
@@ -30,8 +30,8 @@ import {
 import CustomButton from '../Button';
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const { language, changeLanguage } = useLanguage();
   const { email, username, photoUrl } = useSelector((data) => data.auth);
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handleLanguageChange = (event, newLanguage) => {
+  const handleLanguageChange = (newLanguage) => {
     if (newLanguage !== null) {
       changeLanguage(newLanguage);
     }

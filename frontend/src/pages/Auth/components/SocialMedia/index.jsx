@@ -33,14 +33,10 @@ const SocialMedia = () => {
 
   useEffect(() => {
     if (value.email && value.token && value.username) {
-      // setDoc(doc(db, 'users', value.email), {
-      //   email: value.email,
-      //   role: 'subscriber',
-      // });
       dispatch(setCredentials(value));
       navigate('/');
     }
-  }, [dispatch, value.email, value.token, value.username, value]);
+  }, [dispatch, value.email, value.token, value.username, value, navigate]);
 
   const handleNavigation = () => {
     navigate('/reset-password');

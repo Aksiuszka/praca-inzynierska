@@ -7,7 +7,7 @@ export const calculatePetTemperament = (responses, temperamentMapping) => {
   };
 
   responses.forEach(({ questionIndex, response }) => {
-    const questionKey = `question${questionIndex + 1}`; // Adjust for 1-based index
+    const questionKey = `question${questionIndex + 1}`;
     Object.keys(temperamentMapping).forEach((temperament) => {
       if (temperamentMapping[temperament].traits.includes(questionKey)) {
         temperamentPoints[temperament] += response === 'yes' ? 1 : 0;

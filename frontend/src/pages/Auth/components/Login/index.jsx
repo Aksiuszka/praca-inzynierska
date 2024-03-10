@@ -63,18 +63,6 @@ const Login = () => {
     }
   }, [dispatch, values.email, values.token, values.username, values, navigate]);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   signInWithEmailAndPassword(auth, formData.email, formData.password)
-  //     .then((userCredential) => {
-  //       const { user } = userCredential;
-  //       navigate(ROUTES.root);
-  //       console.log(user);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
   return (
     <form onSubmit={handleLogin}>
       <AuthLayout>
