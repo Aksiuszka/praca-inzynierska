@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
 import { SMART_TEST_QUESTION } from '../constants/smartTest';
+
 const getTemperamentByIndex = (index) => {
   switch (index) {
     case 0:

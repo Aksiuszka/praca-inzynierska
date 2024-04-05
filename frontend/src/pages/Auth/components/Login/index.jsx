@@ -83,7 +83,7 @@ const Login = () => {
               Email
             </Input>
             <Input name='password' onChange={handleChange}>
-              Password
+              Hasło
             </Input>
             <CustomButton variant='regular' label='Zaloguj' size='small' type='submit' />
             <SocialMedia />

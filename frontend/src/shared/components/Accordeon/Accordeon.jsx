@@ -16,7 +16,7 @@ export const Accordeon = ({ data }) => {
             sx={{ marginInline: '2rem' }}
           >
             <Typography variant='highlighted' sx={{ fontWeight: '500' }}>
-              Question {index + 1} : {item.question}
+              Pytanie {index + 1} : {item.question}
             </Typography>
           </AccordionSummary>
           <AccordionDetails>

@@ -50,6 +50,7 @@ export const PetListContainer = () => {
   const navigate = useNavigate();
   const handleClick = (id) => {
     console.log(id);
+    navigate(id, { state: { petList } });
   };
 
   return (

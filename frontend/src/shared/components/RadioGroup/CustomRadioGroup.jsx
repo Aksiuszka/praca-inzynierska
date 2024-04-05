@@ -20,8 +20,8 @@ const CustomRadioGroup = ({ onChange }) => {
           fontFamily: 'Poppins',
         }}
       >
-        <FormControlLabel value='yes' control={<Radio />} label='Yes' />
-        <FormControlLabel value='no' control={<Radio />} label='No' />
+        <FormControlLabel value='yes' control={<Radio />} label='Tak' />
+        <FormControlLabel value='no' control={<Radio />} label='Nie' />
       </RadioGroup>
     </FormControl>
   );

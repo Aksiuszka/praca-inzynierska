@@ -96,7 +96,9 @@ const ForgotPassword = () => {
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal} variant='login'>
           <Typography variant='headline'>Hurra! 🎉</Typography>
-          <Typography variant='paragraph'>Hasło zostało zmienione! 🐧 </Typography>
+          <Typography variant='paragraph'>
+            Hasło zostanie zmienione! 🐧 sprawdź swój email!
+          </Typography>
           <CustomButton variant='regular' label='Wróć do logowania' onClick={handleNavigation} />
         </Modal>
       )}

@@ -117,7 +117,7 @@ export const ReviewContainer = () => {
 
   return (
     <div>
-      <Typography variant='headline'>Review</Typography>
+      <Typography variant='headline'>Podsumowanie</Typography>
       <Accordeon data={data} />
       <RightButtonContainer>
         <Button variant='regular' label='wynik' onClick={handleSubmit} />

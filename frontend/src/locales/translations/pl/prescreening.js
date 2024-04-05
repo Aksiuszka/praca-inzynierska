@@ -1,7 +1,7 @@
 import keys from '../../keys';
 
 export default {
-  [keys.prescreening.questions.one]: 'Czy adoptujesz zwierzaka sam czy z kimś?',
+  [keys.prescreening.questions.one]: 'Czy adoptujesz zwierzaka sam (nie masz rodziny)?',
   [keys.prescreening.questions.two]: 'Czy wszyscy domownicy zgadzają się na czworonoga?',
   [keys.prescreening.questions.three]:
     'Czy możesz liczyć na wsparcie innych osób np.w przypadku zostania dłużej w pracy, podróży/urlopu, pobytu w szpitalu?',

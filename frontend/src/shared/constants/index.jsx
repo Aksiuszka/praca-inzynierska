@@ -99,5 +99,5 @@ export const SOCIALMEDIALINKSBE = [
 export const AVAILABLE_TESTS = [
   { title: 'Prescreening', route: ROUTES.prescreening },
   { title: 'SmartTest', route: ROUTES.smartTest },
-  { title: 'PetTest', route: ROUTES.petTest },
+  // { title: 'PetTest', route: ROUTES.petTest },
 ];

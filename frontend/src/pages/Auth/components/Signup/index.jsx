@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
-import { Grid, Typography, Alert } from '@mui/material';
+import { Grid, Typography, Alert, Checkbox, Container } from '@mui/material';
 import { signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
@@ -27,6 +27,7 @@ const Signup = () => {
     photoUrl: '',
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [role, setRole] = useState('subscriber');
 
   const [invalid, setInvalid] = useState(false);
   const navigate = useNavigate();
@@ -39,6 +40,10 @@ const Signup = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleRole = () => {
+    setRole((prevRole) => (prevRole === 'subscriber' ? 'manager' : 'subscriber'));
   };
 
   const handleNavigation = () => {
@@ -91,7 +96,7 @@ const Signup = () => {
     if (formData.email && formData.token) {
       setDoc(doc(db, 'users', formData.email), {
         email: formData.email,
-        role: 'subscriber',
+        role,
       });
       navigate('/login');
     }
@@ -115,7 +120,7 @@ const Signup = () => {
           <CustomContainer>
             <Grid container item sm={12} md={6} sx={{ gap: '2rem', flexDirection: 'column' }}>
               <Input sx={{ width: '23rem' }} name='username' onChange={handleChange}>
-                Username
+                Nazwa użytkownika
               </Input>
               <Input sx={{ width: '23rem' }} name='email' onChange={handleChange}>
                 Email
@@ -128,7 +133,7 @@ const Signup = () => {
                 onChange={handleChange}
                 type='password'
               >
-                Password
+                Hasło
               </Input>
               <Input
                 sx={{ width: '23rem' }}
@@ -136,10 +141,13 @@ const Signup = () => {
                 onChange={handleChange}
                 type='password'
               >
-                Retype Password
+                Powtórz Hasło
               </Input>
             </Grid>
           </CustomContainer>
+          <Grid display='flex' alignItems='center' width='100%'>
+            <Checkbox onCheck={handleRole} /> <Typography>Jestem wolontariuszem</Typography>
+          </Grid>
           <Button variant='regular' label='Zarejestruj się' type='submit' />
           <Albo />
           <CustomButton
