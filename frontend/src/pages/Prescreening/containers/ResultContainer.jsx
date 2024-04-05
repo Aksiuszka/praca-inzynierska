@@ -2,6 +2,10 @@
 /* eslint-disable import/no-useless-path-segments */
 /* eslint-disable no-unused-vars */
 import { useMemo, useState, useEffect } from 'react';
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable import/no-useless-path-segments */
+/* eslint-disable no-unused-vars */
+import { useMemo, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { doc, getDocs, collection, query } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +32,8 @@ import ThinkingMan from '../../../shared/assets/images/results/prescreening/Thin
 import { newPetExpectationsData, newPetPreparationData } from '../data/common';
 import { renderPetResultImg } from '../utils/renderPetTemperamentPicture';
 import { renderSmartTestResultImg } from '../utils/renderSmartTestPicture';
+import { PinkCard } from '../../../pages/Pet/styles';
+import { PetListItem } from '../../../pages/Pet/components/PetListItem/PetListItem';
 import { PinkCard } from '../../../pages/Pet/styles';
 import { PetListItem } from '../../../pages/Pet/components/PetListItem/PetListItem';
 

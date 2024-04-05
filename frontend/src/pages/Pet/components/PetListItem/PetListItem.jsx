@@ -17,6 +17,8 @@ export const PetListItem = ({ name, town, img, handleClick, id, email }) => {
 
   const [userRole, setUserRole] = useState('');
 
+  const [userRole, setUserRole] = useState('');
+
   const handleDelete = () => {
     setIsDelete(true);
     deleteDoc(doc(db, 'pets', email, 'PetArray', name));
