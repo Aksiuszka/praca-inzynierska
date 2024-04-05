@@ -56,8 +56,7 @@ export const PetListContainer = () => {
     console.log(id);
     navigate(id, { state: { petList } });
   };
-  console.log(petList);
->>>>>>> main
+
   return (
     <PinkCard>
       <Typography variant='decoratedSmall'>Twoi podopieczni!</Typography>

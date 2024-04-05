@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Grid, Typography, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
+import { Grid, Typography, Select, MenuItem, InputLabel, FormControl, Alert } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -58,8 +59,8 @@ export const PetFormContainer = () => {
       .catch((error) => {
         console.log(error.message);
       });
-
-    const petRef = doc(db, 'pets', formData.email, 'PetArray', formData.name);
+    console.log(formData.email, email, 'jndjhdshjsd');
+    const petRef = doc(db, 'pets', email, 'PetArray', formData.name);
     const temperamentRef = doc(db, 'pets', formData.temperament, 'PetArray', formData.name);
 
     await uploadTask;
@@ -68,7 +69,7 @@ export const PetFormContainer = () => {
       ...formData,
       file: downloadURL || null,
     };
-    if (submitData && submitData.email) {
+    if (submitData && email) {
       await setDoc(petRef, {
         species: submitData.species,
         name: submitData.name,
@@ -100,6 +101,9 @@ export const PetFormContainer = () => {
       setIsModalOpen(true);
       navigate('/pet-list');
     }
+  };
+  const handleClick = () => {
+    navigate('/petTest');
   };
 
   // const handleSubmit = (e) => {
@@ -167,6 +171,21 @@ export const PetFormContainer = () => {
             </label>
           </CustomContainer>
           <Typography variant='decorated'>Dodaj podopiecznego</Typography>
+        </CustomContainer>
+        <CustomContainer
+          style={{
+            flexDirection: 'column',
+            justifyContenf: 'end',
+            alignItems: 'end',
+            gap: '1rem',
+            marginBottom: '1rem',
+          }}
+        >
+          <Alert severity='info' onClose={() => {}} sx={{ width: '100%' }}>
+            Jeśli nie znasz temperamentu zwierzęcia, kliknij na przycisk ,,Wykonaj PetTest dla
+            zwierzęcia''
+          </Alert>
+          <Button variant='outline' label='Wykonaj Pettest dla zwierzęcia' onClick={handleClick} />
         </CustomContainer>
         <CustomContainer>
           <Grid container item sm={12} md={6} sx={{ gap: '2rem', flexDirection: 'column' }}>

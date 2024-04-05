@@ -26,7 +26,7 @@ const ContactUI = ({ onSubmit, loading, updateParentRefs }) => {
 
   return (
     <Stack gap='3rem' width='100%'>
-      <Headline blackLabel='Us' pinkLabel='Contact ' />
+      <Headline blackLabel='Nas' pinkLabel='Napisz do ' />
       <Grid
         position='relative'
         container
